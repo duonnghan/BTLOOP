@@ -29,7 +29,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="manage" max="32767" attributes="0"/>
+              <Component id="manage" pref="660" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -62,34 +62,49 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="divideLine" max="32767" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="modeLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                              <EmptySpace pref="69" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="searchField" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <EmptySpace pref="100" max="32767" attributes="0"/>
+                                  </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="rdioFavoriteSongs" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="rdioFavoriteSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="rdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="mothChooser" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="mothChooser" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="99" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Component id="divideline" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="divideLine" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
+                      <Component id="acceptBtn" min="-2" pref="93" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -112,11 +127,21 @@
                       <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="searchField" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="57" max="32767" attributes="0"/>
+                      <Component id="acceptBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                       <Component id="divideLine" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="215" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace pref="14" max="32767" attributes="0"/>
+                      <Component id="divideline" min="-2" pref="206" max="-2" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -164,9 +189,7 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSeparator" name="divideLine">
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+            <Container class="javax.swing.JScrollPane" name="divideline">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -232,6 +255,26 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JSeparator" name="divideLine">
+            </Component>
+            <Component class="javax.swing.JButton" name="acceptBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="OK"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="acceptBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="searchBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m b&#xe0;i h&#xe1;t:"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="searchField">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="addRequestpanel">
@@ -246,37 +289,39 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="131" max="32767" attributes="0"/>
-                      <Component id="sendBtn" min="-2" pref="116" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="submitBtn" min="-2" pref="115" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="cancelBtn" min="-2" pref="107" max="-2" attributes="0"/>
-                      <EmptySpace pref="106" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="recipientLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="msgLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="dateLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="addrLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="senderLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="resArtistLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="resNameLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="resNameField" max="32767" attributes="0"/>
-                          <Component id="resArtistField" max="32767" attributes="0"/>
-                          <Component id="senderField" max="32767" attributes="0"/>
-                          <Component id="phoneField" min="-2" pref="178" max="-2" attributes="0"/>
-                          <Component id="adrrField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="dateChooser" min="-2" max="-2" attributes="0"/>
-                          <Component id="msgScrollPane" alignment="0" pref="272" max="32767" attributes="0"/>
-                          <Component id="recipientField" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="sendBtn" min="-2" pref="116" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="submitBtn" min="-2" pref="115" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="cancelBtn" min="-2" pref="107" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="recipientLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="msgLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dateLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="addrLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phoneLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="senderLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resArtistLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resNameLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="resNameField" max="32767" attributes="0"/>
+                                  <Component id="resArtistField" max="32767" attributes="0"/>
+                                  <Component id="senderField" max="32767" attributes="0"/>
+                                  <Component id="phoneField" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="adrrField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="dateChooser" min="-2" max="-2" attributes="0"/>
+                                  <Component id="msgScrollPane" alignment="0" pref="272" max="32767" attributes="0"/>
+                                  <Component id="recipientField" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -285,7 +330,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="27" max="32767" attributes="0"/>
+                      <EmptySpace pref="84" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="resNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="resNameField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -325,13 +370,13 @@
                           <Component id="msgLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="msgScrollPane" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="37" max="32767" attributes="0"/>
+                      <EmptySpace pref="90" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="sendBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="submitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="32" max="32767" attributes="0"/>
+                      <EmptySpace pref="85" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -479,7 +524,7 @@
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="212" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="375" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -556,23 +601,56 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jSeparator2" max="32767" attributes="0"/>
-                          <Component id="jScrollPane3" pref="628" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jSeparator2" max="32767" attributes="0"/>
+                                  <Component id="jScrollPane3" pref="635" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+                                      <Component id="mgrSearchLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                                      <Component id="mgrSearchField" min="-2" pref="421" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="mrgSearchBtn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="250" max="-2" attributes="0"/>
+                      <Component id="mgrSearchBtn" min="-2" pref="108" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="148" max="32767" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <Component id="mgrSearchLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="mgrSearchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="mrgSearchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="132" max="32767" attributes="0"/>
+                      <Component id="mgrSearchBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane3" pref="209" max="32767" attributes="0"/>
+                      <Component id="jScrollPane3" pref="289" max="32767" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -640,6 +718,26 @@
               </SubComponents>
             </Container>
             <Component class="javax.swing.JSeparator" name="jSeparator2">
+            </Component>
+            <Component class="javax.swing.JButton" name="mgrSearchBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="OK"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mgrSearchBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="mgrSearchField">
+            </Component>
+            <Component class="javax.swing.JLabel" name="mgrSearchLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m b&#xe0;i h&#xe1;t"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="mrgSearchBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
