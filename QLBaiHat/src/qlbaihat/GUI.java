@@ -38,12 +38,12 @@ public class GUI extends javax.swing.JFrame {
         rdioFavoriteSongs = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        searchBtn = new javax.swing.JRadioButton();
         mothChooser = new com.toedter.calendar.JMonthChooser();
         divideline = new javax.swing.JScrollPane();
         songsTable = new javax.swing.JTable();
         divideLine = new javax.swing.JSeparator();
         acceptBtn = new javax.swing.JButton();
-        searchBtn = new javax.swing.JRadioButton();
         searchField = new javax.swing.JTextField();
         addRequestpanel = new javax.swing.JPanel();
         resNameLabel = new javax.swing.JLabel();
@@ -98,6 +98,14 @@ public class GUI extends javax.swing.JFrame {
 
         mode.add(jRadioButton4);
         jRadioButton4.setText("Các thính giả chưa phát được yêu cầu");
+
+        mode.add(searchBtn);
+        searchBtn.setText("Tìm kiếm bài hát:");
+        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchBtnActionPerformed(evt);
+            }
+        });
 
         mothChooser.setToolTipText("");
 
@@ -230,13 +238,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        searchBtn.setText("Tìm kiếm bài hát:");
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout songListPanelLayout = new javax.swing.GroupLayout(songListPanel);
         songListPanel.setLayout(songListPanelLayout);
         songListPanelLayout.setHorizontalGroup(
@@ -244,9 +245,9 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(songListPanelLayout.createSequentialGroup()
                 .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(songListPanelLayout.createSequentialGroup()
-                        .addGap(78, 78, 78)
+                        .addContainerGap(76, Short.MAX_VALUE)
                         .addComponent(modeLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addGap(69, 69, 69)
                         .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(songListPanelLayout.createSequentialGroup()
                                 .addComponent(searchBtn)
@@ -271,8 +272,8 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(divideLine)))
                 .addContainerGap())
-            .addGroup(songListPanelLayout.createSequentialGroup()
-                .addGap(253, 253, 253)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, songListPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(acceptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -298,9 +299,9 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(songListPanelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(acceptBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addComponent(divideLine, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                 .addComponent(divideline, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -384,7 +385,7 @@ public class GUI extends javax.swing.JFrame {
         addRequestpanelLayout.setVerticalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addRequestpanelLayout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
+                .addGap(84, 84, 84)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resNameLabel)
                     .addComponent(resNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -462,22 +463,22 @@ public class GUI extends javax.swing.JFrame {
         schedulingPanelLayout.setHorizontalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
+                .addGap(28, 28, 28))
+            .addGroup(schedulingPanelLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jSeparator1)
+                .addGap(48, 48, 48))
+            .addGroup(schedulingPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addGap(92, 92, 92)
                         .addComponent(jLabel1)
-                        .addGap(54, 54, 54)
+                        .addGap(65, 65, 65)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addGap(221, 221, 221)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, schedulingPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2)))
-                .addGap(28, 28, 28))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,10 +487,10 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(34, 34, 34)
+                .addGap(28, 28, 28)
                 .addComponent(jButton1)
-                .addGap(12, 12, 12)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
@@ -635,21 +636,19 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator2)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 635, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE)))
                     .addGroup(managerPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(managerPanelLayout.createSequentialGroup()
-                                .addGap(261, 261, 261)
-                                .addComponent(mgrSearchLabel))
-                            .addGroup(managerPanelLayout.createSequentialGroup()
-                                .addGap(106, 106, 106)
                                 .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mrgSearchBtn)))
+                                .addGap(18, 18, 18)
+                                .addComponent(mrgSearchBtn))
+                            .addComponent(mgrSearchLabel))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(managerPanelLayout.createSequentialGroup()
-                .addGap(250, 250, 250)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(mgrSearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -678,7 +677,7 @@ public class GUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, 660, Short.MAX_VALUE)
+                .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, 658, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
