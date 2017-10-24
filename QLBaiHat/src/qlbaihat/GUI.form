@@ -42,7 +42,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="songListPanel">
+        <Container class="javax.swing.JPanel" name="playlisttPanel">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Danh s&#xe1;ch b&#xe0;i h&#xe1;t">
@@ -58,35 +58,35 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="divideline" max="32767" attributes="0"/>
+                              <Component id="playlistScrollPane" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="divideLine" max="32767" attributes="0"/>
+                              <Component id="playlistDivLine" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace pref="243" max="32767" attributes="0"/>
-                              <Component id="modeLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
+                                      <Component id="playlostSearchBtn" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="searchField" min="-2" pref="230" max="-2" attributes="0"/>
+                                      <Component id="playlistSearchField" min="-2" pref="230" max="-2" attributes="0"/>
                                       <EmptySpace pref="100" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rdioFavoriteSongs" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jRadioButton4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="playlistRdioNotPlayedYet" min="-2" max="-2" attributes="0"/>
+                                          <Component id="playlistRdioFavoriteSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="playlistRdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="playlistRdioAudienceNotAccepted" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="acceptBtn" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <Component id="playlistAcceptBtn" min="-2" pref="93" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                              <Component id="jButton4" min="-2" pref="129" max="-2" attributes="0"/>
+                                              <Component id="playlistUpdateBtn" min="-2" pref="129" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                                              <Component id="playlistResetBtn" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -103,45 +103,45 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="rdioAllSongs" min="-2" max="-2" attributes="0"/>
-                          <Component id="modeLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistRdioAllSongs" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rdioFavoriteSongs" min="-2" max="-2" attributes="0"/>
+                      <Component id="playlistRdioFavoriteSongs" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                      <Component id="playlistRdioNotPlayedYet" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                      <Component id="playlistRdioAudienceNotAccepted" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="searchBtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlostSearchBtn" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="searchField" min="-2" max="-2" attributes="0"/>
+                              <Component id="playlistSearchField" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="acceptBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistAcceptBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistUpdateBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistResetBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="divideLine" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="playlistDivLine" min="-2" pref="10" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="divideline" min="-2" pref="206" max="-2" attributes="0"/>
+                      <Component id="playlistScrollPane" min="-2" pref="206" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="modeLabel">
+            <Component class="javax.swing.JLabel" name="playlistModeLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ch&#x1ecd;n ch&#x1ebf; &#x111;&#x1ed9;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rdioAllSongs">
+            <Component class="javax.swing.JRadioButton" name="playlistRdioAllSongs">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mode"/>
@@ -149,7 +149,7 @@
                 <Property name="text" type="java.lang.String" value="T&#x1ea5;t c&#x1ea3; b&#xe0;i h&#xe1;t."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="rdioFavoriteSongs">
+            <Component class="javax.swing.JRadioButton" name="playlistRdioFavoriteSongs">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mode"/>
@@ -157,7 +157,7 @@
                 <Property name="text" type="java.lang.String" value="B&#xe0;i h&#xe1;t &#x111;&#x1b0;&#x1ee3;c y&#xea;u th&#xed;ch nh&#x1ea5;t trong th&#xe1;ng"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+            <Component class="javax.swing.JRadioButton" name="playlistRdioNotPlayedYet">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mode"/>
@@ -165,7 +165,7 @@
                 <Property name="text" type="java.lang.String" value="B&#xe0;i h&#xe1;t ch&#x1b0;a &#x111;&#x1b0;&#x1ee3;c ph&#xe1;t s&#xf3;ng"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+            <Component class="javax.swing.JRadioButton" name="playlistRdioAudienceNotAccepted">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mode"/>
@@ -173,7 +173,7 @@
                 <Property name="text" type="java.lang.String" value="C&#xe1;c th&#xed;nh gi&#x1ea3; ch&#x1b0;a ph&#xe1;t &#x111;&#x1b0;&#x1ee3;c y&#xea;u c&#x1ea7;u"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="searchBtn">
+            <Component class="javax.swing.JRadioButton" name="playlostSearchBtn">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mode"/>
@@ -181,17 +181,17 @@
                 <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m b&#xe0;i h&#xe1;t:"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlostSearchBtnActionPerformed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="divideline">
+            <Container class="javax.swing.JScrollPane" name="playlistScrollPane">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="songsTable">
+                <Component class="javax.swing.JTable" name="playlistTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="7" rowCount="100">
@@ -250,24 +250,24 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JSeparator" name="divideLine">
+            <Component class="javax.swing.JSeparator" name="playlistDivLine">
             </Component>
-            <Component class="javax.swing.JButton" name="acceptBtn">
+            <Component class="javax.swing.JButton" name="playlistAcceptBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="OK"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="acceptBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlistAcceptBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="searchField">
+            <Component class="javax.swing.JTextField" name="playlistSearchField">
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="playlistUpdateBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t th&#xf4;ng tin"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="playlistResetBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reset l&#x1b0;&#x1ee3;t y&#xea;u c&#x1ea7;u"/>
               </Properties>
@@ -290,20 +290,20 @@
                       <EmptySpace pref="204" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="sendBtn" min="-2" pref="116" max="-2" attributes="0"/>
+                              <Component id="resSendBtn" min="-2" pref="116" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="submitBtn" min="-2" pref="115" max="-2" attributes="0"/>
+                              <Component id="resSubmitBtn" min="-2" pref="115" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="cancelBtn" min="-2" pref="107" max="-2" attributes="0"/>
+                              <Component id="resCancelBtn" min="-2" pref="107" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="recipientLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="msgLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dateLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="addrLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="phoneLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="senderLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resRecipientLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resMsgLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resDateLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resAddrLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resPhoneLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="resSenderLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="resArtistLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="resNameLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -311,12 +311,12 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="resNameField" max="32767" attributes="0"/>
                                   <Component id="resArtistField" max="32767" attributes="0"/>
-                                  <Component id="senderField" max="32767" attributes="0"/>
-                                  <Component id="phoneField" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <Component id="adrrField" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="msgScrollPane" alignment="0" pref="272" max="32767" attributes="0"/>
-                                  <Component id="recipientField" max="32767" attributes="0"/>
-                                  <Component id="jFormattedTextField1" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="resSenderField" max="32767" attributes="0"/>
+                                  <Component id="resPhoneField" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="resAdrrField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="resMsgScrollPane" alignment="0" pref="272" max="32767" attributes="0"/>
+                                  <Component id="resRecipientField" max="32767" attributes="0"/>
+                                  <Component id="resDataField" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -339,39 +339,39 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="senderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="senderField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resSenderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resSenderField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="phoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="phoneField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resPhoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resPhoneField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="addrLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="adrrField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resAddrLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resAdrrField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="recipientLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="recipientField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resRecipientLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resRecipientField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="dateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resDataField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="msgLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="msgScrollPane" min="-2" pref="83" max="-2" attributes="0"/>
+                          <Component id="resMsgLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="resMsgScrollPane" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="92" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="sendBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="submitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resSendBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resSubmitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="resCancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="91" max="32767" attributes="0"/>
                   </Group>
@@ -396,52 +396,52 @@
             </Component>
             <Component class="javax.swing.JTextField" name="resArtistField">
             </Component>
-            <Component class="javax.swing.JLabel" name="senderLabel">
+            <Component class="javax.swing.JLabel" name="resSenderLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#xea;n ng&#x1b0;&#x1edd;i g&#x1eed;i:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="senderField">
+            <Component class="javax.swing.JTextField" name="resSenderField">
             </Component>
-            <Component class="javax.swing.JLabel" name="phoneLabel">
+            <Component class="javax.swing.JLabel" name="resPhoneLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="phoneField">
+            <Component class="javax.swing.JTextField" name="resPhoneField">
             </Component>
-            <Component class="javax.swing.JLabel" name="addrLabel">
+            <Component class="javax.swing.JLabel" name="resAddrLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1ecb;a ch&#x1ec9;:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="adrrField">
+            <Component class="javax.swing.JTextField" name="resAdrrField">
             </Component>
-            <Component class="javax.swing.JLabel" name="recipientLabel">
+            <Component class="javax.swing.JLabel" name="resRecipientLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#xea;n ng&#x1b0;&#x1edd;i nh&#x1ead;n:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="recipientField">
+            <Component class="javax.swing.JTextField" name="resRecipientField">
             </Component>
-            <Component class="javax.swing.JLabel" name="dateLabel">
+            <Component class="javax.swing.JLabel" name="resDateLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ng&#xe0;y y&#xea;u c&#x1ea7;u:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="msgLabel">
+            <Component class="javax.swing.JLabel" name="resMsgLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="L&#x1edd;i nh&#x1eaf;n:"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="msgScrollPane">
+            <Container class="javax.swing.JScrollPane" name="resMsgScrollPane">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="msgTextArea">
+                <Component class="javax.swing.JTextArea" name="resMsgTextArea">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -449,25 +449,25 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="sendBtn">
+            <Component class="javax.swing.JButton" name="resSendBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="G&#x1eed;i"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="submitBtn">
+            <Component class="javax.swing.JButton" name="resSubmitBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xong"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="cancelBtn">
+            <Component class="javax.swing.JButton" name="resCancelBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="H&#x1ee7;y"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resCancelBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField1">
+            <Component class="javax.swing.JFormattedTextField" name="resDataField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
@@ -491,26 +491,26 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="779" max="32767" attributes="0"/>
+                      <Component id="schdlScrollPane" pref="779" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="jSeparator1" max="32767" attributes="0"/>
+                      <Component id="schdlDivLine" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="schdlViewLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField2" min="-2" pref="280" max="-2" attributes="0"/>
+                              <Component id="schdlViewField" min="-2" pref="280" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton1" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="schdlViewBtn" min="-2" pref="110" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="schdlRequestBtn" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="471" max="32767" attributes="0"/>
@@ -522,44 +522,44 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="schdlViewLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="schdlViewField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="schdlViewBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="schdlRequestBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
+                      <Component id="schdlDivLine" min="-2" pref="2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" pref="379" max="32767" attributes="0"/>
+                      <Component id="schdlScrollPane" pref="379" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="schdlViewLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xem l&#x1ecb;ch:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="schdlViewBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xem"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JSeparator" name="jSeparator1">
+            <Component class="javax.swing.JSeparator" name="schdlDivLine">
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+            <Container class="javax.swing.JScrollPane" name="schdlScrollPane">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="schdlTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="10">
@@ -594,7 +594,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+            <Component class="javax.swing.JFormattedTextField" name="schdlViewField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
@@ -602,7 +602,7 @@
                 <Property name="text" type="java.lang.String" value="dd/MM/yyyy"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="schdlRequestBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xem y&#xea;u c&#x1ea7;u"/>
               </Properties>
@@ -624,13 +624,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane3" pref="795" max="32767" attributes="0"/>
+                          <Component id="mrgScrollPane" pref="795" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
-                                      <Component id="jSeparator2" max="32767" attributes="0"/>
+                                      <Component id="mrgDivLine" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="mgrSearchLabel" min="-2" max="-2" attributes="0"/>
@@ -642,9 +642,9 @@
                                               <Component id="mrgSearchBtn" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <Component id="jFormattedTextField3" min="-2" pref="137" max="-2" attributes="0"/>
+                                              <Component id="mrgRequestDateLabel" min="-2" pref="137" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-                                              <Component id="jComboBox1" min="-2" pref="119" max="-2" attributes="0"/>
+                                              <Component id="mrgRequestStat" min="-2" pref="119" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -658,7 +658,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="mgrSearchBtn" min="-2" pref="108" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="153" max="-2" attributes="0"/>
+                      <Component id="mrgViewBtn" min="-2" pref="153" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -676,19 +676,19 @@
                           <Group type="102" attributes="0">
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jFormattedTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mrgRequestDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mrgRequestStat" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="27" max="32767" attributes="0"/>
-                              <Component id="jSeparator2" min="-2" pref="0" max="-2" attributes="0"/>
+                              <Component id="mrgDivLine" min="-2" pref="0" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane3" min="-2" pref="379" max="-2" attributes="0"/>
+                              <Component id="mrgScrollPane" min="-2" pref="379" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="mrgViewBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="mgrSearchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -699,14 +699,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+            <Container class="javax.swing.JScrollPane" name="mrgScrollPane">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
+                <Component class="javax.swing.JTable" name="mrgTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="6" rowCount="100">
@@ -759,7 +759,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JSeparator" name="jSeparator2">
+            <Component class="javax.swing.JSeparator" name="mrgDivLine">
             </Component>
             <Component class="javax.swing.JButton" name="mgrSearchBtn">
               <Properties>
@@ -784,12 +784,12 @@
                 <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="mrgViewBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xem y&#xea;u c&#x1ea7;u"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField3">
+            <Component class="javax.swing.JFormattedTextField" name="mrgRequestDateLabel">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
@@ -797,7 +797,7 @@
                 <Property name="text" type="java.lang.String" value="Ng&#xe0;y y&#xea;u c&#x1ea7;u(dd/MM/yyyy)"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox1">
+            <Component class="javax.swing.JComboBox" name="mrgRequestStat">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">

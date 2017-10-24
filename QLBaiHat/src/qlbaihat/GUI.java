@@ -32,87 +32,87 @@ public class GUI extends javax.swing.JFrame {
 
         mode = new javax.swing.ButtonGroup();
         manage = new javax.swing.JTabbedPane();
-        songListPanel = new javax.swing.JPanel();
-        modeLabel = new javax.swing.JLabel();
-        rdioAllSongs = new javax.swing.JRadioButton();
-        rdioFavoriteSongs = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        searchBtn = new javax.swing.JRadioButton();
-        divideline = new javax.swing.JScrollPane();
-        songsTable = new javax.swing.JTable();
-        divideLine = new javax.swing.JSeparator();
-        acceptBtn = new javax.swing.JButton();
-        searchField = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        playlisttPanel = new javax.swing.JPanel();
+        playlistModeLabel = new javax.swing.JLabel();
+        playlistRdioAllSongs = new javax.swing.JRadioButton();
+        playlistRdioFavoriteSongs = new javax.swing.JRadioButton();
+        playlistRdioNotPlayedYet = new javax.swing.JRadioButton();
+        playlistRdioAudienceNotAccepted = new javax.swing.JRadioButton();
+        playlostSearchBtn = new javax.swing.JRadioButton();
+        playlistScrollPane = new javax.swing.JScrollPane();
+        playlistTable = new javax.swing.JTable();
+        playlistDivLine = new javax.swing.JSeparator();
+        playlistAcceptBtn = new javax.swing.JButton();
+        playlistSearchField = new javax.swing.JTextField();
+        playlistUpdateBtn = new javax.swing.JButton();
+        playlistResetBtn = new javax.swing.JButton();
         addRequestpanel = new javax.swing.JPanel();
         resNameLabel = new javax.swing.JLabel();
         resNameField = new javax.swing.JTextField();
         resArtistLabel = new javax.swing.JLabel();
         resArtistField = new javax.swing.JTextField();
-        senderLabel = new javax.swing.JLabel();
-        senderField = new javax.swing.JTextField();
-        phoneLabel = new javax.swing.JLabel();
-        phoneField = new javax.swing.JTextField();
-        addrLabel = new javax.swing.JLabel();
-        adrrField = new javax.swing.JTextField();
-        recipientLabel = new javax.swing.JLabel();
-        recipientField = new javax.swing.JTextField();
-        dateLabel = new javax.swing.JLabel();
-        msgLabel = new javax.swing.JLabel();
-        msgScrollPane = new javax.swing.JScrollPane();
-        msgTextArea = new javax.swing.JTextArea();
-        sendBtn = new javax.swing.JButton();
-        submitBtn = new javax.swing.JButton();
-        cancelBtn = new javax.swing.JButton();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        resSenderLabel = new javax.swing.JLabel();
+        resSenderField = new javax.swing.JTextField();
+        resPhoneLabel = new javax.swing.JLabel();
+        resPhoneField = new javax.swing.JTextField();
+        resAddrLabel = new javax.swing.JLabel();
+        resAdrrField = new javax.swing.JTextField();
+        resRecipientLabel = new javax.swing.JLabel();
+        resRecipientField = new javax.swing.JTextField();
+        resDateLabel = new javax.swing.JLabel();
+        resMsgLabel = new javax.swing.JLabel();
+        resMsgScrollPane = new javax.swing.JScrollPane();
+        resMsgTextArea = new javax.swing.JTextArea();
+        resSendBtn = new javax.swing.JButton();
+        resSubmitBtn = new javax.swing.JButton();
+        resCancelBtn = new javax.swing.JButton();
+        resDataField = new javax.swing.JFormattedTextField();
         schedulingPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jButton2 = new javax.swing.JButton();
+        schdlViewLabel = new javax.swing.JLabel();
+        schdlViewBtn = new javax.swing.JButton();
+        schdlDivLine = new javax.swing.JSeparator();
+        schdlScrollPane = new javax.swing.JScrollPane();
+        schdlTable = new javax.swing.JTable();
+        schdlViewField = new javax.swing.JFormattedTextField();
+        schdlRequestBtn = new javax.swing.JButton();
         managerPanel = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jSeparator2 = new javax.swing.JSeparator();
+        mrgScrollPane = new javax.swing.JScrollPane();
+        mrgTable = new javax.swing.JTable();
+        mrgDivLine = new javax.swing.JSeparator();
         mgrSearchBtn = new javax.swing.JButton();
         mgrSearchField = new javax.swing.JTextField();
         mgrSearchLabel = new javax.swing.JLabel();
         mrgSearchBtn = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        mrgViewBtn = new javax.swing.JButton();
+        mrgRequestDateLabel = new javax.swing.JFormattedTextField();
+        mrgRequestStat = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý bài hát");
 
-        modeLabel.setText("Chọn chế độ:");
+        playlistModeLabel.setText("Chọn chế độ:");
 
-        mode.add(rdioAllSongs);
-        rdioAllSongs.setText("Tất cả bài hát.");
+        mode.add(playlistRdioAllSongs);
+        playlistRdioAllSongs.setText("Tất cả bài hát.");
 
-        mode.add(rdioFavoriteSongs);
-        rdioFavoriteSongs.setText("Bài hát được yêu thích nhất trong tháng");
+        mode.add(playlistRdioFavoriteSongs);
+        playlistRdioFavoriteSongs.setText("Bài hát được yêu thích nhất trong tháng");
 
-        mode.add(jRadioButton3);
-        jRadioButton3.setText("Bài hát chưa được phát sóng");
+        mode.add(playlistRdioNotPlayedYet);
+        playlistRdioNotPlayedYet.setText("Bài hát chưa được phát sóng");
 
-        mode.add(jRadioButton4);
-        jRadioButton4.setText("Các thính giả chưa phát được yêu cầu");
+        mode.add(playlistRdioAudienceNotAccepted);
+        playlistRdioAudienceNotAccepted.setText("Các thính giả chưa phát được yêu cầu");
 
-        mode.add(searchBtn);
-        searchBtn.setText("Tìm kiếm bài hát:");
-        searchBtn.addActionListener(new java.awt.event.ActionListener() {
+        mode.add(playlostSearchBtn);
+        playlostSearchBtn.setText("Tìm kiếm bài hát:");
+        playlostSearchBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchBtnActionPerformed(evt);
+                playlostSearchBtnActionPerformed(evt);
             }
         });
 
-        songsTable.setModel(new javax.swing.table.DefaultTableModel(
+        playlistTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -227,93 +227,93 @@ public class GUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        divideline.setViewportView(songsTable);
-        if (songsTable.getColumnModel().getColumnCount() > 0) {
-            songsTable.getColumnModel().getColumn(0).setResizable(false);
-            songsTable.getColumnModel().getColumn(0).setPreferredWidth(5);
-            songsTable.getColumnModel().getColumn(6).setResizable(false);
+        playlistScrollPane.setViewportView(playlistTable);
+        if (playlistTable.getColumnModel().getColumnCount() > 0) {
+            playlistTable.getColumnModel().getColumn(0).setResizable(false);
+            playlistTable.getColumnModel().getColumn(0).setPreferredWidth(5);
+            playlistTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        acceptBtn.setText("OK");
-        acceptBtn.addActionListener(new java.awt.event.ActionListener() {
+        playlistAcceptBtn.setText("OK");
+        playlistAcceptBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                acceptBtnActionPerformed(evt);
+                playlistAcceptBtnActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Cập nhật thông tin");
+        playlistUpdateBtn.setText("Cập nhật thông tin");
 
-        jButton5.setText("Reset lượt yêu cầu");
+        playlistResetBtn.setText("Reset lượt yêu cầu");
 
-        javax.swing.GroupLayout songListPanelLayout = new javax.swing.GroupLayout(songListPanel);
-        songListPanel.setLayout(songListPanelLayout);
-        songListPanelLayout.setHorizontalGroup(
-            songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(songListPanelLayout.createSequentialGroup()
-                .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(songListPanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout playlisttPanelLayout = new javax.swing.GroupLayout(playlisttPanel);
+        playlisttPanel.setLayout(playlisttPanelLayout);
+        playlisttPanelLayout.setHorizontalGroup(
+            playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(playlisttPanelLayout.createSequentialGroup()
+                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(playlisttPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(divideline))
-                    .addGroup(songListPanelLayout.createSequentialGroup()
+                        .addComponent(playlistScrollPane))
+                    .addGroup(playlisttPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(divideLine))
-                    .addGroup(songListPanelLayout.createSequentialGroup()
+                        .addComponent(playlistDivLine))
+                    .addGroup(playlisttPanelLayout.createSequentialGroup()
                         .addContainerGap(243, Short.MAX_VALUE)
-                        .addComponent(modeLabel)
+                        .addComponent(playlistModeLabel)
                         .addGap(69, 69, 69)
-                        .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(songListPanelLayout.createSequentialGroup()
-                                .addComponent(searchBtn)
+                        .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                .addComponent(playlostSearchBtn)
                                 .addGap(10, 10, 10)
-                                .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE))
-                            .addGroup(songListPanelLayout.createSequentialGroup()
-                                .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton3)
-                                    .addComponent(rdioFavoriteSongs)
-                                    .addComponent(rdioAllSongs)
-                                    .addComponent(jRadioButton4)
-                                    .addGroup(songListPanelLayout.createSequentialGroup()
-                                        .addComponent(acceptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(playlistRdioNotPlayedYet)
+                                    .addComponent(playlistRdioFavoriteSongs)
+                                    .addComponent(playlistRdioAllSongs)
+                                    .addComponent(playlistRdioAudienceNotAccepted)
+                                    .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                        .addComponent(playlistAcceptBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(20, 20, 20)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(playlistUpdateBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton5)))
+                                        .addComponent(playlistResetBtn)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
-        songListPanelLayout.setVerticalGroup(
-            songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(songListPanelLayout.createSequentialGroup()
+        playlisttPanelLayout.setVerticalGroup(
+            playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(playlisttPanelLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rdioAllSongs)
-                    .addComponent(modeLabel))
+                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(playlistRdioAllSongs)
+                    .addComponent(playlistModeLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rdioFavoriteSongs)
+                .addComponent(playlistRdioFavoriteSongs)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(playlistRdioNotPlayedYet)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(playlistRdioAudienceNotAccepted)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchBtn)
-                    .addGroup(songListPanelLayout.createSequentialGroup()
+                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(playlostSearchBtn)
+                    .addGroup(playlisttPanelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(searchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(songListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(acceptBtn)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(playlistAcceptBtn)
+                    .addComponent(playlistUpdateBtn)
+                    .addComponent(playlistResetBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(divideLine, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(playlistDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(divideline, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(playlistScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        manage.addTab("Danh sách bài hát", songListPanel);
+        manage.addTab("Danh sách bài hát", playlisttPanel);
 
         resNameLabel.setText("Tên bài hát:");
 
@@ -325,35 +325,35 @@ public class GUI extends javax.swing.JFrame {
 
         resArtistLabel.setText("Tên ca sĩ:");
 
-        senderLabel.setText("Tên người gửi:");
+        resSenderLabel.setText("Tên người gửi:");
 
-        phoneLabel.setText("Số điện thoại:");
+        resPhoneLabel.setText("Số điện thoại:");
 
-        addrLabel.setText("Địa chỉ:");
+        resAddrLabel.setText("Địa chỉ:");
 
-        recipientLabel.setText("Tên người nhận:");
+        resRecipientLabel.setText("Tên người nhận:");
 
-        dateLabel.setText("Ngày yêu cầu:");
+        resDateLabel.setText("Ngày yêu cầu:");
 
-        msgLabel.setText("Lời nhắn:");
+        resMsgLabel.setText("Lời nhắn:");
 
-        msgTextArea.setColumns(20);
-        msgTextArea.setRows(5);
-        msgScrollPane.setViewportView(msgTextArea);
+        resMsgTextArea.setColumns(20);
+        resMsgTextArea.setRows(5);
+        resMsgScrollPane.setViewportView(resMsgTextArea);
 
-        sendBtn.setText("Gửi");
+        resSendBtn.setText("Gửi");
 
-        submitBtn.setText("Xong");
+        resSubmitBtn.setText("Xong");
 
-        cancelBtn.setText("Hủy");
-        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+        resCancelBtn.setText("Hủy");
+        resCancelBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelBtnActionPerformed(evt);
+                resCancelBtnActionPerformed(evt);
             }
         });
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        jFormattedTextField1.setText("MM/dd/yyyy");
+        resDataField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        resDataField.setText("MM/dd/yyyy");
 
         javax.swing.GroupLayout addRequestpanelLayout = new javax.swing.GroupLayout(addRequestpanel);
         addRequestpanel.setLayout(addRequestpanelLayout);
@@ -363,31 +363,31 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(204, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addRequestpanelLayout.createSequentialGroup()
-                        .addComponent(sendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(resSendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
-                        .addComponent(submitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(resSubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33)
-                        .addComponent(cancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(resCancelBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(addRequestpanelLayout.createSequentialGroup()
                         .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(recipientLabel)
-                            .addComponent(msgLabel)
-                            .addComponent(dateLabel)
-                            .addComponent(addrLabel)
-                            .addComponent(phoneLabel)
-                            .addComponent(senderLabel)
+                            .addComponent(resRecipientLabel)
+                            .addComponent(resMsgLabel)
+                            .addComponent(resDateLabel)
+                            .addComponent(resAddrLabel)
+                            .addComponent(resPhoneLabel)
+                            .addComponent(resSenderLabel)
                             .addComponent(resArtistLabel)
                             .addComponent(resNameLabel))
                         .addGap(42, 42, 42)
                         .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(resNameField)
                             .addComponent(resArtistField)
-                            .addComponent(senderField)
-                            .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(adrrField)
-                            .addComponent(msgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                            .addComponent(recipientField)
-                            .addComponent(jFormattedTextField1))))
+                            .addComponent(resSenderField)
+                            .addComponent(resPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(resAdrrField)
+                            .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                            .addComponent(resRecipientField)
+                            .addComponent(resDataField))))
                 .addContainerGap(204, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
@@ -403,43 +403,43 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(resArtistField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(senderLabel)
-                    .addComponent(senderField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resSenderLabel)
+                    .addComponent(resSenderField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneLabel)
-                    .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resPhoneLabel)
+                    .addComponent(resPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addrLabel)
-                    .addComponent(adrrField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resAddrLabel)
+                    .addComponent(resAdrrField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(recipientLabel)
-                    .addComponent(recipientField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resRecipientLabel)
+                    .addComponent(resRecipientField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateLabel)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resDateLabel)
+                    .addComponent(resDataField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(msgLabel)
-                    .addComponent(msgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resMsgLabel)
+                    .addComponent(resMsgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sendBtn)
-                    .addComponent(submitBtn)
-                    .addComponent(cancelBtn))
+                    .addComponent(resSendBtn)
+                    .addComponent(resSubmitBtn)
+                    .addComponent(resCancelBtn))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
         manage.addTab("Thêm yêu cầu", addRequestpanel);
 
-        jLabel1.setText("Xem lịch:");
+        schdlViewLabel.setText("Xem lịch:");
 
-        jButton1.setText("Xem");
+        schdlViewBtn.setText("Xem");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        schdlTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -464,12 +464,12 @@ public class GUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        schdlScrollPane.setViewportView(schdlTable);
 
-        jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        jFormattedTextField2.setText("dd/MM/yyyy");
+        schdlViewField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        schdlViewField.setText("dd/MM/yyyy");
 
-        jButton2.setText("Xem yêu cầu");
+        schdlRequestBtn.setText("Xem yêu cầu");
 
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
@@ -477,23 +477,23 @@ public class GUI extends javax.swing.JFrame {
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(jSeparator1)
+                .addComponent(schdlDivLine)
                 .addGap(48, 48, 48))
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(schdlViewLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(schdlViewField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(schdlViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
-                        .addComponent(jButton2)))
+                        .addComponent(schdlRequestBtn)))
                 .addGap(0, 471, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
@@ -501,22 +501,22 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(schdlViewLabel)
+                    .addComponent(schdlViewField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(schdlViewBtn)
+                    .addComponent(schdlRequestBtn))
                 .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
         manage.addTab("Lịch phát sóng", schedulingPanel);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        mrgTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -631,7 +631,7 @@ public class GUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable2);
+        mrgScrollPane.setViewportView(mrgTable);
 
         mgrSearchBtn.setText("Thêm vào lịch");
         mgrSearchBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -650,12 +650,12 @@ public class GUI extends javax.swing.JFrame {
 
         mrgSearchBtn.setText("Tìm kiếm");
 
-        jButton3.setText("Xem yêu cầu");
+        mrgViewBtn.setText("Xem yêu cầu");
 
-        jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        jFormattedTextField3.setText("Ngày yêu cầu(dd/MM/yyyy)");
+        mrgRequestDateLabel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
+        mrgRequestDateLabel.setText("Ngày yêu cầu(dd/MM/yyyy)");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đã phát", "Chưa phát" }));
+        mrgRequestStat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đã phát", "Chưa phát" }));
 
         javax.swing.GroupLayout managerPanelLayout = new javax.swing.GroupLayout(managerPanel);
         managerPanel.setLayout(managerPanelLayout);
@@ -664,13 +664,13 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(managerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                    .addComponent(mrgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
                     .addGroup(managerPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(managerPanelLayout.createSequentialGroup()
                                 .addGap(139, 139, 139)
-                                .addComponent(jSeparator2))
+                                .addComponent(mrgDivLine))
                             .addGroup(managerPanelLayout.createSequentialGroup()
                                 .addComponent(mgrSearchLabel)
                                 .addGap(3, 3, 3)
@@ -680,16 +680,16 @@ public class GUI extends javax.swing.JFrame {
                                         .addGap(26, 26, 26)
                                         .addComponent(mrgSearchBtn))
                                     .addGroup(managerPanelLayout.createSequentialGroup()
-                                        .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(mrgRequestDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(71, 71, 71)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mgrSearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mrgViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
         managerPanelLayout.setVerticalGroup(
@@ -704,17 +704,17 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(managerPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(mrgRequestDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mrgDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mrgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton3)
+                            .addComponent(mrgViewBtn)
                             .addComponent(mgrSearchBtn))
                         .addContainerGap())))
         );
@@ -739,17 +739,17 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_resNameFieldActionPerformed
 
-    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+    private void resCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resCancelBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cancelBtnActionPerformed
+    }//GEN-LAST:event_resCancelBtnActionPerformed
 
-    private void acceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptBtnActionPerformed
+    private void playlistAcceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistAcceptBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_acceptBtnActionPerformed
+    }//GEN-LAST:event_playlistAcceptBtnActionPerformed
 
-    private void searchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchBtnActionPerformed
+    private void playlostSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlostSearchBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_searchBtnActionPerformed
+    }//GEN-LAST:event_playlostSearchBtnActionPerformed
 
     private void mgrSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchBtnActionPerformed
         // TODO add your handling code here:
@@ -795,62 +795,62 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton acceptBtn;
     private javax.swing.JPanel addRequestpanel;
-    private javax.swing.JLabel addrLabel;
-    private javax.swing.JTextField adrrField;
-    private javax.swing.JButton cancelBtn;
-    private javax.swing.JLabel dateLabel;
-    private javax.swing.JSeparator divideLine;
-    private javax.swing.JScrollPane divideline;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
     private javax.swing.JButton mgrSearchBtn;
     private javax.swing.JTextField mgrSearchField;
     private javax.swing.JLabel mgrSearchLabel;
     private javax.swing.ButtonGroup mode;
-    private javax.swing.JLabel modeLabel;
+    private javax.swing.JSeparator mrgDivLine;
+    private javax.swing.JFormattedTextField mrgRequestDateLabel;
+    private javax.swing.JComboBox<String> mrgRequestStat;
+    private javax.swing.JScrollPane mrgScrollPane;
     private javax.swing.JButton mrgSearchBtn;
-    private javax.swing.JLabel msgLabel;
-    private javax.swing.JScrollPane msgScrollPane;
-    private javax.swing.JTextArea msgTextArea;
-    private javax.swing.JTextField phoneField;
-    private javax.swing.JLabel phoneLabel;
-    private javax.swing.JRadioButton rdioAllSongs;
-    private javax.swing.JRadioButton rdioFavoriteSongs;
-    private javax.swing.JTextField recipientField;
-    private javax.swing.JLabel recipientLabel;
+    private javax.swing.JTable mrgTable;
+    private javax.swing.JButton mrgViewBtn;
+    private javax.swing.JButton playlistAcceptBtn;
+    private javax.swing.JSeparator playlistDivLine;
+    private javax.swing.JLabel playlistModeLabel;
+    private javax.swing.JRadioButton playlistRdioAllSongs;
+    private javax.swing.JRadioButton playlistRdioAudienceNotAccepted;
+    private javax.swing.JRadioButton playlistRdioFavoriteSongs;
+    private javax.swing.JRadioButton playlistRdioNotPlayedYet;
+    private javax.swing.JButton playlistResetBtn;
+    private javax.swing.JScrollPane playlistScrollPane;
+    private javax.swing.JTextField playlistSearchField;
+    private javax.swing.JTable playlistTable;
+    private javax.swing.JButton playlistUpdateBtn;
+    private javax.swing.JPanel playlisttPanel;
+    private javax.swing.JRadioButton playlostSearchBtn;
+    private javax.swing.JLabel resAddrLabel;
+    private javax.swing.JTextField resAdrrField;
     private javax.swing.JTextField resArtistField;
     private javax.swing.JLabel resArtistLabel;
+    private javax.swing.JButton resCancelBtn;
+    private javax.swing.JFormattedTextField resDataField;
+    private javax.swing.JLabel resDateLabel;
+    private javax.swing.JLabel resMsgLabel;
+    private javax.swing.JScrollPane resMsgScrollPane;
+    private javax.swing.JTextArea resMsgTextArea;
     private javax.swing.JTextField resNameField;
     private javax.swing.JLabel resNameLabel;
+    private javax.swing.JTextField resPhoneField;
+    private javax.swing.JLabel resPhoneLabel;
+    private javax.swing.JTextField resRecipientField;
+    private javax.swing.JLabel resRecipientLabel;
+    private javax.swing.JButton resSendBtn;
+    private javax.swing.JTextField resSenderField;
+    private javax.swing.JLabel resSenderLabel;
+    private javax.swing.JButton resSubmitBtn;
+    private javax.swing.JSeparator schdlDivLine;
+    private javax.swing.JButton schdlRequestBtn;
+    private javax.swing.JScrollPane schdlScrollPane;
+    private javax.swing.JTable schdlTable;
+    private javax.swing.JButton schdlViewBtn;
+    private javax.swing.JFormattedTextField schdlViewField;
+    private javax.swing.JLabel schdlViewLabel;
     private javax.swing.JPanel schedulingPanel;
-    private javax.swing.JRadioButton searchBtn;
-    private javax.swing.JTextField searchField;
-    private javax.swing.JButton sendBtn;
-    private javax.swing.JTextField senderField;
-    private javax.swing.JLabel senderLabel;
-    private javax.swing.JPanel songListPanel;
-    private javax.swing.JTable songsTable;
-    private javax.swing.JButton submitBtn;
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {
