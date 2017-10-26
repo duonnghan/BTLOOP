@@ -75,6 +75,7 @@ public class GUI extends javax.swing.JFrame {
         schdlTable = new javax.swing.JTable();
         schdlViewField = new javax.swing.JFormattedTextField();
         schdlRequestBtn = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         managerPanel = new javax.swing.JPanel();
         mrgScrollPane = new javax.swing.JScrollPane();
         mrgTable = new javax.swing.JTable();
@@ -86,6 +87,7 @@ public class GUI extends javax.swing.JFrame {
         mrgViewBtn = new javax.swing.JButton();
         mrgRequestDateLabel = new javax.swing.JFormattedTextField();
         mrgRequestStat = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý bài hát");
@@ -471,6 +473,8 @@ public class GUI extends javax.swing.JFrame {
 
         schdlRequestBtn.setText("Xem yêu cầu");
 
+        jButton1.setText("Đã phát");
+
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
         schedulingPanelLayout.setHorizontalGroup(
@@ -493,8 +497,10 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
                         .addComponent(schdlViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
-                        .addComponent(schdlRequestBtn)))
-                .addGap(0, 471, Short.MAX_VALUE))
+                        .addComponent(schdlRequestBtn)
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 404, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,7 +512,8 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schdlViewBtn)
-                    .addComponent(schdlRequestBtn))
+                    .addComponent(schdlRequestBtn)
+                    .addComponent(jButton1))
                 .addGap(18, 18, 18)
                 .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -657,6 +664,8 @@ public class GUI extends javax.swing.JFrame {
 
         mrgRequestStat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đã phát", "Chưa phát" }));
 
+        jButton2.setText("Sửa");
+
         javax.swing.GroupLayout managerPanelLayout = new javax.swing.GroupLayout(managerPanel);
         managerPanel.setLayout(managerPanelLayout);
         managerPanelLayout.setHorizontalGroup(
@@ -674,7 +683,7 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(managerPanelLayout.createSequentialGroup()
                                 .addComponent(mgrSearchLabel)
                                 .addGap(3, 3, 3)
-                                .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(managerPanelLayout.createSequentialGroup()
                                         .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(26, 26, 26)
@@ -682,7 +691,9 @@ public class GUI extends javax.swing.JFrame {
                                     .addGroup(managerPanelLayout.createSequentialGroup()
                                         .addComponent(mrgRequestDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(71, 71, 71)
-                                        .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
@@ -705,8 +716,9 @@ public class GUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(mrgRequestDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                            .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                         .addComponent(mrgDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mrgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -788,6 +800,7 @@ public class GUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new GUI().setVisible(true);
             }
@@ -796,6 +809,8 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addRequestpanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
     private javax.swing.JButton mgrSearchBtn;

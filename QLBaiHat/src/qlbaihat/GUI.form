@@ -511,9 +511,11 @@
                               <Component id="schdlViewBtn" min="-2" pref="110" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="schdlRequestBtn" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" pref="108" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="471" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="404" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -529,6 +531,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="schdlViewBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="schdlRequestBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="schdlDivLine" min="-2" pref="2" max="-2" attributes="0"/>
@@ -607,6 +610,11 @@
                 <Property name="text" type="java.lang.String" value="Xem y&#xea;u c&#x1ea7;u"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JButton" name="jButton1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x110;&#xe3; ph&#xe1;t"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="managerPanel">
@@ -635,7 +643,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="mgrSearchLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Component id="mgrSearchField" min="-2" pref="421" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -645,6 +653,8 @@
                                               <Component id="mrgRequestDateLabel" min="-2" pref="137" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                               <Component id="mrgRequestStat" min="-2" pref="119" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="jButton2" min="-2" pref="152" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -678,8 +688,9 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="mrgRequestDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="mrgRequestStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="27" max="32767" attributes="0"/>
+                              <EmptySpace pref="26" max="32767" attributes="0"/>
                               <Component id="mrgDivLine" min="-2" pref="0" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="mrgScrollPane" min="-2" pref="379" max="-2" attributes="0"/>
@@ -809,6 +820,11 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButton2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="S&#x1eed;a"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
