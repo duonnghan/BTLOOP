@@ -473,6 +473,11 @@ public class GUI extends javax.swing.JFrame {
         schdlRequestBtn.setText("Xem yêu cầu");
 
         checkedBtn.setText("Đã phát xong");
+        checkedBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkedBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
@@ -764,6 +769,10 @@ public class GUI extends javax.swing.JFrame {
     private void mgrSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mgrSearchFieldActionPerformed
+
+    private void checkedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkedBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkedBtnActionPerformed
 
     /**
      * @param args the command line arguments

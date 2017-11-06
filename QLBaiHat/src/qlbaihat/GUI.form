@@ -620,6 +620,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#x110;&#xe3; ph&#xe1;t xong"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkedBtnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
