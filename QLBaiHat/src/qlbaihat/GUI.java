@@ -75,6 +75,7 @@ public class GUI extends javax.swing.JFrame {
         schdlTable = new javax.swing.JTable();
         schdlViewField = new javax.swing.JFormattedTextField();
         schdlRequestBtn = new javax.swing.JButton();
+        checkedBtn = new javax.swing.JButton();
         managerPanel = new javax.swing.JPanel();
         mrgScrollPane = new javax.swing.JScrollPane();
         mrgTable = new javax.swing.JTable();
@@ -441,23 +442,23 @@ public class GUI extends javax.swing.JFrame {
 
         schdlTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "STT", "Tên bài hát", "Ghi chú"
+                "STT", "Tên bài hát", "Ca sĩ", "Ghi chú"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -470,6 +471,8 @@ public class GUI extends javax.swing.JFrame {
         schdlViewField.setText("dd/MM/yyyy");
 
         schdlRequestBtn.setText("Xem yêu cầu");
+
+        checkedBtn.setText("Đã phát xong");
 
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
@@ -492,9 +495,11 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(schdlViewField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
                         .addComponent(schdlViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(schdlRequestBtn)))
-                .addGap(0, 471, Short.MAX_VALUE))
+                        .addGap(54, 54, 54)
+                        .addComponent(schdlRequestBtn)
+                        .addGap(50, 50, 50)
+                        .addComponent(checkedBtn)))
+                .addGap(0, 405, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,11 +511,12 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schdlViewBtn)
-                    .addComponent(schdlRequestBtn))
+                    .addComponent(schdlRequestBtn)
+                    .addComponent(checkedBtn))
                 .addGap(18, 18, 18)
                 .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -796,6 +802,7 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addRequestpanel;
+    private javax.swing.JButton checkedBtn;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
     private javax.swing.JButton mgrSearchBtn;
