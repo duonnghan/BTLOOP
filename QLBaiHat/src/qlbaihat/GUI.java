@@ -6,7 +6,15 @@
 package qlbaihat;
 
 import java.awt.Toolkit;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import qlbaihat.controller.RequirementController;
+import qlbaihat.model.Song;
+import qlbaihat.model.Requirement;
 /**
  *
  * @author HD
@@ -54,7 +62,6 @@ public class GUI extends javax.swing.JFrame {
         resSenderLabel = new javax.swing.JLabel();
         resSenderField = new javax.swing.JTextField();
         resPhoneLabel = new javax.swing.JLabel();
-        resPhoneField = new javax.swing.JTextField();
         resAddrLabel = new javax.swing.JLabel();
         resAdrrField = new javax.swing.JTextField();
         resRecipientLabel = new javax.swing.JLabel();
@@ -67,6 +74,7 @@ public class GUI extends javax.swing.JFrame {
         resSubmitBtn = new javax.swing.JButton();
         resCancelBtn = new javax.swing.JButton();
         resDataField = new javax.swing.JFormattedTextField();
+        resPhoneField = new javax.swing.JFormattedTextField();
         schedulingPanel = new javax.swing.JPanel();
         schdlViewLabel = new javax.swing.JLabel();
         schdlViewBtn = new javax.swing.JButton();
@@ -344,6 +352,11 @@ public class GUI extends javax.swing.JFrame {
         resMsgScrollPane.setViewportView(resMsgTextArea);
 
         resSendBtn.setText("Gửi");
+        resSendBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resSendBtnActionPerformed(evt);
+            }
+        });
 
         resSubmitBtn.setText("Xong");
 
@@ -356,6 +369,8 @@ public class GUI extends javax.swing.JFrame {
 
         resDataField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         resDataField.setText("MM/dd/yyyy");
+
+        resPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         javax.swing.GroupLayout addRequestpanelLayout = new javax.swing.GroupLayout(addRequestpanel);
         addRequestpanel.setLayout(addRequestpanelLayout);
@@ -382,14 +397,15 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(resNameLabel))
                         .addGap(42, 42, 42)
                         .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(resNameField)
-                            .addComponent(resArtistField)
-                            .addComponent(resSenderField)
-                            .addComponent(resPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resAdrrField)
-                            .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                            .addComponent(resRecipientField)
-                            .addComponent(resDataField))))
+                            .addComponent(resPhoneField, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                            .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(resNameField)
+                                .addComponent(resArtistField)
+                                .addComponent(resSenderField)
+                                .addComponent(resAdrrField)
+                                .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                                .addComponent(resRecipientField)
+                                .addComponent(resDataField)))))
                 .addContainerGap(204, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
@@ -443,23 +459,23 @@ public class GUI extends javax.swing.JFrame {
 
         schdlTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "STT", "Tên bài hát", "Ghi chú"
+                "STT", "Tên bài hát", "Tên ca sĩ", "Ghi chú"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -771,6 +787,42 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mgrSearchFieldActionPerformed
 
+    private void resSendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSendBtnActionPerformed
+          String nameSong = resNameField.getText().trim().toUpperCase();
+        String nameArtist =resArtistField.getText().trim().toUpperCase();
+        String nameSender=resSenderField.getText().trim().toUpperCase();
+        String phoneNumber =resPhoneField.getText();
+        String address=resAdrrField.getText().trim().toUpperCase();
+        String nameReceipt=resRecipientField.getText().trim().toUpperCase();
+        String dateSended =resDataField.getText();
+        String message=resMsgTextArea.getText().trim();
+        if("".equals(nameSong)&&"".equals(nameArtist)&&"".equals(nameSender)&&("".equals(phoneNumber)||"".equals(address))&&"".equals(nameReceipt)&&"".equals(dateSended)&&"".equals(message)){
+            JOptionPane.showMessageDialog(null, "Chưa nhập đủ trường.Xin mời nhập lại!");          
+           }
+        else{
+            try{
+                RequirementController reqController =new RequirementController();
+                Song song= reqController.getSong(nameSong, nameArtist);
+                if(song!=null)
+                {
+                 reqController.updateSong(song);
+                 Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
+                 reqController.insertRequirement(requirement);
+                }
+                else{
+                    long id= new java.util.Date().getTime();
+                    song = new Song(id, nameSong, nameArtist, null, null, 0, 1);
+                    reqController.insertSong(song);
+                    Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
+                    reqController.insertRequirement(requirement);    
+ }
+                    }catch(Exception e){
+
+                    }
+        }
+
+    }//GEN-LAST:event_resSendBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -850,7 +902,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextArea resMsgTextArea;
     private javax.swing.JTextField resNameField;
     private javax.swing.JLabel resNameLabel;
-    private javax.swing.JTextField resPhoneField;
+    private javax.swing.JFormattedTextField resPhoneField;
     private javax.swing.JLabel resPhoneLabel;
     private javax.swing.JTextField resRecipientField;
     private javax.swing.JLabel resRecipientLabel;
