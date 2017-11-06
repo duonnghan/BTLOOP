@@ -310,15 +310,13 @@
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="resPhoneField" pref="272" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="resNameField" max="32767" attributes="0"/>
-                                      <Component id="resArtistField" max="32767" attributes="0"/>
-                                      <Component id="resSenderField" max="32767" attributes="0"/>
-                                      <Component id="resAdrrField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="resMsgScrollPane" alignment="0" pref="272" max="32767" attributes="0"/>
-                                      <Component id="resRecipientField" max="32767" attributes="0"/>
-                                      <Component id="resDataField" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="resNameField" max="32767" attributes="0"/>
+                                  <Component id="resArtistField" max="32767" attributes="0"/>
+                                  <Component id="resSenderField" max="32767" attributes="0"/>
+                                  <Component id="resAdrrField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="resMsgScrollPane" alignment="0" pref="272" max="32767" attributes="0"/>
+                                  <Component id="resRecipientField" max="32767" attributes="0"/>
+                                  <Component id="resDataField" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -475,7 +473,7 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="dd/MM/yyyy" subtype="-1" type="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="MM/dd/yyyy"/>
+                <Property name="text" type="java.lang.String" value="dd/MM/yyyy"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="resPhoneField">

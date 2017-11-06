@@ -368,7 +368,7 @@ public class GUI extends javax.swing.JFrame {
         });
 
         resDataField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        resDataField.setText("MM/dd/yyyy");
+        resDataField.setText("dd/MM/yyyy");
 
         resPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
@@ -398,14 +398,13 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(resPhoneField, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                            .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(resNameField)
-                                .addComponent(resArtistField)
-                                .addComponent(resSenderField)
-                                .addComponent(resAdrrField)
-                                .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
-                                .addComponent(resRecipientField)
-                                .addComponent(resDataField)))))
+                            .addComponent(resNameField)
+                            .addComponent(resArtistField)
+                            .addComponent(resSenderField)
+                            .addComponent(resAdrrField)
+                            .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                            .addComponent(resRecipientField)
+                            .addComponent(resDataField))))
                 .addContainerGap(204, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
@@ -768,7 +767,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resNameFieldActionPerformed
 
     private void resCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resCancelBtnActionPerformed
-        // TODO add your handling code here:
+        resNameField.setText("");
+        resArtistField.setText("");
+        resSenderField.setText("");
+        resPhoneField.setText("");
+        resAdrrField.setText("");
+        resRecipientField.setText("");
+        resDataField.setText("");
+        resMsgTextArea.setText("");
     }//GEN-LAST:event_resCancelBtnActionPerformed
 
     private void playlistAcceptBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistAcceptBtnActionPerformed
