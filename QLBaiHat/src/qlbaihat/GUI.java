@@ -6,11 +6,7 @@
 package qlbaihat;
 
 import java.awt.Toolkit;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import qlbaihat.controller.RequirementController;
 import qlbaihat.model.Song;
@@ -359,6 +355,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         resSubmitBtn.setText("Xong");
+        resSubmitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resSubmitBtnActionPerformed(evt);
+            }
+        });
 
         resCancelBtn.setText("Hủy");
         resCancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -802,9 +803,11 @@ public class GUI extends javax.swing.JFrame {
         String nameReceipt=resRecipientField.getText().trim().toUpperCase();
         String dateSended =resDataField.getText();
         String message=resMsgTextArea.getText().trim();
-        if("".equals(nameSong)&&"".equals(nameArtist)&&"".equals(nameSender)&&("".equals(phoneNumber)||"".equals(address))&&"".equals(nameReceipt)&&"".equals(dateSended)&&"".equals(message)){
+        System.out.println(nameSong+ nameArtist + nameSender + phoneNumber+address+ nameReceipt+ dateSended+ message);
+        if("".equals(nameSong)&&"".equals(nameArtist)&&"".equals(nameSender)&&("".equals(phoneNumber)||"".equals(address))&&"".equals(nameReceipt)&&"".equals(dateSended)&&"".equals(message))
+        {
             JOptionPane.showMessageDialog(null, "Chưa nhập đủ trường.Xin mời nhập lại!");          
-           }
+        }
         else{
             try{
                 RequirementController reqController =new RequirementController();
@@ -815,19 +818,29 @@ public class GUI extends javax.swing.JFrame {
                  Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
                  reqController.insertRequirement(requirement);
                 }
-                else{
+                else
+                {
                     long id= new java.util.Date().getTime();
                     song = new Song(id, nameSong, nameArtist, null, null, 0, 1);
                     reqController.insertSong(song);
                     Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
-                    reqController.insertRequirement(requirement);    
- }
-                    }catch(Exception e){
-
+                    reqController.insertRequirement(requirement);   
+                }
+                    }catch(SQLException e){
+                        e.printStackTrace();
                     }
         }
-
+        resSenderField.setText("");
+        resPhoneField.setText("");
+        resAdrrField.setText("");
+        resRecipientField.setText("");
+        resMsgTextArea.setText("");
     }//GEN-LAST:event_resSendBtnActionPerformed
+
+    private void resSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSubmitBtnActionPerformed
+        this.dispose();
+        Management.main();
+    }//GEN-LAST:event_resSubmitBtnActionPerformed
 
     /**
      * @param args the command line arguments

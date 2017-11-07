@@ -6,6 +6,7 @@
 package qlbaihat.controller;
 
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -16,7 +17,7 @@ public class Connection {
         java.sql.Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/shop", "root", "haidang97");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bai_tap_lon_opp?useSSL=false", "root", "haidang97");
         } catch (Exception e) {
             e.printStackTrace();
         }

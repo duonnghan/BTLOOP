@@ -459,6 +459,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xong"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resSubmitBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="resCancelBtn">
               <Properties>

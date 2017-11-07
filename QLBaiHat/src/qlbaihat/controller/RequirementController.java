@@ -8,6 +8,7 @@ package qlbaihat.controller;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import qlbaihat.model.Requirement;
 import qlbaihat.model.Song;
 
@@ -35,14 +36,15 @@ public class RequirementController {
     }
     public void insertSong(Song song) throws SQLException{
         java.sql.Connection connection =Connection.getConnection();
-        String sql="INSERT song VALUES(?,?,?,?,?,?,?)";
+        String sql="INSERT INTO song VALUES(?,?,?,?,?,?,?)";
         PreparedStatement ps= connection.prepareCall(sql);
         ps.setLong(1, song.getId());
         ps.setString(2,song.getName());
         ps.setString(3,song.getArtist());
         ps.setString(4, song.getComposer());
-        ps.setInt(5, song.getYear());
-        ps.setInt(6, song.getVote());
+        ps.setString(5,song.getGenre());
+        ps.setInt(6, song.getYear());
+        ps.setInt(7, song.getVote());
         ps.executeUpdate();
     }
     public void updateSong(Song song) throws SQLException{
