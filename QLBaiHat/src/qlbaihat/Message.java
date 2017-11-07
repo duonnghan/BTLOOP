@@ -9,7 +9,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,9 +25,9 @@ public class Message extends javax.swing.JFrame {
         initComponents();
         showMessage(Management.idRQ);
     }
-    public void showMessage(String ID) throws SQLException{
+    public void showMessage(long ID) throws SQLException{
         String sql="SELECT * FROM requirement where id='"+ID+"'";
-         Connection connection = qlbaihat.controller.Connection.getConnection();
+         Connection connection = qlbaihat.controller.DataBase.getConnection();
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {

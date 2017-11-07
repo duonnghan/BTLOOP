@@ -18,7 +18,7 @@ import qlbaihat.model.Song;
  */
 public class RequirementController {
     public void insertRequirement(Requirement requirement) throws SQLException{
-        java.sql.Connection connection =Connection.getConnection();
+        java.sql.Connection connection =DataBase.getConnection();
         String sql="INSERT INTO requirement VALUES(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps= connection.prepareCall(sql);
         ps.setLong(1, requirement.getId());
@@ -35,7 +35,7 @@ public class RequirementController {
         ps.executeUpdate();
     }
     public void insertSong(Song song) throws SQLException{
-        java.sql.Connection connection =Connection.getConnection();
+        java.sql.Connection connection =DataBase.getConnection();
         String sql="INSERT INTO song VALUES(?,?,?,?,?,?,?)";
         PreparedStatement ps= connection.prepareCall(sql);
         ps.setLong(1, song.getId());
@@ -48,7 +48,7 @@ public class RequirementController {
         ps.executeUpdate();
     }
     public void updateSong(Song song) throws SQLException{
-        java.sql.Connection connection =Connection.getConnection();
+        java.sql.Connection connection =DataBase.getConnection();
         String sql="UPDATE song SET vote= ? WHERE id=?";
         PreparedStatement ps= connection.prepareCall(sql);
         ps.setLong(1, song.getVote()+1);
@@ -56,7 +56,7 @@ public class RequirementController {
         ps.executeUpdate();
     }
      public Song getSong(String nameSong,String nameArtist) throws SQLException{
-     java.sql.Connection conn= Connection.getConnection();
+     java.sql.Connection conn= DataBase.getConnection();
      String sql="SELECT * FROM song WHERE name= '"+nameSong+"' && artist= '"+nameArtist+"'";
      PreparedStatement ps=conn.prepareCall(sql);
      ResultSet rs=ps.executeQuery();
