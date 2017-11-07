@@ -12,7 +12,7 @@ import java.sql.SQLException;
  *
  * @author TRAN HAI DANG
  */
-public class Connection {
+public class DataBase {
         public static java.sql.Connection getConnection(){
         java.sql.Connection conn = null;
         try {
