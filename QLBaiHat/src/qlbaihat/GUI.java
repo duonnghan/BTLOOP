@@ -7,6 +7,8 @@ package qlbaihat;
 
 import java.awt.Toolkit;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
@@ -899,8 +901,14 @@ public class GUI extends javax.swing.JFrame {
     private void schdlRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlRequestBtnActionPerformed
         if(idSongSelect!=0)
         {
-            Management manager= new Management();
-            manager.main();
+            Management manager;
+            try {
+                manager = new Management();
+                manager.main();
+            } catch (SQLException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
         else
             JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
@@ -909,8 +917,14 @@ public class GUI extends javax.swing.JFrame {
     private void mrgViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrgViewBtnActionPerformed
          if(idSongSelect!=0)
         {
-            Management manager= new Management();
-            manager.main();
+            Management manager;
+             try {
+                 manager = new Management();
+                 manager.main();
+             } catch (SQLException ex) {
+                 Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+             }
+            
         }
         else
             JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");               

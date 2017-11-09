@@ -7,30 +7,55 @@ package qlbaihat;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import qlbaihat.controller.DataBase;
-
-/**
- *
- * @author HD
- */
 public class Management extends javax.swing.JFrame {
     static long idRQ;
     String nameSender,nameReceipt,message,phone,addr;
-    public Management() {
+    public Management() throws SQLException {
         initComponents();
         select();
-        showManager(GUI.idSongSelect);
+        showManager(GUI.idSongSelect,"");
     }
-    void showManager(Long ID){
-        
+    void showManager(Long ID,String subSql) throws SQLException{
+        String sql = "SELECT * FROM requirement WHERE songid='"+ID+"' "+subSql+" ORDER BY id DESC";
+        Vector columnNames = new Vector();
+        columnNames.add("ID");
+        columnNames.add("Người gửi");
+        columnNames.add("Người nhận");
+        columnNames.add("Lời nhắn");
+        columnNames.add("Số điện thoại");
+        columnNames.add("Địa chỉ");        
+        Vector rowData=new Vector();
+        Vector data=new Vector();
+         Connection connection = qlbaihat.controller.DataBase.getConnection();
+        PreparedStatement ps = connection.prepareCall(sql);
+        ResultSet rs = ps.executeQuery();
+        while(rs.next())
+        {
+            rowData.add(rs.getLong("id"));
+            rowData.add(rs.getString("sender"));
+            rowData.add(rs.getString("recipient"));
+            rowData.add(rs.getString("message"));
+            rowData.add(rs.getString("phone"));
+            rowData.add(rs.getString("address"));
+            data.add(rowData);
+        }
+        rs.close();
+              TableModel dataModel = new DefaultTableModel(data, columnNames);
+      jTable1.setModel(dataModel);
+      
     }
     
     
@@ -184,8 +209,18 @@ public class Management extends javax.swing.JFrame {
         jLabel1.setText("Tìm kiếm");
 
         jTextField1.setText("ID, Người nhận, người gửi");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Sửa");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -366,6 +401,20 @@ public class Management extends javax.swing.JFrame {
             Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String textSearch=jTextField1.getText();
+        String sql="WHERE id='"+textSearch+"'||sender='"+textSearch+"'||recipient='"+textSearch+"'||playdate='"+jFormattedTextField1.getText()+"'";
+        try {
+            showManager(GUI.idSongSelect, sql);
+        } catch (SQLException ex) {
+            Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
     void select()
     {        
         ListSelectionModel cellSelect=jTable1.getSelectionModel();
@@ -390,35 +439,15 @@ public class Management extends javax.swing.JFrame {
         });
     }
    
-    public static void main() {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Management.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
+    public static void main()      
+ {       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Management().setVisible(true);
+                try {
+                    new Management().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
