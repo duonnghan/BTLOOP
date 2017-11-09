@@ -12,61 +12,81 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import qlbaihat.controller.RequirementController;
+import qlbaihat.controller.ScheduleController;
 import qlbaihat.model.Song;
 import qlbaihat.model.Requirement;
+import qlbaihat.model.ScheduleTableModel;
+
 /**
  *
- * @author HD
+ * @author Huy
  */
 public class GUI extends javax.swing.JFrame {
 
-    public static long idSongSelect=0;
+    public static long idSongSelect = 0;
+    public ScheduleTableModel scdlTM = new ScheduleTableModel();
+    public ScheduleController scdlController;
+
     public GUI() {
+        
         initComponents();
+        schedulePanel();
         setIcon();
         select();
         select1();
+        
     }
- void select()
-    {        
-        String nameSong=null;
-        String nameArtist=null;
-        ListSelectionModel cellSelect=schdlTable.getSelectionModel();
+
+    void select() {
+//        String nameSong = null;
+//        String nameArtist = null;
+//        ListSelectionModel cellSelect = schdlTable.getSelectionModel();
+//        cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+//        cellSelect.addListSelectionListener(new ListSelectionListener() {
+//            @Override
+//            public void valueChanged(ListSelectionEvent e) {
+//                int[] row = schdlTable.getSelectedRows();
+//                int[] col = schdlTable.getSelectedColumns();
+//                for (int i = 0; i < row.length; i++) {
+//                    idSongSelect = (Integer) schdlTable.getValueAt(row[i], 1);
+//                }
+//                System.out.print(idSongSelect);
+//            }
+//        });
+    }
+
+    void select1() {
+        String nameSong = null;
+        String nameArtist = null;
+        ListSelectionModel cellSelect = mrgTable.getSelectionModel();
         cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         cellSelect.addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent e) 
-            {
-                int[] row=schdlTable.getSelectedRows();
-                int[] col=schdlTable.getSelectedColumns();
-            for(int i=0;i<row.length;i++)
-            {
-                idSongSelect=(Long) schdlTable.getValueAt(row[i], 2);            
-            }            
-            System.out.print(idSongSelect);
+            public void valueChanged(ListSelectionEvent e) {
+                int[] row = mrgTable.getSelectedRows();
+                int[] col = mrgTable.getSelectedColumns();
+                for (int i = 0; i < row.length; i++) {
+                    idSongSelect = (Long) mrgTable.getValueAt(row[i], 2);
+                }
+                System.out.print(idSongSelect);
             }
         });
     }
-  void select1()
-    {        
-        String nameSong=null;
-        String nameArtist=null;
-        ListSelectionModel cellSelect=mrgTable.getSelectionModel();
+
+    public void schedulePanel(){
+        ListSelectionModel cellSelect = schdlTable.getSelectionModel();
         cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        cellSelect.addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) 
-            {
-                int[] row=mrgTable.getSelectedRows();
-                int[] col=mrgTable.getSelectedColumns();
-            for(int i=0;i<row.length;i++)
-            {
-                idSongSelect=(Long) mrgTable.getValueAt(row[i], 2);            
-            }            
-            System.out.print(idSongSelect);
-            }
-        });
+        
+        scdlController = new ScheduleController(schdlTable, scdlTM, schdlViewField);
+        schdlViewBtn.setActionCommand("View");
+        schdlRequestBtn.setActionCommand("Request");
+        schdlPlayedBtn.setActionCommand("Played");
+        cellSelect.addListSelectionListener(scdlController);
+        schdlViewBtn.addActionListener(scdlController);
+        schdlRequestBtn.addActionListener(scdlController);
+        schdlPlayedBtn.addActionListener(scdlController);
     }
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -116,7 +136,7 @@ public class GUI extends javax.swing.JFrame {
         schdlTable = new javax.swing.JTable();
         schdlViewField = new javax.swing.JFormattedTextField();
         schdlRequestBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        schdlPlayedBtn = new javax.swing.JButton();
         managerPanel = new javax.swing.JPanel();
         mrgScrollPane = new javax.swing.JScrollPane();
         mrgTable = new javax.swing.JTable();
@@ -493,43 +513,22 @@ public class GUI extends javax.swing.JFrame {
         schdlViewLabel.setText("Xem lịch:");
 
         schdlViewBtn.setText("Xem");
-
-        schdlTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "STT", "IDSong", "Tên bài hát", "Tên ca sĩ", "Ghi chú"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Long.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        schdlViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schdlViewBtnActionPerformed(evt);
             }
         });
+
+        schdlTable.setModel(scdlTM);
         schdlScrollPane.setViewportView(schdlTable);
 
         schdlViewField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         schdlViewField.setText("dd/MM/yyyy");
+        schdlViewField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schdlViewFieldActionPerformed(evt);
+            }
+        });
 
         schdlRequestBtn.setText("Xem yêu cầu");
         schdlRequestBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -538,7 +537,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Đã phát");
+        schdlPlayedBtn.setText("Đã phát");
 
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
@@ -564,7 +563,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(schdlRequestBtn)
                         .addGap(48, 48, 48)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(schdlPlayedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 404, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
@@ -578,7 +577,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schdlViewBtn)
                     .addComponent(schdlRequestBtn)
-                    .addComponent(jButton1))
+                    .addComponent(schdlPlayedBtn))
                 .addGap(18, 18, 18)
                 .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -849,40 +848,35 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_mgrSearchFieldActionPerformed
 
     private void resSendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSendBtnActionPerformed
-          String nameSong = resNameField.getText().trim().toUpperCase();
-        String nameArtist =resArtistField.getText().trim().toUpperCase();
-        String nameSender=resSenderField.getText().trim().toUpperCase();
-        String phoneNumber =resPhoneField.getText();
-        String address=resAdrrField.getText().trim().toUpperCase();
-        String nameReceipt=resRecipientField.getText().trim().toUpperCase();
-        String dateSended =resDataField.getText();
-        String message=resMsgTextArea.getText().trim();
-        System.out.println(nameSong+ nameArtist + nameSender + phoneNumber+address+ nameReceipt+ dateSended+ message);
-        if("".equals(nameSong)&&"".equals(nameArtist)&&"".equals(nameSender)&&("".equals(phoneNumber)||"".equals(address))&&"".equals(nameReceipt)&&"".equals(dateSended)&&"".equals(message))
-        {
-            JOptionPane.showMessageDialog(null, "Chưa nhập đủ trường.Xin mời nhập lại!");          
-        }
-        else{
-            try{
-                RequirementController reqController =new RequirementController();
-                Song song= reqController.getSong(nameSong, nameArtist);
-                if(song!=null)
-                {
-                 reqController.updateSong(song);
-                 Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
-                 reqController.insertRequirement(requirement);
-                }
-                else
-                {
-                    long id= new java.util.Date().getTime();
+        String nameSong = resNameField.getText().trim().toUpperCase();
+        String nameArtist = resArtistField.getText().trim().toUpperCase();
+        String nameSender = resSenderField.getText().trim().toUpperCase();
+        String phoneNumber = resPhoneField.getText();
+        String address = resAdrrField.getText().trim().toUpperCase();
+        String nameReceipt = resRecipientField.getText().trim().toUpperCase();
+        String dateSended = resDataField.getText();
+        String message = resMsgTextArea.getText().trim();
+        System.out.println(nameSong + nameArtist + nameSender + phoneNumber + address + nameReceipt + dateSended + message);
+        if ("".equals(nameSong) && "".equals(nameArtist) && "".equals(nameSender) && ("".equals(phoneNumber) || "".equals(address)) && "".equals(nameReceipt) && "".equals(dateSended) && "".equals(message)) {
+            JOptionPane.showMessageDialog(null, "Chưa nhập đủ trường.Xin mời nhập lại!");
+        } else {
+            try {
+                RequirementController reqController = new RequirementController();
+                Song song = reqController.getSong(nameSong, nameArtist);
+                if (song != null) {
+                    reqController.updateSong(song);
+                    Requirement requirement = new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
+                    reqController.insertRequirement(requirement);
+                } else {
+                    long id = new java.util.Date().getTime();
                     song = new Song(id, nameSong, nameArtist, null, null, 0, 1);
                     reqController.insertSong(song);
-                    Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
-                    reqController.insertRequirement(requirement);   
+                    Requirement requirement = new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
+                    reqController.insertRequirement(requirement);
                 }
-                    }catch(SQLException e){
-                        e.printStackTrace();
-                    }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         resSenderField.setText("");
         resPhoneField.setText("");
@@ -897,24 +891,29 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resSubmitBtnActionPerformed
 
     private void schdlRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlRequestBtnActionPerformed
-        if(idSongSelect!=0)
-        {
-            Management manager= new Management();
+        if (idSongSelect != 0) {
+            Management manager = new Management();
             manager.main();
-        }
-        else
+        } else {
             JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
+        }
     }//GEN-LAST:event_schdlRequestBtnActionPerformed
 
     private void mrgViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrgViewBtnActionPerformed
-         if(idSongSelect!=0)
-        {
-            Management manager= new Management();
+        if (idSongSelect != 0) {
+            Management manager = new Management();
             manager.main();
+        } else {
+            JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
         }
-        else
-            JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");               
     }//GEN-LAST:event_mrgViewBtnActionPerformed
+
+    private void schdlViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlViewBtnActionPerformed
+    }//GEN-LAST:event_schdlViewBtnActionPerformed
+
+    private void schdlViewFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlViewFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_schdlViewFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -927,7 +926,7 @@ public class GUI extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -954,7 +953,6 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addRequestpanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
@@ -1004,6 +1002,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel resSenderLabel;
     private javax.swing.JButton resSubmitBtn;
     private javax.swing.JSeparator schdlDivLine;
+    private javax.swing.JButton schdlPlayedBtn;
     private javax.swing.JButton schdlRequestBtn;
     private javax.swing.JScrollPane schdlScrollPane;
     private javax.swing.JTable schdlTable;
@@ -1018,4 +1017,3 @@ public class GUI extends javax.swing.JFrame {
     }
 
 }
-

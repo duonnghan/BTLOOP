@@ -523,7 +523,7 @@
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="schdlRequestBtn" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="108" max="-2" attributes="0"/>
+                              <Component id="schdlPlayedBtn" min="-2" pref="108" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="404" max="32767" attributes="0"/>
@@ -542,7 +542,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="schdlViewBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="schdlRequestBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="schdlPlayedBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="schdlDivLine" min="-2" pref="2" max="-2" attributes="0"/>
@@ -563,6 +563,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xem"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schdlViewBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="schdlDivLine">
             </Component>
@@ -575,14 +578,8 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="schdlTable">
                   <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="10">
-                        <Column editable="false" title="STT" type="java.lang.Long"/>
-                        <Column editable="false" title="IDSong" type="java.lang.Long"/>
-                        <Column editable="false" title="T&#xea;n b&#xe0;i h&#xe1;t" type="java.lang.String"/>
-                        <Column editable="false" title="T&#xea;n ca s&#x129;" type="java.lang.String"/>
-                        <Column editable="false" title="Ghi ch&#xfa;" type="java.lang.String"/>
-                      </Table>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="scdlTM" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
@@ -617,6 +614,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="dd/MM/yyyy"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schdlViewFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="schdlRequestBtn">
               <Properties>
@@ -626,7 +626,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schdlRequestBtnActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="schdlPlayedBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#x110;&#xe3; ph&#xe1;t"/>
               </Properties>
