@@ -44,7 +44,7 @@ public class CalendarManagement {
                + "AND requirement.status NOT LIKE 'Đã phát' "
                + "OR requirement.status IS NULL "
                + "AND requirement.playdate IS NULL "
-               + "GROUP BY song.name ORDER BY song.vote DESC LIMIT 15";
+               + "GROUP BY song.name ORDER BY COUNT(requirement.songid) DESC LIMIT 15";
        Vector col;
        Vector data;
         try (ResultSet rs = stmt.executeQuery(sql)) {

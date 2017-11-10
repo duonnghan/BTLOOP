@@ -18,8 +18,7 @@ public class DataBase {
         java.sql.Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bai_tap_lon_opp?useUnicode=yes&characterEncoding=UTF-8", "root", "");
-            JOptionPane.showMessageDialog(null, "Kết nối thành công");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/bai_tap_lon_opp?useUnicode=yes&characterEncoding=UTF-8", "root", "");           
         } catch (Exception e) {
             e.printStackTrace();
         }
