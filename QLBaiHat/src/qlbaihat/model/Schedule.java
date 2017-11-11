@@ -9,15 +9,15 @@ package qlbaihat.model;
  *
  * @author TRAN HAI DANG
  */
-public class schedule {
-    int id;
+public class Schedule {
+    long id;
     String nameSong,nameArtist,note;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,10 +45,10 @@ public class schedule {
         this.note = note;
     }
 
-    public schedule() {
+    public Schedule() {
     }
 
-    public schedule(int id, String nameSong, String nameArtist, String note) {
+    public Schedule(long id, String nameSong, String nameArtist, String note) {
         this.id = id;
         this.nameSong = nameSong;
         this.nameArtist = nameArtist;

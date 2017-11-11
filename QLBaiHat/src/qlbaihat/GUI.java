@@ -14,17 +14,19 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import qlbaihat.controller.RequirementController;
+import qlbaihat.controller.ScheduleController;
 import qlbaihat.model.Song;
 import qlbaihat.model.Requirement;
-/**
- *
- * @author HD
- */
+import qlbaihat.model.ScheduleTableModel;
+
 public class GUI extends javax.swing.JFrame {
 
     public static long idSongSelect=0;
+    public ScheduleTableModel scdlTM = new ScheduleTableModel();
+    public ScheduleController scdlController;
     public GUI() {
         initComponents();
+        schedulePanel();
         setIcon();
         select();
         select1();
@@ -69,7 +71,22 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
+  
+     public void schedulePanel(){
+        ListSelectionModel cellSelect = schdlTable.getSelectionModel();
+        cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        scdlController = new ScheduleController(schdlTable, scdlTM, schdlViewField);
+        schdlViewBtn.setActionCommand("View");
+        schdlRequestBtn.setActionCommand("Request");
+        schdlPlayedBtn.setActionCommand("Played");
+        cellSelect.addListSelectionListener(scdlController);
+        schdlViewBtn.addActionListener(scdlController);
+        schdlRequestBtn.addActionListener(scdlController);
+        schdlPlayedBtn.addActionListener(scdlController);
+    }
     @SuppressWarnings("unchecked")
+    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -118,7 +135,7 @@ public class GUI extends javax.swing.JFrame {
         schdlTable = new javax.swing.JTable();
         schdlViewField = new javax.swing.JFormattedTextField();
         schdlRequestBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        schdlPlayedBtn = new javax.swing.JButton();
         managerPanel = new javax.swing.JPanel();
         mrgScrollPane = new javax.swing.JScrollPane();
         mrgTable = new javax.swing.JTable();
@@ -540,7 +557,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Đã phát");
+        schdlPlayedBtn.setText("Đã phát");
 
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
@@ -566,7 +583,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(schdlRequestBtn)
                         .addGap(48, 48, 48)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(schdlPlayedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 404, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
@@ -580,7 +597,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schdlViewBtn)
                     .addComponent(schdlRequestBtn)
-                    .addComponent(jButton1))
+                    .addComponent(schdlPlayedBtn))
                 .addGap(18, 18, 18)
                 .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -820,7 +837,7 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resNameFieldActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_resNameFieldActionPerformed
 
     private void resCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resCancelBtnActionPerformed
@@ -968,7 +985,6 @@ public class GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addRequestpanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
@@ -1018,6 +1034,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel resSenderLabel;
     private javax.swing.JButton resSubmitBtn;
     private javax.swing.JSeparator schdlDivLine;
+    private javax.swing.JButton schdlPlayedBtn;
     private javax.swing.JButton schdlRequestBtn;
     private javax.swing.JScrollPane schdlScrollPane;
     private javax.swing.JTable schdlTable;
