@@ -77,7 +77,7 @@ public class GUI extends javax.swing.JFrame {
         ListSelectionModel cellSelect = schdlTable.getSelectionModel();
         cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
-        scdlController = new ScheduleController(schdlTable, scdlTM, schdlViewField);
+        scdlController = new ScheduleController(schdlTable, scdlTM, jDateInput);
         schdlViewBtn.setActionCommand("View");
         schdlRequestBtn.setActionCommand("Request");
         schdlPlayedBtn.setActionCommand("Played");
@@ -134,9 +134,9 @@ public class GUI extends javax.swing.JFrame {
         schdlDivLine = new javax.swing.JSeparator();
         schdlScrollPane = new javax.swing.JScrollPane();
         schdlTable = new javax.swing.JTable();
-        schdlViewField = new javax.swing.JFormattedTextField();
         schdlRequestBtn = new javax.swing.JButton();
         schdlPlayedBtn = new javax.swing.JButton();
+        jDateInput = new com.toedter.calendar.JDateChooser();
         managerPanel = new javax.swing.JPanel();
         mrgScrollPane = new javax.swing.JScrollPane();
         mrgTable = new javax.swing.JTable();
@@ -522,14 +522,6 @@ public class GUI extends javax.swing.JFrame {
         schdlTable.setModel(scdlTM);
         schdlScrollPane.setViewportView(schdlTable);
 
-        schdlViewField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        schdlViewField.setText("dd/MM/yyyy");
-        schdlViewField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schdlViewFieldActionPerformed(evt);
-            }
-        });
-
         schdlRequestBtn.setText("Xem yêu cầu");
         schdlRequestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -539,13 +531,15 @@ public class GUI extends javax.swing.JFrame {
 
         schdlPlayedBtn.setText("Đã phát");
 
+        jDateInput.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
         schedulingPanelLayout.setHorizontalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
@@ -556,24 +550,24 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
                         .addComponent(schdlViewLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(schdlViewField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jDateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
                         .addComponent(schdlViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(schdlRequestBtn)
                         .addGap(48, 48, 48)
                         .addComponent(schdlPlayedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 404, Short.MAX_VALUE))
+                .addGap(0, 412, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(27, 27, 27)
+                .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(schdlViewLabel)
-                    .addComponent(schdlViewField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(jDateInput, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schdlViewBtn)
                     .addComponent(schdlRequestBtn)
@@ -581,7 +575,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 379, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -810,7 +804,7 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(manage)
+            .addComponent(manage, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -891,12 +885,12 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_resSubmitBtnActionPerformed
 
     private void schdlRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlRequestBtnActionPerformed
-        if (idSongSelect != 0) {
-            Management manager = new Management();
-            manager.main();
-        } else {
-            JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
-        }
+//        if (idSongSelect != 0) {
+//            Management manager = new Management();
+//            manager.main();
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
+//        }
     }//GEN-LAST:event_schdlRequestBtnActionPerformed
 
     private void mrgViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrgViewBtnActionPerformed
@@ -910,10 +904,6 @@ public class GUI extends javax.swing.JFrame {
 
     private void schdlViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlViewBtnActionPerformed
     }//GEN-LAST:event_schdlViewBtnActionPerformed
-
-    private void schdlViewFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlViewFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_schdlViewFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -954,6 +944,7 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addRequestpanel;
     private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDateInput;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
     private javax.swing.JButton mgrSearchBtn;
@@ -1007,7 +998,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane schdlScrollPane;
     private javax.swing.JTable schdlTable;
     private javax.swing.JButton schdlViewBtn;
-    private javax.swing.JFormattedTextField schdlViewField;
     private javax.swing.JLabel schdlViewLabel;
     private javax.swing.JPanel schedulingPanel;
     // End of variables declaration//GEN-END:variables
