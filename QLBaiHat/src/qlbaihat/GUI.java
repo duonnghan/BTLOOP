@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -811,15 +812,29 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_mgrSearchFieldMouseClicked
 
     private void mgrSearchBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mgrSearchBtnMouseClicked
-        if(!(mgrSearchField.getText().equals("")||mgrSearchField.getText().equals("dd/mm/yyyy"))){
-              CalendarManagement cl = new CalendarManagement();
-            try {
-                cl.ThemLichPhat(mgrSearchField, mrgTable);
-            } catch (SQLException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        String ngayThang = mgrSearchField.getText();
+        if(!(ngayThang.equals("")||ngayThang.equals("dd/mm/yyyy"))){           
+            CalendarManagement cl = new CalendarManagement();
+            if(cl.isValidDate(ngayThang)){
+                try {
+                    if(cl.compareDates(ngayThang)){
+                        JOptionPane.showMessageDialog(null, "Ngày bạn nhập đã trôi qua");
+                    }
+                    else{
+                        try {
+                            cl.ThemLichPhat(mgrSearchField, mrgTable);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                } catch (ParseException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
+            else
+                JOptionPane.showMessageDialog(rootPane, "Hãy nhập lại ngày dự kiến phát theo mẫu dd/mm/yyyy");
         }
         else 
             JOptionPane.showMessageDialog(rootPane, "Hãy nhập ngày dự kiến phát");

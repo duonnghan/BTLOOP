@@ -16,6 +16,10 @@ import javax.swing.table.TableModel;
 import qlbaihat.model.Song;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.Table;
@@ -106,5 +110,29 @@ public class CalendarManagement {
             }
     }
     
+    public static boolean isValidDate(String inDate) {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/mm/yyyy");
+    dateFormat.setLenient(false);
+    try {
+      dateFormat.parse(inDate.trim());
+    } catch (ParseException pe) {
+      return false;
+    }
+    return true;
+  }
+    
+    public static boolean compareDates(String psDate) throws ParseException{
+        Date todaysDate = new Date();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        String todayString = df.format(todaysDate);
+        SimpleDateFormat dateFormat = new SimpleDateFormat ("dd/MM/yyyy");
+        Date date1 = dateFormat.parse(psDate);
+        Date date2 = dateFormat.parse(todayString);
+        if(date2.after(date1)) {           
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
