@@ -7,6 +7,7 @@ package qlbaihat;
 
 import java.awt.Toolkit;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,6 +24,8 @@ import qlbaihat.model.Requirement;
 public class GUI extends javax.swing.JFrame {
 
     public static long idSongSelect=0;
+    SimpleDateFormat dateFomat = new SimpleDateFormat("dd/MM/yyyy");
+    
     public GUI() {
         initComponents();
         setIcon();
@@ -108,8 +111,8 @@ public class GUI extends javax.swing.JFrame {
         resSendBtn = new javax.swing.JButton();
         resSubmitBtn = new javax.swing.JButton();
         resCancelBtn = new javax.swing.JButton();
-        resDataField = new javax.swing.JFormattedTextField();
         resPhoneField = new javax.swing.JFormattedTextField();
+        resDataField = new com.toedter.calendar.JDateChooser();
         schedulingPanel = new javax.swing.JPanel();
         schdlViewLabel = new javax.swing.JLabel();
         schdlViewBtn = new javax.swing.JButton();
@@ -407,10 +410,9 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        resDataField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        resDataField.setText("dd/MM/yyyy");
-
         resPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        resDataField.setDateFormatString("dd/MM/yyyy");
 
         javax.swing.GroupLayout addRequestpanelLayout = new javax.swing.GroupLayout(addRequestpanel);
         addRequestpanel.setLayout(addRequestpanelLayout);
@@ -444,7 +446,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(resAdrrField)
                             .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                             .addComponent(resRecipientField)
-                            .addComponent(resDataField))))
+                            .addComponent(resDataField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(204, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
@@ -475,14 +477,14 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(resRecipientLabel)
                     .addComponent(resRecipientField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(resDateLabel)
                     .addComponent(resDataField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(6, 6, 6)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(resMsgLabel)
                     .addComponent(resMsgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resSendBtn)
                     .addComponent(resSubmitBtn)
@@ -830,7 +832,6 @@ public class GUI extends javax.swing.JFrame {
         resPhoneField.setText("");
         resAdrrField.setText("");
         resRecipientField.setText("");
-        resDataField.setText("");
         resMsgTextArea.setText("");
     }//GEN-LAST:event_resCancelBtnActionPerformed
 
@@ -857,7 +858,7 @@ public class GUI extends javax.swing.JFrame {
         String phoneNumber =resPhoneField.getText();
         String address=resAdrrField.getText().trim().toUpperCase();
         String nameReceipt=resRecipientField.getText().trim().toUpperCase();
-        String dateSended =resDataField.getText();
+        String dateSended =dateFomat.format(resDataField.getDate());
         String message=resMsgTextArea.getText().trim();
         System.out.println(nameSong+ nameArtist + nameSender + phoneNumber+address+ nameReceipt+ dateSended+ message);
         if("".equals(nameSong)&&"".equals(nameArtist)&&"".equals(nameSender)&&("".equals(phoneNumber)||"".equals(address))&&"".equals(nameReceipt)&&"".equals(dateSended)&&"".equals(message))
@@ -1002,7 +1003,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField resArtistField;
     private javax.swing.JLabel resArtistLabel;
     private javax.swing.JButton resCancelBtn;
-    private javax.swing.JFormattedTextField resDataField;
+    private com.toedter.calendar.JDateChooser resDataField;
     private javax.swing.JLabel resDateLabel;
     private javax.swing.JLabel resMsgLabel;
     private javax.swing.JScrollPane resMsgScrollPane;
