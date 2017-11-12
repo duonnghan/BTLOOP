@@ -24,7 +24,7 @@ import qlbaihat.model.Requirement;
 public class GUI extends javax.swing.JFrame {
 
     public static long idSongSelect=0;
-    SimpleDateFormat dateFomat = new SimpleDateFormat("dd/MM/yyyy");
+    
     
     public GUI() {
         initComponents();
@@ -852,12 +852,13 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_mgrSearchFieldActionPerformed
 
     private void resSendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSendBtnActionPerformed
-          String nameSong = resNameField.getText().trim().toUpperCase();
+        String nameSong = resNameField.getText().trim().toUpperCase();
         String nameArtist =resArtistField.getText().trim().toUpperCase();
         String nameSender=resSenderField.getText().trim().toUpperCase();
         String phoneNumber =resPhoneField.getText();
         String address=resAdrrField.getText().trim().toUpperCase();
         String nameReceipt=resRecipientField.getText().trim().toUpperCase();
+        SimpleDateFormat dateFomat = new SimpleDateFormat("dd/MM/yyyy");
         String dateSended =dateFomat.format(resDataField.getDate());
         String message=resMsgTextArea.getText().trim();
         System.out.println(nameSong+ nameArtist + nameSender + phoneNumber+address+ nameReceipt+ dateSended+ message);
