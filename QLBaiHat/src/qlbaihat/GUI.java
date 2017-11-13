@@ -7,6 +7,7 @@ package qlbaihat;
 
 import java.awt.Toolkit;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import qlbaihat.controller.CalendarManagement;
 import qlbaihat.controller.RequirementController;
 import qlbaihat.model.Song;
 import qlbaihat.model.Requirement;
@@ -129,11 +131,8 @@ public class GUI extends javax.swing.JFrame {
         mgrSearchBtn = new javax.swing.JButton();
         mgrSearchField = new javax.swing.JTextField();
         mgrSearchLabel = new javax.swing.JLabel();
-        mrgSearchBtn = new javax.swing.JButton();
+        showDanhSach = new javax.swing.JButton();
         mrgViewBtn = new javax.swing.JButton();
-        mrgRequestDateLabel = new javax.swing.JFormattedTextField();
-        mrgRequestStat = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý bài hát");
@@ -306,7 +305,7 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(playlistDivLine))
                     .addGroup(playlisttPanelLayout.createSequentialGroup()
-                        .addContainerGap(243, Short.MAX_VALUE)
+                        .addContainerGap(153, Short.MAX_VALUE)
                         .addComponent(playlistModeLabel)
                         .addGap(69, 69, 69)
                         .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,7 +418,7 @@ public class GUI extends javax.swing.JFrame {
         addRequestpanelLayout.setHorizontalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addRequestpanelLayout.createSequentialGroup()
-                .addContainerGap(204, Short.MAX_VALUE)
+                .addContainerGap(145, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addRequestpanelLayout.createSequentialGroup()
                         .addComponent(resSendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,7 +446,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                             .addComponent(resRecipientField)
                             .addComponent(resDataField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(204, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -550,7 +549,7 @@ public class GUI extends javax.swing.JFrame {
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
@@ -569,7 +568,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(schdlRequestBtn)
                         .addGap(48, 48, 48)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 404, Short.MAX_VALUE))
+                .addGap(0, 287, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -594,113 +593,113 @@ public class GUI extends javax.swing.JFrame {
 
         mrgTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID", "Tên bài hát", "Thời gian yêu cầu", "Số lượt bình chọn", "Chi tiết", "Trạng thái"
+                "Tên bài hát", "Ca sĩ", "Số lượt yêu cầu", "Các thính giả yêu cầui"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -716,15 +715,26 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        mgrSearchField.setText("dd/mm/yyyy");
+        mgrSearchField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mgrSearchFieldMouseClicked(evt);
+            }
+        });
         mgrSearchField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mgrSearchFieldActionPerformed(evt);
             }
         });
 
-        mgrSearchLabel.setText("Tìm kiếm bài hát");
+        mgrSearchLabel.setText("Ngày phát");
 
-        mrgSearchBtn.setText("Tìm kiếm");
+        showDanhSach.setText("Tìm kiếm");
+        showDanhSach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showDanhSachActionPerformed(evt);
+            }
+        });
 
         mrgViewBtn.setText("Xem yêu cầu");
         mrgViewBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -733,13 +743,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        mrgRequestDateLabel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        mrgRequestDateLabel.setText("Ngày yêu cầu(dd/MM/yyyy)");
-
-        mrgRequestStat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đã phát", "Chưa phát" }));
-
-        jButton2.setText("Sửa");
-
         javax.swing.GroupLayout managerPanelLayout = new javax.swing.GroupLayout(managerPanel);
         managerPanel.setLayout(managerPanelLayout);
         managerPanelLayout.setHorizontalGroup(
@@ -747,7 +750,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(managerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mrgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                    .addComponent(mrgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
                     .addGroup(managerPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -757,17 +760,9 @@ public class GUI extends javax.swing.JFrame {
                             .addGroup(managerPanelLayout.createSequentialGroup()
                                 .addComponent(mgrSearchLabel)
                                 .addGap(3, 3, 3)
-                                .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(managerPanelLayout.createSequentialGroup()
-                                        .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)
-                                        .addComponent(mrgSearchBtn))
-                                    .addGroup(managerPanelLayout.createSequentialGroup()
-                                        .addComponent(mrgRequestDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(71, 71, 71)
-                                        .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(showDanhSach)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
@@ -780,19 +775,14 @@ public class GUI extends javax.swing.JFrame {
         managerPanelLayout.setVerticalGroup(
             managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mrgSearchBtn)
+                    .addComponent(showDanhSach)
                     .addComponent(mgrSearchLabel))
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(managerPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(mrgRequestDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(mrgDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mrgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -811,7 +801,7 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(manage)
+            .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -846,10 +836,6 @@ public class GUI extends javax.swing.JFrame {
     private void mgrSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mgrSearchBtnActionPerformed
-
-    private void mgrSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mgrSearchFieldActionPerformed
 
     private void resSendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSendBtnActionPerformed
         String nameSong = resNameField.getText().trim().toUpperCase();
@@ -932,9 +918,59 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");               
     }//GEN-LAST:event_mrgViewBtnActionPerformed
 
+    private void mgrSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mgrSearchFieldActionPerformed
+
+    private void showDanhSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDanhSachActionPerformed
+       try {
+            CalendarManagement cl = new CalendarManagement();
+            cl.hienThi(mrgTable);
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_showDanhSachActionPerformed
+
+    private void mgrSearchFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mgrSearchFieldMouseClicked
+        mgrSearchField.setText("");
+    }//GEN-LAST:event_mgrSearchFieldMouseClicked
+     private void mgrSearchBtnMouseClicked(java.awt.event.MouseEvent evt) {                                          
+        String ngayThang = mgrSearchField.getText();
+        if(!(ngayThang.equals("")||ngayThang.equals("dd/mm/yyyy"))){           
+            CalendarManagement cl = new CalendarManagement();
+            if(cl.isValidDate(ngayThang)){
+                try {
+                    if(cl.compareDates(ngayThang)){
+                        JOptionPane.showMessageDialog(null, "Ngày bạn nhập đã trôi qua");
+                    }
+                    else{
+                        try {
+                            cl.ThemLichPhat(mgrSearchField, mrgTable);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                } catch (ParseException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else
+                JOptionPane.showMessageDialog(rootPane, "Hãy nhập lại ngày dự kiến phát theo mẫu dd/mm/yyyy");
+        }
+        else 
+            JOptionPane.showMessageDialog(rootPane, "Hãy nhập ngày dự kiến phát");
+        
+    }                        
+     
     /**
      * @param args the command line arguments
      */
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -971,7 +1007,6 @@ public class GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addRequestpanel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
     private javax.swing.JButton mgrSearchBtn;
@@ -979,10 +1014,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel mgrSearchLabel;
     private javax.swing.ButtonGroup mode;
     private javax.swing.JSeparator mrgDivLine;
-    private javax.swing.JFormattedTextField mrgRequestDateLabel;
-    private javax.swing.JComboBox<String> mrgRequestStat;
     private javax.swing.JScrollPane mrgScrollPane;
-    private javax.swing.JButton mrgSearchBtn;
     private javax.swing.JTable mrgTable;
     private javax.swing.JButton mrgViewBtn;
     private javax.swing.JButton playlistAcceptBtn;
@@ -1027,6 +1059,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField schdlViewField;
     private javax.swing.JLabel schdlViewLabel;
     private javax.swing.JPanel schedulingPanel;
+    private javax.swing.JButton showDanhSach;
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {

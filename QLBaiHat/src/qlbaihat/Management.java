@@ -21,9 +21,11 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import qlbaihat.controller.DataBase;
 public class Management extends javax.swing.JFrame {
+     @SuppressWarnings("unchecked")
     static long idRQ;
     String nameSender,nameReceipt,message,phone,addr;
     public Management() throws SQLException {
+        
         initComponents();
         select();
         showManager(GUI.idSongSelect,"");
