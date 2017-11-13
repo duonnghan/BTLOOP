@@ -5,7 +5,11 @@
  */
 package qlbaihat;
 
+import com.mysql.jdbc.Statement;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,8 +40,6 @@ public class GUI extends javax.swing.JFrame {
     }
  void select()
     {        
-        String nameSong=null;
-        String nameArtist=null;
         ListSelectionModel cellSelect=schdlTable.getSelectionModel();
         cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         cellSelect.addListSelectionListener(new ListSelectionListener() {
@@ -56,20 +58,40 @@ public class GUI extends javax.swing.JFrame {
     }
   void select1()
     {        
-        String nameSong=null;
-        String nameArtist=null;
+        
         ListSelectionModel cellSelect=mrgTable.getSelectionModel();
         cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         cellSelect.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) 
             {
+                String nameSong=null;
+                String nameArtist=null;
                 int[] row=mrgTable.getSelectedRows();
                 int[] col=mrgTable.getSelectedColumns();
             for(int i=0;i<row.length;i++)
-            {
-                idSongSelect=(Long) mrgTable.getValueAt(row[i], 2);            
-            }            
+            {   
+                nameSong=(String) mrgTable.getValueAt(row[i], 1);
+                nameArtist=(String) mrgTable.getValueAt(row[i], 2);            
+            }
+            if(nameSong==null||nameArtist==null){
+                JOptionPane.showMessageDialog(null, "Không có dữ liệu!!");
+            }
+            String sql="SELECT id FROM song WHERE name='"+nameSong+"' && artist='"+nameArtist+"'";
+            Connection connection = qlbaihat.controller.DataBase.getConnection();
+            PreparedStatement ps;
+                try {
+                    ps = connection.prepareCall(sql);
+                     ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        idSongSelect=rs.getLong("id");
+                    }
+                    rs.close();
+                    ps.close();
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }       
             System.out.print(idSongSelect);
             }
         });
@@ -305,7 +327,7 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(playlistDivLine))
                     .addGroup(playlisttPanelLayout.createSequentialGroup()
-                        .addContainerGap(153, Short.MAX_VALUE)
+                        .addContainerGap(194, Short.MAX_VALUE)
                         .addComponent(playlistModeLabel)
                         .addGap(69, 69, 69)
                         .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -418,7 +440,7 @@ public class GUI extends javax.swing.JFrame {
         addRequestpanelLayout.setHorizontalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addRequestpanelLayout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
+                .addContainerGap(223, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addRequestpanelLayout.createSequentialGroup()
                         .addComponent(resSendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -446,7 +468,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                             .addComponent(resRecipientField)
                             .addComponent(resDataField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(223, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -549,7 +571,7 @@ public class GUI extends javax.swing.JFrame {
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 661, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
@@ -568,7 +590,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(schdlRequestBtn)
                         .addGap(48, 48, 48)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 287, Short.MAX_VALUE))
+                .addGap(0, 333, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -750,7 +772,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(managerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mrgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
+                    .addComponent(mrgScrollPane)
                     .addGroup(managerPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -775,20 +797,19 @@ public class GUI extends javax.swing.JFrame {
         managerPanelLayout.setVerticalGroup(
             managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
+                .addContainerGap(87, Short.MAX_VALUE)
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(showDanhSach)
                     .addComponent(mgrSearchLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(managerPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                         .addComponent(mrgDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mrgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(45, 45, 45))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(mrgViewBtn)
                             .addComponent(mgrSearchBtn))
@@ -801,7 +822,7 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, 706, Short.MAX_VALUE)
+            .addComponent(manage, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
