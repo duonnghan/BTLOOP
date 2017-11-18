@@ -7,6 +7,7 @@ package qlbaihat;
 
 import java.awt.Toolkit;
 import javax.swing.ButtonModel;
+import javax.swing.table.TableModel;
 import qlbaihat.controller.SongController;
 import qlbaihat.controller.TableValues;
 
@@ -45,9 +46,11 @@ public class GUI extends javax.swing.JFrame {
         playlistDivLine = new javax.swing.JSeparator();
         ok = new javax.swing.JButton();
         playlistSearchField = new javax.swing.JTextField();
-        Update = new javax.swing.JButton();
         jRadioButton1 = new javax.swing.JRadioButton();
-        month = new javax.swing.JComboBox<>();
+        Month = new javax.swing.JComboBox<>();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        idbaihat = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         addRequestpanel = new javax.swing.JPanel();
         resNameLabel = new javax.swing.JLabel();
         resNameField = new javax.swing.JTextField();
@@ -255,23 +258,32 @@ public class GUI extends javax.swing.JFrame {
 
         playlistSearchField.setEnabled(false);
 
-        Update.setText("Cập nhật thông tin");
-        Update.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                putUpdateInfomation(evt);
-            }
-        });
-
         mode.add(jRadioButton1);
         jRadioButton1.setText("thêm bài hát");
-        jRadioButton1.setActionCommand("thêm bài hát");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButton1ActionPerformed(evt);
             }
         });
 
-        month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        Month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
+        Month.setEnabled(false);
+
+        mode.add(jRadioButton2);
+        jRadioButton2.setText("xóa bài hát");
+        jRadioButton2.setToolTipText("");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
+
+        idbaihat.setEnabled(false);
+        idbaihat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idbaihatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout playlisttPanelLayout = new javax.swing.GroupLayout(playlisttPanel);
         playlisttPanel.setLayout(playlisttPanelLayout);
@@ -282,59 +294,80 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(playlisttPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(playlistScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
+                            .addComponent(playlistScrollPane)
                             .addComponent(playlistDivLine)))
                     .addGroup(playlisttPanelLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(228, 228, 228)
                         .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(Update, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(playlistRdioAllSongs)
+                                .addGap(287, 478, Short.MAX_VALUE))
                             .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                .addComponent(playlostSearchBtn)
-                                .addGap(34, 34, 34)
-                                .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jRadioButton1)
-                            .addComponent(playlistRdioAllSongs)
-                            .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                .addComponent(playlistRdioFavoriteSongs, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                        .addComponent(playlistRdioFavoriteSongs)
+                                        .addGap(64, 64, 64)
+                                        .addComponent(Month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                        .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(playlostSearchBtn)
+                                            .addComponent(jRadioButton2)
+                                            .addComponent(jRadioButton1))
+                                        .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                                .addGap(64, 64, 64)
+                                                .addComponent(idbaihat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(playlisttPanelLayout.createSequentialGroup()
+                                        .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(88, 88, 88)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(playlisttPanelLayout.createSequentialGroup()
                 .addGap(320, 320, 320)
                 .addComponent(playlistModeLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        playlisttPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, playlistRdioAllSongs, playlistRdioFavoriteSongs, playlostSearchBtn});
+
         playlisttPanelLayout.setVerticalGroup(
             playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playlisttPanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(playlistModeLabel)
-                .addGap(47, 47, 47)
-                .addComponent(playlistRdioAllSongs)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(61, 61, 61)
+                .addComponent(playlistRdioAllSongs, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(playlistRdioFavoriteSongs)
-                    .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(jRadioButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(Month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(playlostSearchBtn)
+                    .addComponent(jRadioButton2)
+                    .addComponent(idbaihat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(playlostSearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ok)
-                    .addComponent(Update))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                    .addComponent(jLabel1))
+                .addGap(21, 21, 21)
                 .addComponent(playlistDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
                 .addComponent(playlistScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
+
+        playlisttPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, playlistRdioAllSongs, playlistRdioFavoriteSongs, playlostSearchBtn});
 
         manage.addTab("Danh sách bài hát", playlisttPanel);
 
@@ -383,7 +416,7 @@ public class GUI extends javax.swing.JFrame {
         addRequestpanelLayout.setHorizontalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addRequestpanelLayout.createSequentialGroup()
-                .addContainerGap(205, Short.MAX_VALUE)
+                .addContainerGap(261, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addRequestpanelLayout.createSequentialGroup()
                         .addComponent(resSendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -411,7 +444,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                             .addComponent(resRecipientField)
                             .addComponent(resDataField))))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -448,12 +481,12 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(resMsgLabel)
                     .addComponent(resMsgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resSendBtn)
                     .addComponent(resSubmitBtn)
                     .addComponent(resCancelBtn))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         manage.addTab("Thêm yêu cầu", addRequestpanel);
@@ -507,7 +540,7 @@ public class GUI extends javax.swing.JFrame {
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 895, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
@@ -526,7 +559,7 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(schdlRequestBtn)
                         .addGap(50, 50, 50)
                         .addComponent(checkedBtn)))
-                .addGap(0, 405, Short.MAX_VALUE))
+                .addGap(0, 516, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,7 +735,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(managerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(mrgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE)
+                    .addComponent(mrgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 913, Short.MAX_VALUE)
                     .addGroup(managerPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -733,7 +766,7 @@ public class GUI extends javax.swing.JFrame {
         managerPanelLayout.setVerticalGroup(
             managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(68, Short.MAX_VALUE)
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(mrgSearchBtn)
@@ -744,7 +777,7 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(mrgRequestDateLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(mrgRequestStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                         .addComponent(mrgDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mrgScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -791,24 +824,34 @@ public class GUI extends javax.swing.JFrame {
          * sự kiện khi nhấn nút ok
          */
         int chosen =5;
-        if(mode.isSelected((ButtonModel)playlistRdioAllSongs)){//chọn tât cả bài hát
+        if(playlistRdioAllSongs.isSelected()){//chọn tât cả bài hát
             chosen = 0;
         }
         
-        if(mode.isSelected((ButtonModel) playlistRdioFavoriteSongs)){//chọn bài hát yêu thích nhất tháng
+        if(playlistRdioFavoriteSongs.isSelected()){//chọn bài hát yêu thích nhất tháng
             chosen = 1;
         }
         
-        if(mode.isSelected((ButtonModel)playlostSearchBtn)){//tìm kiếm bài hát
+        if(playlostSearchBtn.isSelected()){//tìm kiếm bài hát
             chosen = 2;
         }
         
-        if(mode.isSelected((ButtonModel)jRadioButton1)){//thêm bài hát
+        if(jRadioButton1.isSelected()){//thêm bài hát
             chosen = 3;
         }
-        String name = playlistSearchField.getName();
-        SongController control = new SongController(chosen, listSong, name);
+        if(jRadioButton2.isSelected()){//xoa bai hat
+            chosen = 4;
+        }
+        int month =  Month.getSelectedIndex() + 1;
+        String name = playlistSearchField.getText();
+        String idstr = idbaihat.getText();
+        long id = -1;
+        if(idstr.length() != 0){
+            id = Long.valueOf(idstr);
+        }
+        SongController control = new SongController(chosen, month, listSong, name, id, jLabel1);
         control.eventOK();
+        TableModel data = listSong.getModel();
     }//GEN-LAST:event_putOk
 
     private void mgrSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchBtnActionPerformed
@@ -831,18 +874,6 @@ public class GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_okHierarchyChanged
 
-    private void putUpdateInfomation(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_putUpdateInfomation
-        /**
-         * @author Tuyên
-         * sự kiện khi nhấn nút cập nhật thông tin
-         */
-        if(mode.isSelected((ButtonModel)jRadioButton1)){//thêm bài hát
-            TableValues values = (TableValues)listSong.getModel();
-            
-        }
-        
-    }//GEN-LAST:event_putUpdateInfomation
-
     private void mrgRequestStatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrgRequestStatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mrgRequestStatActionPerformed
@@ -850,34 +881,56 @@ public class GUI extends javax.swing.JFrame {
     private void playlostSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlostSearchBtnActionPerformed
         /**
          * @author tuyên
-         * diễn ra khi chọn tìm kiếm
+         * diễn ra khi chọn tìm kiếm bài hát
          */
         playlistSearchField.setEnabled(true);
+        Month.setEnabled(false);
+        idbaihat.setEnabled(false);
     }//GEN-LAST:event_playlostSearchBtnActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         /**
          * @author tuyên
-         * diễn ra khi chọn tìm kiếm
+         * diễn ra khi chọn thêm bài hát
          */
         playlistSearchField.setEnabled(false);
+        Month.setEnabled(false);
+        idbaihat.setEnabled(false);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void playlistRdioFavoriteSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioFavoriteSongsActionPerformed
         /**
          * @author tuyên
-         * diễn ra khi chọn tìm kiếm
+         * diễn ra khi chọn bài hát được yêu thích nhất tháng
          */
         playlistSearchField.setEnabled(false);
+        Month.setEnabled(true);
+        idbaihat.setEnabled(false);
     }//GEN-LAST:event_playlistRdioFavoriteSongsActionPerformed
 
     private void playlistRdioAllSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioAllSongsActionPerformed
         /**
          * @author tuyên
-         * diễn ra khi chọn tìm kiếm
+         * diễn ra khi chọn tất cả bài hát
          */
         playlistSearchField.setEnabled(false);
+        Month.setEnabled(false);
+        idbaihat.setEnabled(false);
     }//GEN-LAST:event_playlistRdioAllSongsActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        /**
+         * @author tuyên
+         * diễn ra khi nhấn xóa bài hát
+         */
+        playlistSearchField.setEnabled(false);
+        Month.setEnabled(false);
+        idbaihat.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void idbaihatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idbaihatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idbaihatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -915,10 +968,13 @@ public class GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Update;
+    private javax.swing.JComboBox<String> Month;
     private javax.swing.JPanel addRequestpanel;
     private javax.swing.JButton checkedBtn;
+    private javax.swing.JTextField idbaihat;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTable listSong;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
@@ -926,7 +982,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JTextField mgrSearchField;
     private javax.swing.JLabel mgrSearchLabel;
     private javax.swing.ButtonGroup mode;
-    private javax.swing.JComboBox<String> month;
     private javax.swing.JSeparator mrgDivLine;
     private javax.swing.JFormattedTextField mrgRequestDateLabel;
     private javax.swing.JComboBox<String> mrgRequestStat;

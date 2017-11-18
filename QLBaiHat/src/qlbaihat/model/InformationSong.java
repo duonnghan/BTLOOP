@@ -13,8 +13,8 @@ import java.util.Vector;
  */
 public class InformationSong {
     private long ID;
-    private int namSX, vote;
-    private String casi, nhacsi, theloai, name;
+    private int namSX, binhchon;
+    private String casi, nhacsi, theloai, ten;
     
     /**
      * khởi tạo constructor mặc định
@@ -22,11 +22,11 @@ public class InformationSong {
     public InformationSong() {
         this.ID = -1;
         this.namSX = 0;
-        this.vote = 0;
-        this.casi = new String();
-        this.name = new String();
-        this.nhacsi = new String();
-        this.theloai = new String();
+        this.binhchon = 0;
+        this.casi = null;
+        this.ten = null;
+        this.nhacsi = null;
+        this.theloai = null;
     }
      
     /**
@@ -45,8 +45,8 @@ public class InformationSong {
         this.casi = casi;
         this.nhacsi = nhacsi;
         this.theloai = theloai;
-        this.name = name;
-        this.vote = vote;
+        this.ten = name;
+        this.binhchon = vote;
     }
 
     public long getID() {
@@ -73,12 +73,12 @@ public class InformationSong {
         this.theloai = theloai;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String ten) {
+        this.ten = ten;
     }
 
-    public void setVote(int vote) {
-        this.vote = vote;
+    public void setVote(int binhchon) {
+        this.binhchon = binhchon;
     }
 
     public int getNamSX() {
@@ -98,11 +98,11 @@ public class InformationSong {
     }
 
     public String getName() {
-        return name;
+        return ten;
     }
 
     public int getVote() {
-        return vote;
+        return binhchon;
     }
     /**
      * trả lại một vecter chứa thông tin bài hát
@@ -111,16 +111,17 @@ public class InformationSong {
     public Vector getSong(){
         Vector vec = new Vector();
         vec.add(this.ID);
-        vec.add(this.name);
+        vec.add(this.ten);
         vec.add(this.casi);
         vec.add(this.nhacsi);
         vec.add(this.theloai);
         vec.add(this.namSX);
-        vec.add(this.vote);
+        vec.add(this.binhchon);
         return vec;
     }
     
     public static int getcountcomponent(){
         return 7;
     }
+    
 }

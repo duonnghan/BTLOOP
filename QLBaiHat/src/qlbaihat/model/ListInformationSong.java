@@ -19,39 +19,35 @@ import qlbaihat.controller.DataBase;
  */
 public class ListInformationSong {
     private Connection con;
+    private Statement statement;
     
     /**
      * khởi tạo kết nối tới cơ sở dữ liệu
      */
-    public ListInformationSong(){
+    public ListInformationSong() throws SQLException{
          con = DataBase.getConnection();
-    }
-
-    public ListInformationSong(int i, int i0, int i1, String tuyen, String tuyen0, String tuyen1, String tuyen2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         statement = (Statement)con.createStatement();
     }
     
     
     /**
      * lấy tất cả bài hát trong cơ sở dữ liệu
-     * @return Vector danh sách InfomationSong
+     * @return mảng hai chiều danh sách InfomationSong nếu không có trả về null
      * @throws SQLException 
      */
     public Object[][] getAllSong()throws SQLException {
         Vector vec = new Vector();
-        
         String sql="SELECT * FROM song";
-        Statement statement = (Statement) con.createStatement();
         ResultSet rs = statement.executeQuery(sql);
         if(rs.next()){
-            {
+            do{
                 InformationSong song = new InformationSong();
                 song.setID(rs.getLong("id"));
                 song.setNamSX(rs.getInt("year"));
                 song.setVote(rs.getInt("vote"));
-                song.setCasi(rs.getString("composer"));
+                song.setNhacsi(rs.getString("composer"));
                 song.setName(rs.getString("name"));
-                song.setTheloai(rs.getString("artist"));
+                song.setCasi(rs.getString("artist"));
                 song.setTheloai(rs.getString("genre"));
                 vec.add(song);
             } while(rs.next());
@@ -64,23 +60,22 @@ public class ListInformationSong {
     
     /**
      * lấy thông tin các bài hát có lượt bình chọn là 0
-     * @return Vector chứa Vector thông tin bài hát
+     * @return mảng hai chiều thông tin bài hát nếu không có trả về null
      * @throws SQLException 
      */
     public Object[][] getSongNotRequest()throws SQLException {
         Vector vec = new Vector();
         String sql="SELECT * FROM song WHERE vote = 0";
-        PreparedStatement ps=con.prepareCall(sql);
-        ResultSet rs=ps.executeQuery();
-         if(rs.next()){
-            {
+        ResultSet rs=statement.executeQuery(sql);
+        if(rs.next()){
+            do{
                 InformationSong song = new InformationSong();
-                song.setID(rs.getInt("id"));
+                song.setID(rs.getLong("id"));
                 song.setNamSX(rs.getInt("year"));
                 song.setVote(rs.getInt("vote"));
-                song.setCasi(rs.getString("composer"));
+                song.setNhacsi(rs.getString("composer"));
                 song.setName(rs.getString("name"));
-                song.setTheloai(rs.getString("artist"));
+                song.setCasi(rs.getString("artist"));
                 song.setTheloai(rs.getString("genre"));
                 vec.add(song);
             } while(rs.next());
@@ -88,40 +83,29 @@ public class ListInformationSong {
             return object;
         }
         return null;
-    }
-    
-    
-    /**
-     * lấy thông tin bài hát được bình
-     * @return
-     * @throws SQLException 
-     */
-     public static Vector getSongNotPlay()throws SQLException {
-         Vector vec = new Vector();
-        return vec;
     }
     
      
      /**
       * tìm bài hát với tên bài hát
       * @param name
-      * @return Vector thông tin bài hát
+      * @return mảng hai chiều thông tin bài hát nếu không có trả về null
       * @throws SQLException 
       */
     public Object[][] findSong(String name)throws SQLException {
         Vector vec = new Vector();
-        String sql="SELECT * FROM song WHERE name like '%/name/%'";
-        PreparedStatement ps=con.prepareCall(sql);
-        ResultSet rs=ps.executeQuery();
+        String sql="SELECT * FROM song WHERE name like '%"+name+"%'";
+        System.out.println("Find song: " + sql);
+        ResultSet rs=statement.executeQuery(sql);
          if(rs.next()){
-            {
+            do{
                 InformationSong song = new InformationSong();
-                song.setID(rs.getInt("id"));
+                song.setID(rs.getLong("id"));
                 song.setNamSX(rs.getInt("year"));
                 song.setVote(rs.getInt("vote"));
-                song.setCasi(rs.getString("composer"));
+                song.setNhacsi(rs.getString("composer"));
                 song.setName(rs.getString("name"));
-                song.setTheloai(rs.getString("artist"));
+                song.setCasi(rs.getString("artist"));
                 song.setTheloai(rs.getString("genre"));
                 vec.add(song);
             } while(rs.next());
@@ -132,61 +116,138 @@ public class ListInformationSong {
     }
      
     /**
-     * lấy thông tin các bài hát đứng đầu bản sếp hạng mooth tháng
+     * lấy thông tin các bài hát đứng đầu bản sếp hạng một tháng
      * @param month int
-     * @return Object[][]
+     * @return mảng hai chiều chứa nội dunng các bài hát nếu không có trả về null
      * @throws SQLException 
      */
     public Object[][] getTopSong(int month)throws SQLException {
-        int [] array =new int[12];
-        String sql="SELECT * FROM topsongs WHERE month = '"+ month + "'";
-        PreparedStatement ps=con.prepareCall(sql);
-        ResultSet rs=ps.executeQuery();
-        array[0] = rs.getInt("idsong1");
-        array[1] = rs.getInt("idsong2");
-        array[2] = rs.getInt("idsong3");
-        array[3] = rs.getInt("idsong4");
-        array[4] = rs.getInt("idsong5");
-        array[5] = rs.getInt("idsong6");
-        array[6] = rs.getInt("idsong7");
-        array[7] = rs.getInt("idsong8");
-        array[8] = rs.getInt("idsong9");
-        array[9] = rs.getInt("idsong10");
-        array[10] = rs.getInt("idsong11");
-        array[11] = rs.getInt("idsong12");
-        Vector vec = new Vector();
-        for(int i = 0; i<12 ; i++){
-            vec.add(findSong(array[0]));
+        if((month < 1)||(month>12)){//kiểm tra không phải là tháng thì return null
+            return null;
         }
-        Object [][] object = this.convert(vec);
-        return object;
+        int [] array =new int[12];//khởi tạo mảng lưu id bài hát
+        for(int i=0;i<12;i++){
+            array[i]=-1;
+        }
+        String sql="SELECT * FROM topsongs WHERE month = "+ month;
+        ResultSet rs=statement.executeQuery(sql);
+        if(rs.next()){//đưa danh sách id vào mảng
+            array[0] = rs.getInt("idsong1");
+            array[1] = rs.getInt("idsong2");
+            array[2] = rs.getInt("idsong3");
+            array[3] = rs.getInt("idsong4");
+            array[4] = rs.getInt("idsong5");
+            array[5] = rs.getInt("idsong6");
+            array[6] = rs.getInt("idsong7");
+            array[7] = rs.getInt("idsong8");
+            array[8] = rs.getInt("idsong9");
+            array[9] = rs.getInt("idsong10");
+            array[10] = rs.getInt("idsong11");
+            array[11] = rs.getInt("idsong12");
+            Vector vec = new Vector();
+            for(int i = 0; i<12 ; i++){
+                InformationSong song = this.findSong(array[i]);
+                if(song != null){//nếu có bài hát thì đưa vào dánh sách
+                    vec.add(song);
+                }
+            }
+            Object [][] object = this.convert(vec);//chuyển đổi vector sang mảng
+            return object;
+        }
+        return null;
     }
     
     /**
      * tìm bài hát theo mã số bài hát
      * @param id
-     * @return Object[][]
+     * @return một đối tượng InformationSong
      * @throws SQLException 
      */
-    public Vector findSong(int id)throws SQLException{
+    public InformationSong findSong(int id)throws SQLException{
         String sql="SELECT * FROM song WHERE id='"+ id +"'";
-        PreparedStatement ps=con.prepareCall(sql);
-        ResultSet rs=ps.executeQuery();
+        ResultSet rs=statement.executeQuery(sql);
         InformationSong song = new  InformationSong();
         if(rs.next()){
-            song.setID(rs.getInt("id"));
+            song.setID(rs.getLong("id"));
             song.setNamSX(rs.getInt("year"));
             song.setVote(rs.getInt("vote"));
-            song.setCasi(rs.getString("composer"));
+            song.setNhacsi(rs.getString("composer"));
             song.setName(rs.getString("name"));
-            song.setTheloai(rs.getString("artist"));
+            song.setCasi(rs.getString("artist"));
             song.setTheloai(rs.getString("genre"));
-            return song.getSong();
+            return song;
         }
         return null;
     }
     
+    /**
+     * trèn dữ liệu vào cơ sở dữ liệu
+     * @param song là đối tương của InformationSong 
+     * @return trả về true nếu thành công, trả về false nếu thất bại 
+     * @throws SQLException 
+     */
+    public boolean insertSong(InformationSong song) throws SQLException{
+        String id = new String();
+        String ten = new String();
+        String caSi = new String();
+        String nhacSi = new String();
+        String theLoai = new String();
+        String namSX = new String();
+        String binhChon = new String();
+        
+        if(song.getID()!=-1){
+            id = "'" + song.getID() + "'";
+        }else{
+            id = "null";
+        }
+        
+        if(song.getName()!= null){
+            ten = "'" + song.getName() + "'";
+        }else{
+            ten = "null";
+        }
+        
+        if(song.getCasi() != null){
+            caSi= "'" + song.getCasi() + "'";
+        }else{
+            caSi = "null";
+        }
+        
+        if(song.getNhacsi() != null){
+            nhacSi = "'" + song.getNhacsi() + "'";
+        }else{
+            nhacSi = "null";
+        }
+        
+        if(song.getTheloai() != null){
+            theLoai= "'" + song.getTheloai() + "'";
+        }else{
+            theLoai = "null";
+        }
+        
+        if(song.getNamSX() != 0){
+            namSX = "'" + song.getNamSX() + "'";
+        }else{
+            namSX = "null";
+        }
+        binhChon = "'" + song.getVote() + "'";
+        
+        String sql = "insert into `song` values (" + id + ", " + ten +", "+ caSi +", "+nhacSi+", "+theLoai+", "+namSX+", "+binhChon+")";
+        if(statement.executeUpdate(sql)==1){
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * chuyển đổi từ vector lớp InformationSong sang mảng hai chiều
+     * @param vec Vector
+     * @return một mảng hai chiều các đối tượng
+     */
     public Object[][] convert(Vector <InformationSong> vec){
+        if(vec == null){//nếu vector null thì return null
+            return null;
+        }
         int countvec = vec.size();
         int countSong = InformationSong.getcountcomponent();
         Object[][] object =new Object[countvec][countSong];
@@ -197,15 +258,17 @@ public class ListInformationSong {
         }
         return object;
     }
-    public static void main(String[]args){
-        ListInformationSong listSong = new ListInformationSong();
-        try{
-            Object[][] object = listSong.getAllSong();
-            if(object.length > 1){
-                System.out.println(object[0][1].toString());
-            }
-        }catch(SQLException e){
-            System.out.println("don't accept database");
+    /**
+     * xoa mot bai hat
+     * @param id kieu du liwu long
+     * @return true thanh cong, false that bai
+     * @throws SQLException 
+     */
+    public boolean deleteSong(long id) throws SQLException{
+        String sql = "DELETE FROM `bai_tap_lon_opp`.`song` WHERE `id`='" +id+ "'";
+        if(statement.executeUpdate(sql) == 1){
+            return true;
         }
+        return false;
     }
 }
