@@ -230,7 +230,11 @@ public class ListInformationSong {
         }else{
             namSX = "null";
         }
-        binhChon = "'" + song.getVote() + "'";
+        
+        if(song.getVote()!=-1)
+            binhChon = "'" + song.getVote() + "'";
+        else
+            binhChon = "'" + 0 + "'";
         
         String sql = "insert into `song` values (" + id + ", " + ten +", "+ caSi +", "+nhacSi+", "+theLoai+", "+namSX+", "+binhChon+")";
         if(statement.executeUpdate(sql)==1){
@@ -238,7 +242,53 @@ public class ListInformationSong {
         }
         return false;
     }
-    
+    /**
+     * chỉnh sửa bản ghi bảng song
+     * @param song đối tượng của Information
+     * @return true thành công, false nếu thất bại
+     * @throws SQLException 
+     */
+    public boolean UpdateSong(InformationSong song) throws SQLException{
+        String id = new String();
+        String ten = new String();
+        String caSi = new String();
+        String nhacSi = new String();
+        String theLoai = new String();
+        String namSX = new String();
+        String binhChon = new String();
+        String sql = new String("UPDATE `bai_tap_lon_opp`.`song` SET");
+        if(song.getID() != -1){
+            id = "`id`='";
+        }else{
+            return false;
+        }
+        if(song.getName() != null)
+            sql = sql + "`name`='" +song.getName()+"', ";
+        
+        if(song.getCasi()!=null)
+            sql = sql + "`artist`='" + song.getCasi() + "', ";
+        
+        if(song.getNhacsi()!=null)
+            sql = sql+"`composer`='" +song.getNhacsi()+ "', ";
+        
+        if(song.getTheloai()!=null)
+            sql = sql +"`genre`='" +song.getTheloai()+ "', ";
+        
+        if(song.getNamSX()!=0)
+            sql = sql +"`year`='" +song.getNamSX()+ "', ";
+        
+        if(song.getVote()!=-1)
+            sql = sql +"`vote`='" +song.getVote()+ "', ";
+        
+        sql = sql.substring(0, sql.length()-2);
+        sql = sql +" WHERE `id`='" +song.getID()+ "'";
+        System.out.println(sql);
+        
+        if(statement.executeUpdate(sql)==1){
+            return true;
+        }
+        return false;
+    }
     /**
      * chuyển đổi từ vector lớp InformationSong sang mảng hai chiều
      * @param vec Vector

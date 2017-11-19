@@ -48,8 +48,6 @@ public class GUI extends javax.swing.JFrame {
         playlistSearchField = new javax.swing.JTextField();
         jRadioButton1 = new javax.swing.JRadioButton();
         Month = new javax.swing.JComboBox<>();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        idbaihat = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         addRequestpanel = new javax.swing.JPanel();
         resNameLabel = new javax.swing.JLabel();
@@ -269,22 +267,6 @@ public class GUI extends javax.swing.JFrame {
         Month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" }));
         Month.setEnabled(false);
 
-        mode.add(jRadioButton2);
-        jRadioButton2.setText("xóa bài hát");
-        jRadioButton2.setToolTipText("");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        idbaihat.setEnabled(false);
-        idbaihat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idbaihatActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout playlisttPanelLayout = new javax.swing.GroupLayout(playlisttPanel);
         playlisttPanel.setLayout(playlisttPanelLayout);
         playlisttPanelLayout.setHorizontalGroup(
@@ -298,34 +280,25 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(playlistDivLine)))
                     .addGroup(playlisttPanelLayout.createSequentialGroup()
                         .addGap(228, 228, 228)
+                        .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jRadioButton1)
+                            .addComponent(playlistRdioFavoriteSongs)
+                            .addComponent(playlistRdioAllSongs)
+                            .addComponent(playlostSearchBtn))
                         .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                .addComponent(playlistRdioAllSongs)
-                                .addGap(287, 478, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                        .addComponent(playlistRdioFavoriteSongs)
-                                        .addGap(64, 64, 64)
-                                        .addComponent(Month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                        .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(playlostSearchBtn)
-                                            .addComponent(jRadioButton2)
-                                            .addComponent(jRadioButton1))
-                                        .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                                .addGap(64, 64, 64)
-                                                .addComponent(idbaihat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGroup(playlisttPanelLayout.createSequentialGroup()
-                                        .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(88, 88, 88)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(67, 67, 67)
+                                .addComponent(Month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 252, Short.MAX_VALUE))
+                    .addGroup(playlisttPanelLayout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 427, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(playlisttPanelLayout.createSequentialGroup()
                 .addGap(320, 320, 320)
@@ -333,14 +306,14 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        playlisttPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, playlistRdioAllSongs, playlistRdioFavoriteSongs, playlostSearchBtn});
+        playlisttPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jRadioButton1, playlistRdioAllSongs, playlistRdioFavoriteSongs, playlostSearchBtn});
 
         playlisttPanelLayout.setVerticalGroup(
             playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(playlisttPanelLayout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(playlistModeLabel)
-                .addGap(61, 61, 61)
+                .addGap(85, 85, 85)
                 .addComponent(playlistRdioAllSongs, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -350,13 +323,9 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton2)
-                    .addComponent(idbaihat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(playlostSearchBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(playlistSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(38, 38, 38)
                 .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ok)
                     .addComponent(jLabel1))
@@ -364,10 +333,10 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(playlistDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(playlistScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        playlisttPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButton1, jRadioButton2, playlistRdioAllSongs, playlistRdioFavoriteSongs, playlostSearchBtn});
+        playlisttPanelLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jRadioButton1, playlistRdioAllSongs, playlistRdioFavoriteSongs, playlostSearchBtn});
 
         manage.addTab("Danh sách bài hát", playlisttPanel);
 
@@ -839,17 +808,9 @@ public class GUI extends javax.swing.JFrame {
         if(jRadioButton1.isSelected()){//thêm bài hát
             chosen = 3;
         }
-        if(jRadioButton2.isSelected()){//xoa bai hat
-            chosen = 4;
-        }
         int month =  Month.getSelectedIndex() + 1;
         String name = playlistSearchField.getText();
-        String idstr = idbaihat.getText();
-        long id = -1;
-        if(idstr.length() != 0){
-            id = Long.valueOf(idstr);
-        }
-        SongController control = new SongController(chosen, month, listSong, name, id, jLabel1);
+        SongController control = new SongController(chosen, month, listSong, name, jLabel1);
         control.eventOK();
         TableModel data = listSong.getModel();
     }//GEN-LAST:event_putOk
@@ -885,7 +846,6 @@ public class GUI extends javax.swing.JFrame {
          */
         playlistSearchField.setEnabled(true);
         Month.setEnabled(false);
-        idbaihat.setEnabled(false);
     }//GEN-LAST:event_playlostSearchBtnActionPerformed
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
@@ -895,7 +855,6 @@ public class GUI extends javax.swing.JFrame {
          */
         playlistSearchField.setEnabled(false);
         Month.setEnabled(false);
-        idbaihat.setEnabled(false);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void playlistRdioFavoriteSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioFavoriteSongsActionPerformed
@@ -905,7 +864,6 @@ public class GUI extends javax.swing.JFrame {
          */
         playlistSearchField.setEnabled(false);
         Month.setEnabled(true);
-        idbaihat.setEnabled(false);
     }//GEN-LAST:event_playlistRdioFavoriteSongsActionPerformed
 
     private void playlistRdioAllSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioAllSongsActionPerformed
@@ -915,22 +873,7 @@ public class GUI extends javax.swing.JFrame {
          */
         playlistSearchField.setEnabled(false);
         Month.setEnabled(false);
-        idbaihat.setEnabled(false);
     }//GEN-LAST:event_playlistRdioAllSongsActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        /**
-         * @author tuyên
-         * diễn ra khi nhấn xóa bài hát
-         */
-        playlistSearchField.setEnabled(false);
-        Month.setEnabled(false);
-        idbaihat.setEnabled(true);
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void idbaihatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idbaihatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idbaihatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -971,10 +914,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Month;
     private javax.swing.JPanel addRequestpanel;
     private javax.swing.JButton checkedBtn;
-    private javax.swing.JTextField idbaihat;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTable listSong;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;

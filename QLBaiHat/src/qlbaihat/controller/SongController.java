@@ -18,7 +18,6 @@ import qlbaihat.model.ListInformationSong;
  */
 public class SongController {
     private int chosen, month;
-    private long id;
     private JTable song;
     private String name;
     private JLabel label;
@@ -28,17 +27,19 @@ public class SongController {
      * @param chosen int
      * @param song JTable
      */
-    public SongController(int chosen, int month, JTable song, String name, long id, JLabel label) {
+    public SongController(int chosen, int month, JTable song, String name,  JLabel label) {
         this.chosen = chosen;
         this.month=month;
         this.song = song;
         this.name = name;
-        this.id = id;
         this.label = label;
     }
-    
-    public void deleteSong(){
-        System.out.println("xoa bai hat");
+    /**
+     * xóa một bài hát trong cơ sở dữ liệu
+     * @param label
+     * @param id 
+     */
+    public static void deleteSong(JLabel label, long id){
         ListInformationSong listSong;
         try{
             listSong = new ListInformationSong();
@@ -70,6 +71,20 @@ public class SongController {
             e.getStackTrace();
         }
     }
+    
+    public static void UpdateSong(JLabel label, InformationSong song){
+        try{
+            ListInformationSong listSong = new ListInformationSong();
+            if(listSong.UpdateSong(song)){
+                label.setText("thành công");
+            }else{
+                label.setText("không thể cỉnh sửa thông tin");
+            }
+        }catch(SQLException e){
+            label.setText("không thể cỉnh sửa thông tin");
+            e.getStackTrace();
+        }
+    }
     /**
      * xảy ra khi nhấn vào ok
      */
@@ -79,7 +94,6 @@ public class SongController {
             case 1:this.displayFavouriteSongs(); break;
             case 2:this.displayFindSong(); break;
             case 3:this.inforMusic(); break;
-            case 4:this.deleteSong();break;
             default:  break;
         }
     }
@@ -88,6 +102,7 @@ public class SongController {
      */
     public boolean inforMusic(){
         InfoMusic addMusic = new InfoMusic();
+        addMusic.setTitle("chỉnh sửa bài hát");
         addMusic.setVisible(true);
         return true;
     }
