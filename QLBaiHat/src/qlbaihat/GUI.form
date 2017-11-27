@@ -65,36 +65,46 @@
                               <Component id="playlistDivLine" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace pref="194" max="32767" attributes="0"/>
+                              <EmptySpace pref="275" max="32767" attributes="0"/>
                               <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="playlostSearchBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Component id="playlistSearchField" min="-2" pref="230" max="-2" attributes="0"/>
-                                      <EmptySpace pref="100" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="addSong" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="playlistRdioNotPlayedYet" min="-2" max="-2" attributes="0"/>
-                                          <Component id="playlistRdioFavoriteSongs" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="playlistRdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="playlistRdioAudienceNotAccepted" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="playlistAcceptBtn" min="-2" pref="93" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                              <Component id="playlostSearchBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="playlistSearchField" min="-2" pref="230" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="playlistRdioFavoriteSongs" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="Month" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="playlistRdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="ok" min="-2" pref="93" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                               <Component id="playlistUpdateBtn" min="-2" pref="129" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Component id="playlistResetBtn" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="338" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" pref="180" max="-2" attributes="0"/>
+                          <EmptySpace pref="339" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -107,30 +117,35 @@
                           <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="playlistRdioFavoriteSongs" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="playlistRdioNotPlayedYet" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="playlistRdioAudienceNotAccepted" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="playlostSearchBtn" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Component id="playlistSearchField" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="playlistAcceptBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistRdioFavoriteSongs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Month" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                      <Component id="addSong" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="playlostSearchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistSearchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ok" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="playlistUpdateBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="playlistResetBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                       <Component id="playlistDivLine" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="45" max="32767" attributes="0"/>
                       <Component id="playlistScrollPane" min="-2" pref="206" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="263" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -148,6 +163,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="T&#x1ea5;t c&#x1ea3; b&#xe0;i h&#xe1;t."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlistRdioAllSongsActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="playlistRdioFavoriteSongs">
               <Properties>
@@ -156,22 +174,20 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="B&#xe0;i h&#xe1;t &#x111;&#x1b0;&#x1ee3;c y&#xea;u th&#xed;ch nh&#x1ea5;t trong th&#xe1;ng"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlistRdioFavoriteSongsActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JRadioButton" name="playlistRdioNotPlayedYet">
+            <Component class="javax.swing.JRadioButton" name="addSong">
               <Properties>
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mode"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="B&#xe0;i h&#xe1;t ch&#x1b0;a &#x111;&#x1b0;&#x1ee3;c ph&#xe1;t s&#xf3;ng"/>
+                <Property name="text" type="java.lang.String" value="Th&#xea;m b&#xe0;i h&#xe1;t"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="playlistRdioAudienceNotAccepted">
-              <Properties>
-                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                  <ComponentRef name="mode"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="C&#xe1;c th&#xed;nh gi&#x1ea3; ch&#x1b0;a ph&#xe1;t &#x111;&#x1b0;&#x1ee3;c y&#xea;u c&#x1ea7;u"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addSongActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="playlostSearchBtn">
               <Properties>
@@ -191,7 +207,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="playlistTable">
+                <Component class="javax.swing.JTable" name="listSong">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="7" rowCount="100">
@@ -252,12 +268,12 @@
             </Container>
             <Component class="javax.swing.JSeparator" name="playlistDivLine">
             </Component>
-            <Component class="javax.swing.JButton" name="playlistAcceptBtn">
+            <Component class="javax.swing.JButton" name="ok">
               <Properties>
                 <Property name="text" type="java.lang.String" value="OK"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlistAcceptBtnActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="putOk"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="playlistSearchField">
@@ -271,6 +287,32 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reset l&#x1b0;&#x1ee3;t y&#xea;u c&#x1ea7;u"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="Month">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="12">
+                    <StringItem index="0" value="January"/>
+                    <StringItem index="1" value="February"/>
+                    <StringItem index="2" value="March"/>
+                    <StringItem index="3" value="April"/>
+                    <StringItem index="4" value="May"/>
+                    <StringItem index="5" value="June"/>
+                    <StringItem index="6" value="July"/>
+                    <StringItem index="7" value="August"/>
+                    <StringItem index="8" value="September"/>
+                    <StringItem index="9" value="October"/>
+                    <StringItem index="10" value="November"/>
+                    <StringItem index="11" value="December"/>
+                  </StringArray>
+                </Property>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
             </Component>
           </SubComponents>
         </Container>

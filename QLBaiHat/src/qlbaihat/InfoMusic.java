@@ -61,11 +61,11 @@ public class InfoMusic extends javax.swing.JFrame {
 
         jLabel7.setText("Lượt yêu cầu");
 
-        jButton1.setText("OK");
+        jButton1.setText("Sửa");
 
-        jButton2.setText("Cancel");
+        jButton2.setText("Xóa");
 
-        jButton3.setText("Reset");
+        jButton3.setText("Thêm");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,7 +74,7 @@ public class InfoMusic extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(107, Short.MAX_VALUE)
+                        .addContainerGap(118, Short.MAX_VALUE)
                         .addComponent(jButton3)
                         .addGap(35, 35, 35)
                         .addComponent(jButton2)
