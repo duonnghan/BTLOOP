@@ -25,7 +25,7 @@ public class ScheduleTableModel extends AbstractTableModel {
     public void setSQL(String sql) {
         this.sql = sql;
     }
-
+    
     public void loaData() {
         Connection conn = DataBase.getConnection();
         System.out.println("Opened database connection");

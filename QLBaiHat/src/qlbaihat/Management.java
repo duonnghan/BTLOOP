@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +32,7 @@ public class Management extends javax.swing.JFrame {
         showManager(GUI.idSongSelect,"");
     }
     void showManager(Long ID,String subSql) throws SQLException{
-        String sql = "SELECT * FROM requirement WHERE songid='"+ID+"' "+subSql+" ORDER BY id DESC";
+        String sql = "SELECT * FROM requirement WHERE songid='"+ID+"' "+ subSql+" ORDER BY id ASC";
         Vector columnNames = new Vector();
         columnNames.add("ID");
         columnNames.add("Người gửi");
@@ -39,13 +40,14 @@ public class Management extends javax.swing.JFrame {
         columnNames.add("Lời nhắn");
         columnNames.add("Số điện thoại");
         columnNames.add("Địa chỉ");        
-        Vector rowData=new Vector();
+        
         Vector data=new Vector();
          Connection connection = qlbaihat.controller.DataBase.getConnection();
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
         while(rs.next())
         {
+            Vector rowData=new Vector();
             rowData.add(rs.getLong("id"));
             rowData.add(rs.getString("sender"));
             rowData.add(rs.getString("recipient"));
@@ -55,7 +57,7 @@ public class Management extends javax.swing.JFrame {
             data.add(rowData);
         }
         rs.close();
-              TableModel dataModel = new DefaultTableModel(data, columnNames);
+       TableModel dataModel = new DefaultTableModel(data, columnNames);
       jTable1.setModel(dataModel);
       
     }
@@ -74,8 +76,8 @@ public class Management extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jButton5 = new javax.swing.JButton();
+        resDataField = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -247,15 +249,15 @@ public class Management extends javax.swing.JFrame {
 
         jLabel2.setText("Ngày yêu cầu");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        jFormattedTextField1.setText("dd/MM/yyyy");
-
         jButton5.setText("Hiện lời nhắn");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
+
+        resDataField.setToolTipText("Chọn ngày phát");
+        resDataField.setDateFormatString("dd/MM/yyyy");
 
         jMenu1.setText("Menu");
 
@@ -284,15 +286,11 @@ public class Management extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
                 .addGap(72, 72, 72)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -305,13 +303,15 @@ public class Management extends javax.swing.JFrame {
                         .addComponent(jButton4)
                         .addGap(40, 40, 40))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1)))
-                        .addContainerGap(193, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(resDataField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 792, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -322,18 +322,18 @@ public class Management extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jButton1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(resDataField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
-                .addGap(19, 19, 19)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(135, 135, 135))
         );
 
         pack();
@@ -405,8 +405,10 @@ public class Management extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String textSearch=jTextField1.getText();
-        String sql="WHERE id='"+textSearch+"'||sender='"+textSearch+"'||recipient='"+textSearch+"'||playdate='"+jFormattedTextField1.getText()+"'";
+        String textSearch=jTextField1.getText().trim().toUpperCase();
+        SimpleDateFormat dateFomat = new SimpleDateFormat("dd/MM/yyyy");
+        String dateSended =dateFomat.format(resDataField.getDate());
+        String sql="AND( id='"+textSearch+"' OR sender='"+textSearch+"' OR recipient='"+textSearch+"' OR playdate='"+dateSended+"')";
         try {
             showManager(GUI.idSongSelect, sql);
         } catch (SQLException ex) {
@@ -429,12 +431,12 @@ public class Management extends javax.swing.JFrame {
                 int[] col=jTable1.getSelectedColumns();
             for(int i=0;i<row.length;i++)
             {
-                idRQ=(long) jTable1.getValueAt(row[i], 1);
-                nameSender=(String) jTable1.getValueAt(row[i], 2);
-                nameReceipt=(String) jTable1.getValueAt(row[i], 3);
-                message=(String) jTable1.getValueAt(row[i], 4);
-                phone=(String) jTable1.getValueAt(row[i], 5);
-                addr=(String) jTable1.getValueAt(row[i], 6);
+                idRQ=(long) jTable1.getValueAt(row[i], 0);
+                nameSender=(String) jTable1.getValueAt(row[i], 1);
+                nameReceipt=(String) jTable1.getValueAt(row[i], 2);
+                message=(String) jTable1.getValueAt(row[i], 3);
+                phone=(String) jTable1.getValueAt(row[i], 4);
+                addr=(String) jTable1.getValueAt(row[i], 5);
             }            
             System.out.print(idRQ);
             }
@@ -460,7 +462,6 @@ public class Management extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -470,5 +471,6 @@ public class Management extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private com.toedter.calendar.JDateChooser resDataField;
     // End of variables declaration//GEN-END:variables
 }
