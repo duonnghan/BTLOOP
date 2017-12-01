@@ -31,7 +31,7 @@ public class CalendarManagement {
     private java.sql.Connection conn = null;
     Statement stmt = null;
     
-    public void hienThi(JTable table) throws SQLException, ClassNotFoundException
+    public void hienThi(JTable table,String subSql) throws SQLException, ClassNotFoundException
            //khởi tạo dữ liệu cho bảng
       {
        conn = qlbaihat.controller.DataBase.getConnection();
@@ -40,9 +40,8 @@ public class CalendarManagement {
                + "GROUP_CONCAT(requirement.sender ORDER BY requirement.sender SEPARATOR ', ' ) AS 'Các thính giả yêu cầu' "
                + "FROM song, requirement "
                + "WHERE song.id = requirement.songid "
-               + "AND requirement.status NOT LIKE 'Đã phát' "
-               + "OR requirement.status IS NULL "
-               + "AND requirement.playdate IS NULL "
+               +subSql
+               + "AND requirement.status != 'Đã thêm'"               
                + "GROUP BY song.name ORDER BY COUNT(requirement.songid) DESC LIMIT 15";
        Vector col;
        Vector data;

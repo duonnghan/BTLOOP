@@ -5,13 +5,11 @@
  */
 package qlbaihat;
 
-import com.mysql.jdbc.Statement;
 import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,9 +21,11 @@ import javax.swing.table.TableModel;
 import qlbaihat.controller.CalendarManagement;
 import qlbaihat.controller.DataBase;
 import qlbaihat.controller.RequirementController;
+import qlbaihat.controller.ScheduleController;
 import qlbaihat.controller.SongController;
 import qlbaihat.model.Song;
 import qlbaihat.model.Requirement;
+import qlbaihat.model.ScheduleTableModel;
 /**
  *
  * @author HD
@@ -33,13 +33,56 @@ import qlbaihat.model.Requirement;
 public class GUI extends javax.swing.JFrame {
 
     public static long idSongSelect=0;
+    String nameSong,nameArtisrt,nameComposer,type,date;
+    int vote;
+    public ScheduleTableModel scdlTM = new ScheduleTableModel();
+    public ScheduleController scdlController;
+
     
-    
-    public GUI() {
+    public GUI() throws SQLException, ClassNotFoundException {
         initComponents();
+        schedulePanel();
         setIcon();
         select();
         select1();
+        CalendarManagement cl = new CalendarManagement();
+            cl.hienThi(mrgTable,"");
+    }
+    public void schedulePanel(){
+        ListSelectionModel cellSelect = schdlTable.getSelectionModel();
+        cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        scdlController = new ScheduleController(schdlTable, scdlTM, jDateChooser1);
+        schdlViewBtn.setActionCommand("View");
+        schdlRequestBtn.setActionCommand("Request");
+        schdlPlayedBtn.setActionCommand("Played");
+        cellSelect.addListSelectionListener(scdlController);
+        schdlViewBtn.addActionListener(scdlController);
+        schdlRequestBtn.addActionListener(scdlController);
+        schdlPlayedBtn.addActionListener(scdlController);
+    }
+    void select2()
+    {        
+        ListSelectionModel cellSelect=listSong.getSelectionModel();
+        cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        cellSelect.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) 
+            {
+                int[] row=listSong.getSelectedRows();
+                int[] col=listSong.getSelectedColumns();
+            for(int i=0;i<row.length;i++)
+            {
+                idSongSelect=(long) listSong.getValueAt(row[i], 0);
+                nameSong=(String) listSong.getValueAt(row[i], 1);
+                nameArtisrt=(String) listSong.getValueAt(row[i], 2);
+                nameComposer=(String) listSong.getValueAt(row[i], 3);
+                type=(String) listSong.getValueAt(row[i], 4);
+                date=(String) listSong.getValueAt(row[i], 5);
+                vote=(int) listSong.getValueAt(row[i], 6);
+            }            
+            }
+        });
     }
  void select()
     {        
@@ -147,18 +190,18 @@ public class GUI extends javax.swing.JFrame {
         schdlDivLine = new javax.swing.JSeparator();
         schdlScrollPane = new javax.swing.JScrollPane();
         schdlTable = new javax.swing.JTable();
-        schdlViewField = new javax.swing.JFormattedTextField();
         schdlRequestBtn = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        schdlPlayedBtn = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         managerPanel = new javax.swing.JPanel();
         mrgScrollPane = new javax.swing.JScrollPane();
         mrgTable = new javax.swing.JTable();
         mrgDivLine = new javax.swing.JSeparator();
         mgrSearchBtn = new javax.swing.JButton();
-        mgrSearchField = new javax.swing.JTextField();
         mgrSearchLabel = new javax.swing.JLabel();
         showDanhSach = new javax.swing.JButton();
         mrgViewBtn = new javax.swing.JButton();
+        jDateChooser4 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý bài hát");
@@ -327,6 +370,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         playlistUpdateBtn.setText("Cập nhật thông tin");
+        playlistUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playlistUpdateBtnActionPerformed(evt);
+            }
+        });
 
         playlistResetBtn.setText("Reset lượt yêu cầu");
 
@@ -584,9 +632,6 @@ public class GUI extends javax.swing.JFrame {
         });
         schdlScrollPane.setViewportView(schdlTable);
 
-        schdlViewField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
-        schdlViewField.setText("dd/MM/yyyy");
-
         schdlRequestBtn.setText("Xem yêu cầu");
         schdlRequestBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -594,7 +639,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Đã phát");
+        schdlPlayedBtn.setText("Đã phát");
 
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
@@ -612,29 +657,29 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addComponent(schdlViewLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(schdlViewField, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(schedulingPanelLayout.createSequentialGroup()
                         .addComponent(schdlViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(39, 39, 39)
                         .addComponent(schdlRequestBtn)
                         .addGap(48, 48, 48)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 333, Short.MAX_VALUE))
+                        .addComponent(schdlPlayedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(schedulingPanelLayout.createSequentialGroup()
+                        .addComponent(schdlViewLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(schdlViewLabel)
-                    .addComponent(schdlViewField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
+                .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(schdlViewLabel)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(schdlViewBtn)
                     .addComponent(schdlRequestBtn)
-                    .addComponent(jButton1))
+                    .addComponent(schdlPlayedBtn))
                 .addGap(18, 18, 18)
                 .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -768,18 +813,6 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        mgrSearchField.setText("dd/mm/yyyy");
-        mgrSearchField.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                mgrSearchFieldMouseClicked(evt);
-            }
-        });
-        mgrSearchField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mgrSearchFieldActionPerformed(evt);
-            }
-        });
-
         mgrSearchLabel.setText("Ngày phát");
 
         showDanhSach.setText("Tìm kiếm");
@@ -806,17 +839,17 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(mrgScrollPane)
                     .addGroup(managerPanelLayout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(managerPanelLayout.createSequentialGroup()
                                 .addGap(139, 139, 139)
                                 .addComponent(mrgDivLine))
                             .addGroup(managerPanelLayout.createSequentialGroup()
                                 .addComponent(mgrSearchLabel)
-                                .addGap(3, 3, 3)
-                                .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(26, 26, 26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(showDanhSach)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 219, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -828,12 +861,12 @@ public class GUI extends javax.swing.JFrame {
         managerPanelLayout.setVerticalGroup(
             managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
-                .addContainerGap(87, Short.MAX_VALUE)
+                .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mgrSearchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(showDanhSach)
-                    .addComponent(mgrSearchLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mgrSearchLabel)
+                    .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                         .addComponent(mrgDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -886,13 +919,15 @@ public class GUI extends javax.swing.JFrame {
         
         java.sql.Connection conn= DataBase.getConnection();
         String sql="INSERT INTO schedule(id,idsong,namesong,nameatirst,note) SELECT null,id,name,artist,'CHƯA PHÁT' FROM song WHERE song.id='"+idSongSelect+"'";
+        String sqlUpdate="UPDATE requirement SET status='Đã thêm' WHERE songid='"+idSongSelect+"'";
         java.sql.Statement stmt;
         try {
             stmt = conn.createStatement();
-            stmt.executeUpdate(sql);
- 
-        stmt.close();
-        conn.close();
+            stmt.executeUpdate(sql); 
+            stmt.executeUpdate(sqlUpdate);
+            stmt.close();
+            conn.close();
+        JOptionPane.showMessageDialog(null, "Thêm vào lịch thành công!");
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -980,24 +1015,18 @@ public class GUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");               
     }//GEN-LAST:event_mrgViewBtnActionPerformed
 
-    private void mgrSearchFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mgrSearchFieldActionPerformed
-
     private void showDanhSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDanhSachActionPerformed
        try {
+           SimpleDateFormat dateFomat = new SimpleDateFormat("dd/MM/yyyy");
+        String dateSended =dateFomat.format(jDateChooser4.getDate());
             CalendarManagement cl = new CalendarManagement();
-            cl.hienThi(mrgTable);
+            cl.hienThi(mrgTable,"AND playdate='"+dateSended+"'");
         } catch (SQLException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_showDanhSachActionPerformed
-
-    private void mgrSearchFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mgrSearchFieldMouseClicked
-        mgrSearchField.setText("");
-    }//GEN-LAST:event_mgrSearchFieldMouseClicked
 
     private void addSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongActionPerformed
         /**
@@ -1053,35 +1082,55 @@ public class GUI extends javax.swing.JFrame {
     private void schdlViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlViewBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_schdlViewBtnActionPerformed
-     private void mgrSearchBtnMouseClicked(java.awt.event.MouseEvent evt) {                                          
-        String ngayThang = mgrSearchField.getText();
-        if(!(ngayThang.equals("")||ngayThang.equals("dd/mm/yyyy"))){           
-            CalendarManagement cl = new CalendarManagement();
-            if(cl.isValidDate(ngayThang)){
-                try {
-                    if(cl.compareDates(ngayThang)){
-                        JOptionPane.showMessageDialog(null, "Ngày bạn nhập đã trôi qua");
-                    }
-                    else{
-                        try {
-                            cl.ThemLichPhat(mgrSearchField, mrgTable);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-                        } catch (ClassNotFoundException ex) {
-                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                } catch (ParseException ex) {
-                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else
-                JOptionPane.showMessageDialog(rootPane, "Hãy nhập lại ngày dự kiến phát theo mẫu dd/mm/yyyy");
+
+    private void playlistUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistUpdateBtnActionPerformed
+       Connection connection =DataBase.getConnection();
+        String sql="UPDATE song SET name=?,artist=?,composer=?,genre=?,year=?,vote=? WHERE id=?";
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareCall(sql);
+             ps.setString(1,nameSong);
+            ps.setString(2, nameArtisrt);
+            ps.setString(3, nameComposer);
+            ps.setString(4, type);
+            ps.setString(5, date);
+            ps.setInt(6, vote);
+            ps.setLong(7, idSongSelect);        
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Sửa thành công");
+        } catch (SQLException ex) {
+            Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else 
-            JOptionPane.showMessageDialog(rootPane, "Hãy nhập ngày dự kiến phát");
-        
-    }                        
+    }//GEN-LAST:event_playlistUpdateBtnActionPerformed
+//     private void mgrSearchBtnMouseClicked(java.awt.event.MouseEvent evt) {                                          
+//        String ngayThang = mgrSearchField.getText();
+//        if(!(ngayThang.equals("")||ngayThang.equals("dd/mm/yyyy"))){           
+//            CalendarManagement cl = new CalendarManagement();
+//            if(cl.isValidDate(ngayThang)){
+//                try {
+//                    if(cl.compareDates(ngayThang)){
+//                        JOptionPane.showMessageDialog(null, "Ngày bạn nhập đã trôi qua");
+//                    }
+//                    else{
+//                        try {
+//                            cl.ThemLichPhat(mgrSearchField, mrgTable);
+//                        } catch (SQLException ex) {
+//                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//                        } catch (ClassNotFoundException ex) {
+//                            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//                        }
+//                    }
+//                } catch (ParseException ex) {
+//                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
+//            else
+//                JOptionPane.showMessageDialog(rootPane, "Hãy nhập lại ngày dự kiến phát theo mẫu dd/mm/yyyy");
+//        }
+//        else 
+//            JOptionPane.showMessageDialog(rootPane, "Hãy nhập ngày dự kiến phát");
+//        
+//    }                        
      
     /**
      * @param args the command line arguments
@@ -1116,7 +1165,13 @@ public class GUI extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GUI().setVisible(true);
+                try {
+                    new GUI().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -1125,13 +1180,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> Month;
     private javax.swing.JPanel addRequestpanel;
     private javax.swing.JRadioButton addSong;
-    private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTable listSong;
     private javax.swing.JTabbedPane manage;
     private javax.swing.JPanel managerPanel;
     private javax.swing.JButton mgrSearchBtn;
-    private javax.swing.JTextField mgrSearchField;
     private javax.swing.JLabel mgrSearchLabel;
     private javax.swing.ButtonGroup mode;
     private javax.swing.JSeparator mrgDivLine;
@@ -1170,11 +1225,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel resSenderLabel;
     private javax.swing.JButton resSubmitBtn;
     private javax.swing.JSeparator schdlDivLine;
+    private javax.swing.JButton schdlPlayedBtn;
     private javax.swing.JButton schdlRequestBtn;
     private javax.swing.JScrollPane schdlScrollPane;
     private javax.swing.JTable schdlTable;
     private javax.swing.JButton schdlViewBtn;
-    private javax.swing.JFormattedTextField schdlViewField;
     private javax.swing.JLabel schdlViewLabel;
     private javax.swing.JPanel schedulingPanel;
     private javax.swing.JButton showDanhSach;

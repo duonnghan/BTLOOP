@@ -5,12 +5,20 @@
  */
 package qlbaihat.controller;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import qlbaihat.Management;
 import qlbaihat.model.ScheduleTableModel;
 
 /**
@@ -22,10 +30,10 @@ public class ScheduleController implements ActionListener, ListSelectionListener
     ScheduleTableModel model;
     JTable schdlTable;
     String date;
-    JTextField input;
+    JDateChooser input;
     public static long idSongSelect = 0;
 
-    public ScheduleController(JTable schdlTable, ScheduleTableModel model, JTextField input) {
+    public ScheduleController(JTable schdlTable, ScheduleTableModel model, JDateChooser input) {
         this.schdlTable = schdlTable;
         this.model = model;
         this.input = input;
@@ -34,32 +42,50 @@ public class ScheduleController implements ActionListener, ListSelectionListener
     @Override
     public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();
-
-        date = input.getText();
+        Date calendar = input.getDate();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        date = format.format(calendar);
         switch (command) {
             case "View":
                 viewCommandAction();
                 break;
             case "Requuest":
-
+        {
+            try {
+                requuestCommandAction();
+            } catch (SQLException ex) {
+                Logger.getLogger(ScheduleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "Played":
                 playedCommandAction();
                 viewCommandAction();
                 break;
         }
-
     }
 
+//Xử lí sự kiện nhấn nút Xem
     public void viewCommandAction() {
         String sql = "";
         sql = "SELECT DISTINCT s.id, namesong, nameatirst, status "
                 + "FROM schedule as s, requirement as r "
-                + "WHERE s.id=r.songid and playdate='" + date + "';";
+                + "WHERE s.songid=r.songid and playdate='" + date + "';";
         model.setSQL(sql);
         model.loaData();
     }
 
+//Xử lí sự kiện nhấn nút Đã phát    
+    public void requuestCommandAction() throws SQLException {
+        if (idSongSelect != 0) {
+            Management manager = new Management();
+            manager.main();
+        } else {
+            JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
+        }
+    }
+
+//Xử lí sự kiện nhấn nút Đã phát    
     public void playedCommandAction() {
         String sql = "";
         sql = "UPDATE requirement "
