@@ -696,7 +696,9 @@
                                       <Component id="jDateChooser4" min="-2" pref="426" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="showDanhSach" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="219" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="refresh" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -716,10 +718,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="88" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="showDanhSach" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="mgrSearchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jDateChooser4" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="showDanhSach" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="mgrSearchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="refresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="7" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -832,6 +837,15 @@
               </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser4">
+            </Component>
+            <Component class="javax.swing.JButton" name="refresh">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Refresh"/>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

@@ -347,17 +347,20 @@ public class Management extends javax.swing.JFrame {
             stmt.executeUpdate(sql);
             stmt.close();
             conn.close();
+            JOptionPane.showMessageDialog(null, "Xóa thành công");
+            showManager(GUI.idSongSelect,"");
         } catch (SQLException ex) {
             Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        select();
         Connection connection =DataBase.getConnection();
         String sql="UPDATE requirement SET sender=?,recipient=?,message=?,phone=?,address=? WHERE id=?";
         PreparedStatement ps;
         try {
+            
             ps = connection.prepareCall(sql);
              ps.setString(1,nameSender);
             ps.setString(2, nameReceipt);
@@ -366,7 +369,8 @@ public class Management extends javax.swing.JFrame {
             ps.setString(5, addr);
             ps.setLong(6, idRQ);        
             ps.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Sửa thành công");
+            JOptionPane.showMessageDialog(null, "Sửa thành công;");
+            showManager(GUI.idSongSelect,"");
         } catch (SQLException ex) {
             Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -399,6 +403,8 @@ public class Management extends javax.swing.JFrame {
             stmt.executeUpdate(sql);
             stmt.close();
             conn.close();
+            JOptionPane.showMessageDialog(null, "Xóa thành công;");
+            showManager(GUI.idSongSelect,"");
         } catch (SQLException ex) {
             Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
         }    

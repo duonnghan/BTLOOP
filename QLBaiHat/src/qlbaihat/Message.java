@@ -54,7 +54,7 @@ public class Message extends javax.swing.JFrame {
         jPhone = new javax.swing.JTextField();
         jAddr = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jMessage.setColumns(20);
         jMessage.setRows(5);

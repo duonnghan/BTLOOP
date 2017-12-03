@@ -202,6 +202,7 @@ public class GUI extends javax.swing.JFrame {
         showDanhSach = new javax.swing.JButton();
         mrgViewBtn = new javax.swing.JButton();
         jDateChooser4 = new com.toedter.calendar.JDateChooser();
+        refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Quản lý bài hát");
@@ -829,6 +830,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        refresh.setText("Refresh");
+        refresh.setToolTipText("");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout managerPanelLayout = new javax.swing.GroupLayout(managerPanel);
         managerPanel.setLayout(managerPanelLayout);
         managerPanelLayout.setHorizontalGroup(
@@ -849,7 +858,9 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(showDanhSach)
-                                .addGap(0, 219, Short.MAX_VALUE)))))
+                                .addGap(36, 36, 36)
+                                .addComponent(refresh)
+                                .addGap(0, 110, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -862,10 +873,12 @@ public class GUI extends javax.swing.JFrame {
             managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                 .addContainerGap(88, Short.MAX_VALUE)
-                .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showDanhSach)
-                    .addComponent(mgrSearchLabel)
-                    .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDateChooser4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(showDanhSach)
+                        .addComponent(mgrSearchLabel)
+                        .addComponent(refresh)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(managerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
@@ -1102,6 +1115,18 @@ public class GUI extends javax.swing.JFrame {
             Logger.getLogger(Management.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_playlistUpdateBtnActionPerformed
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+       
+        try {
+             CalendarManagement cl = new CalendarManagement();
+            cl.hienThi(mrgTable,"");
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_refreshActionPerformed
 //     private void mgrSearchBtnMouseClicked(java.awt.event.MouseEvent evt) {                                          
 //        String ngayThang = mgrSearchField.getText();
 //        if(!(ngayThang.equals("")||ngayThang.equals("dd/mm/yyyy"))){           
@@ -1204,6 +1229,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton playlistUpdateBtn;
     private javax.swing.JPanel playlisttPanel;
     private javax.swing.JRadioButton playlostSearchBtn;
+    private javax.swing.JButton refresh;
     private javax.swing.JLabel resAddrLabel;
     private javax.swing.JTextField resAdrrField;
     private javax.swing.JTextField resArtistField;
