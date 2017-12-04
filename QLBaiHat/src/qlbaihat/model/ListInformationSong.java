@@ -193,13 +193,10 @@ public class ListInformationSong {
         String nhacSi = new String();
         String theLoai = new String();
         String namSX = new String();
-        String binhChon = new String();
-        
-        if(song.getID()!=-1){
-            id = "'" + song.getID() + "'";
-        }else{
-            id = "null";
-        }
+        String binhChon = new String();       
+
+            id = "'" + new java.util.Date().getTime() + "'";
+       
         
         if(song.getName()!= null){
             ten = "'" + song.getName() + "'";

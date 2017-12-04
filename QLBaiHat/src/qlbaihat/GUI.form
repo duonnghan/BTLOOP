@@ -57,42 +57,46 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace pref="275" max="32767" attributes="0"/>
-                              <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="addSong" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Component id="playlostSearchBtn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="playlistSearchField" min="-2" pref="230" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="playlistRdioFavoriteSongs" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="Month" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="playlistRdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="ok" min="-2" pref="93" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      <Component id="playlistUpdateBtn" min="-2" pref="129" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="playlistResetBtn" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="51" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="playlistScrollPane" alignment="0" max="32767" attributes="0"/>
                                   <Component id="playlistDivLine" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="192" max="-2" attributes="0"/>
+                                      <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="addSong" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="playlistRdioFavoriteSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="playlistRdioAllSongs" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="Month" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="playlostSearchBtn" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="playlistSearchField" min="-2" pref="230" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="408" pref="408" max="-2" attributes="0"/>
+                                      <Component id="ok" min="-2" pref="93" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                      <Component id="playlistResetBtn" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="197" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -108,38 +112,39 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="playlistRdioAllSongs" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistRdioAllSongs" linkSize="2" min="-2" max="-2" attributes="0"/>
                           <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="playlistRdioFavoriteSongs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="3" attributes="0">
+                              <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                              <Component id="playlistRdioFavoriteSongs" linkSize="2" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Component id="Month" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                      <Component id="addSong" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="addSong" linkSize="2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="playlostSearchBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="playlistSearchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlostSearchBtn" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="playlistSearchField" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ok" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="playlistUpdateBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="playlistResetBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="playlistDivLine" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace pref="45" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Component id="playlistScrollPane" min="-2" pref="206" max="-2" attributes="0"/>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="287" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="263" max="32767" attributes="0"/>
+                          <EmptySpace pref="267" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -273,18 +278,13 @@
             </Component>
             <Component class="javax.swing.JTextField" name="playlistSearchField">
             </Component>
-            <Component class="javax.swing.JButton" name="playlistUpdateBtn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="C&#x1ead;p nh&#x1ead;t th&#xf4;ng tin"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlistUpdateBtnActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="playlistResetBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Reset l&#x1b0;&#x1ee3;t y&#xea;u c&#x1ea7;u"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="playlistResetBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="Month">
               <Properties>
@@ -306,6 +306,9 @@
                 </Property>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MonthActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -407,13 +410,13 @@
                           <Component id="resMsgLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="resMsgScrollPane" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <EmptySpace pref="94" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="resSendBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="resSubmitBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="resCancelBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <EmptySpace pref="93" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -584,7 +587,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="schdlDivLine" min="-2" pref="2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="schdlScrollPane" pref="379" max="32767" attributes="0"/>
+                      <Component id="schdlScrollPane" pref="383" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -615,14 +618,8 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="schdlTable">
                   <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="5" rowCount="10">
-                        <Column editable="false" title="STT" type="java.lang.Long"/>
-                        <Column editable="false" title="IDSong" type="java.lang.Long"/>
-                        <Column editable="false" title="T&#xea;n b&#xe0;i h&#xe1;t" type="java.lang.String"/>
-                        <Column editable="false" title="T&#xea;n ca s&#x129;" type="java.lang.String"/>
-                        <Column editable="false" title="Ghi ch&#xfa;" type="java.lang.String"/>
-                      </Table>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="scdlTM" type="code"/>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
@@ -717,7 +714,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="88" max="32767" attributes="0"/>
+                      <EmptySpace pref="89" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jDateChooser4" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -726,7 +723,7 @@
                               <Component id="refresh" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <EmptySpace pref="10" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="mrgDivLine" min="-2" pref="0" max="-2" attributes="0"/>

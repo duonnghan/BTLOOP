@@ -5,6 +5,9 @@
  */
 package qlbaihat;
 
+import qlbaihat.controller.SongController;
+import qlbaihat.model.InformationSong;
+
 /**
  *
  * @author TRAN HAI DANG
@@ -41,9 +44,10 @@ public class InfoMusic extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -61,11 +65,29 @@ public class InfoMusic extends javax.swing.JFrame {
 
         jLabel7.setText("Lượt yêu cầu");
 
-        jButton1.setText("Sửa");
+        jTextField2.setText(String.valueOf(GUI.idSongSelect)
+        );
+
+        jButton3.setText("Sửa");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Xóa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Thêm");
+        jButton1.setText("Thêm");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -73,13 +95,6 @@ public class InfoMusic extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(118, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton2)
-                        .addGap(34, 34, 34)
-                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(62, 62, 62)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -110,7 +125,17 @@ public class InfoMusic extends javax.swing.JFrame {
                             .addComponent(jTextField4)
                             .addComponent(jTextField5)
                             .addComponent(jTextField6)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))))
+                            .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(118, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(35, 35, 35)
+                                .addComponent(jButton2)
+                                .addGap(34, 34, 34)
+                                .addComponent(jButton3)))))
                 .addGap(92, 92, 92))
         );
         layout.setVerticalGroup(
@@ -146,14 +171,118 @@ public class InfoMusic extends javax.swing.JFrame {
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jButton3)
                     .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addGap(46, 46, 46))
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel8)
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    /**
+         * @author tuyên
+         * sự kiện khi nhấn sủa
+         */
+         InformationSong song = new InformationSong();
+        String name = jTextField1.getText().trim().toUpperCase();
+        String id = jTextField2.getText();
+        String casi = jTextField3.getText().trim().toUpperCase();
+        String nhacsi = jTextField4.getText().trim().toUpperCase();
+        String theloai = jTextField5.getText().trim().toUpperCase();
+        String namSX = jTextField6.getText().trim();
+        String vote = jTextField7.getText().trim();
+        if(name.length()!=0){
+            song.setName(name);
+        }
+        
+        if(id.length()!=0){
+            song.setID(Long.valueOf(id));
+        }
+        
+        if(casi.length()!=0){
+            song.setCasi(casi);
+        }
+        
+        if(nhacsi.length()!=0){
+            song.setNhacsi(nhacsi);
+        }
+        
+        if(theloai.length()!=0){
+            song.setTheloai(theloai);
+        }
+        
+        if(namSX.length()!=0){
+            song.setNamSX(Integer.valueOf(namSX));
+        }
+        
+        if(vote.length()!=0){
+            song.setVote(Integer.valueOf(vote));
+        }else{
+            song.setVote(-1);
+        }
+        SongController.UpdateSong(jLabel8, song);  
+//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        InformationSong song = new InformationSong();
+        String name = jTextField1.getText().trim().toUpperCase();
+        String id = jTextField2.getText();
+        String casi = jTextField3.getText().trim().toUpperCase();
+        String nhacsi = jTextField4.getText().trim().toUpperCase();
+        String theloai = jTextField5.getText().trim().toUpperCase();
+        String namSX = jTextField6.getText().trim().toUpperCase();
+        String vote = jTextField7.getText().trim().toUpperCase();
+        if(name.length()!=0){
+            song.setName(name);
+        }
+        
+        if(GUI.idSongSelect!=0){
+            song.setID(GUI.idSongSelect);
+        }
+        
+        if(casi.length()!=0){
+            song.setCasi(casi);
+        }
+        
+        if(nhacsi.length()!=0){
+            song.setNhacsi(nhacsi);
+        }
+        
+        if(theloai.length()!=0){
+            song.setTheloai(theloai);
+        }
+        
+        if(namSX.length()!=0){
+            song.setNamSX(Integer.valueOf(namSX));
+        }
+        
+        if(vote.length()!=0){
+            song.setVote(Integer.valueOf(vote));
+        }else{
+            song.setVote(-1);
+        }
+        SongController.addSong(jLabel8, song);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       /**
+         * @author tuyên
+         * sự kiện khi nhân nút xóa 
+         */
+        String strid = jTextField2.getText();
+        long id;
+         if(strid.length()!=0)
+             id = Long.valueOf(strid);
+         else
+             id = -1;
+         SongController.deleteSong(jLabel8, id);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +330,7 @@ public class InfoMusic extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
