@@ -115,12 +115,12 @@
                           <Component id="playlistRdioAllSongs" linkSize="2" min="-2" max="-2" attributes="0"/>
                           <Component id="playlistModeLabel" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Group type="102" alignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
                               <Component id="playlistRdioFavoriteSongs" linkSize="2" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="Month" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Month" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Component id="addSong" linkSize="2" min="-2" max="-2" attributes="0"/>

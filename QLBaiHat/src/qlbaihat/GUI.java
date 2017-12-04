@@ -430,7 +430,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(playlistRdioAllSongs)
                     .addComponent(playlistModeLabel))
-                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(playlisttPanelLayout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(playlistRdioFavoriteSongs))

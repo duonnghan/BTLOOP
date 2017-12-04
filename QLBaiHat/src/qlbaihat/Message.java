@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import qlbaihat.controller.DataBase;
 
 /**
  *
@@ -26,7 +28,7 @@ public class Message extends javax.swing.JFrame {
         showMessage(Management.idRQ);
     }
     public void showMessage(long ID) throws SQLException{
-        String sql="SELECT * FROM requirement where id='"+ID+"'";
+        String sql="SELECT * FROM requirement WHERE id='"+ID+"'";
          Connection connection = qlbaihat.controller.DataBase.getConnection();
         PreparedStatement ps = connection.prepareCall(sql);
         ResultSet rs = ps.executeQuery();
@@ -48,11 +50,12 @@ public class Message extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelMessage = new javax.swing.JLabel();
         jSender = new javax.swing.JTextField();
         jReceipt = new javax.swing.JTextField();
         jPhone = new javax.swing.JTextField();
         jAddr = new javax.swing.JTextField();
+        updateMessage = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -68,19 +71,26 @@ public class Message extends javax.swing.JFrame {
 
         jLabel4.setText("Địa chỉ");
 
-        jLabel5.setText("Lời nhắn");
+        labelMessage.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        labelMessage.setText("Lời nhắn");
+
+        updateMessage.setText("Cập nhật");
+        updateMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateMessageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSender, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(279, 279, 279)
+                .addGap(310, 310, 310)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -91,9 +101,12 @@ public class Message extends javax.swing.JFrame {
                     .addComponent(jAddr, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                     .addComponent(jReceipt))
                 .addGap(240, 240, 240))
+            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(updateMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(362, 362, 362)
+                .addComponent(labelMessage)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,17 +131,41 @@ public class Message extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(11, 11, 11))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateMessage))
+                        .addGap(15, 15, 15))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jAddr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void updateMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMessageActionPerformed
+        java.sql.Connection connection =DataBase.getConnection();
+        String sql="UPDATE requirement SET sender=?,recipient=?,phone=?,address=?,message=? WHERE id=?";
+        PreparedStatement ps;
+        try {
+            ps = connection.prepareCall(sql);
+            ps.setString(1, jSender.getText());
+        ps.setString(2, jReceipt.getText());
+        ps.setString(3, jPhone.getText());
+        ps.setString(4, jAddr.getText());
+        ps.setString(5, jMessage.getText());
+        ps.setLong(6, Management.idRQ);  
+        ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cập nhật thành công");
+        } catch (SQLException ex) {
+            Logger.getLogger(Message.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }//GEN-LAST:event_updateMessageActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,11 +212,12 @@ public class Message extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextArea jMessage;
     private javax.swing.JTextField jPhone;
     private javax.swing.JTextField jReceipt;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jSender;
+    private javax.swing.JLabel labelMessage;
+    private javax.swing.JButton updateMessage;
     // End of variables declaration//GEN-END:variables
 }
