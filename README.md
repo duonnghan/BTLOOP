@@ -1,5 +1,5 @@
 # BTLOOP
-##Xây dựng chương trình Quản lý yêu cầu phát bài hát của đài phát thanh xã
+##Xây dựng chương trình Quản lý yêu cầu phát bài hát của đài phát thanh xã##
 
 
 **Sử dụng chương trình để thực hiện công việc quản lý việc phát sóng  các bài hát theo yêu cầu như sau:**
