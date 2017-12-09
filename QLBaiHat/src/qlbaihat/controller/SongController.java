@@ -76,12 +76,12 @@ public class SongController {
         try{
             ListInformationSong listSong = new ListInformationSong();
             if(listSong.UpdateSong(song)){
-                label.setText("thành công");
+                label.setText("Thành công!!!");
             }else{
-                label.setText("không thể cỉnh sửa thông tin");
+                label.setText("Không thể chỉnh sửa thông tin");
             }
         }catch(SQLException e){
-            label.setText("không thể cỉnh sửa thông tin");
+            label.setText("Không thể cỉnh sửa thông tin");
             e.getStackTrace();
         }
     }
@@ -116,7 +116,7 @@ public class SongController {
             listSong = new ListInformationSong();
             object = listSong.getAllSong();
         }catch(SQLException e){
-            label.setText("không có bài hát nào thỏa mãn");
+            label.setText("Không có bài hát nào thỏa mãn");
         }
         if(object == null){
             this.setfree();
@@ -139,7 +139,7 @@ public class SongController {
             System.out.println(month);
             object = listSong.getTopSong(month);
         }catch(SQLException e){
-            label.setText("không có bài hát nào thỏa mãn");
+            label.setText("Không có bài hát nào thỏa mãn");
         }
         if(object == null){
             this.setfree();
@@ -161,7 +161,7 @@ public class SongController {
             listSong = new ListInformationSong();
             object = listSong.findSong(name);
         }catch(SQLException e){
-            label.setText("không có bài hát nào thỏa mãn");
+            label.setText("Không có bài hát nào thỏa mãn");
         }
         if(object == null){
             this.setfree();

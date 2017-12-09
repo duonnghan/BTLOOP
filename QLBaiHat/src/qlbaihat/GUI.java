@@ -595,11 +595,6 @@ public class GUI extends javax.swing.JFrame {
         schdlViewLabel.setText("Xem lịch:");
 
         schdlViewBtn.setText("Xem");
-        schdlViewBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schdlViewBtnActionPerformed(evt);
-            }
-        });
 
         schdlTable.setModel(scdlTM);
         schdlScrollPane.setViewportView(schdlTable);
@@ -880,9 +875,80 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void resNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resNameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_resNameFieldActionPerformed
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+
+        try {
+            CalendarManagement cl = new CalendarManagement();
+            cl.hienThi(mrgTable,"");
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_refreshActionPerformed
+
+    private void mrgViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrgViewBtnActionPerformed
+        if(idSongSelect!=0)
+        {
+            Management manager;
+            try {
+                manager = new Management();
+                manager.main();
+            } catch (SQLException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        else
+        JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
+    }//GEN-LAST:event_mrgViewBtnActionPerformed
+
+    private void showDanhSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDanhSachActionPerformed
+        try {
+            SimpleDateFormat dateFomat = new SimpleDateFormat("dd/MM/yyyy");
+            String dateSended =dateFomat.format(jDateChooser4.getDate());
+            CalendarManagement cl = new CalendarManagement();
+            cl.hienThi(mrgTable,"AND playdate='"+dateSended+"'");
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_showDanhSachActionPerformed
+
+    private void mgrSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchBtnActionPerformed
+
+        java.sql.Connection conn= DataBase.getConnection();
+        String sql="INSERT INTO schedule(id,idsong,namesong,nameatirst,note) SELECT null,id,name,artist,'CHƯA PHÁT' FROM song WHERE song.id='"+idSongSelect+"'";
+        String sqlUpdate="UPDATE requirement SET status='Đã thêm' WHERE songid='"+idSongSelect+"'";
+        java.sql.Statement stmt;
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+            stmt.executeUpdate(sqlUpdate);
+            stmt.close();
+            conn.close();
+            JOptionPane.showMessageDialog(null, "Thêm vào lịch thành công!");
+        } catch (SQLException ex) {
+            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_mgrSearchBtnActionPerformed
+
+    private void schdlRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlRequestBtnActionPerformed
+        if(idSongSelect!=0)
+        {
+            Management manager;
+            try {
+                manager = new Management();
+                manager.main();
+            } catch (SQLException ex) {
+                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        else
+        JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
+    }//GEN-LAST:event_schdlRequestBtnActionPerformed
 
     private void resCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resCancelBtnActionPerformed
         resNameField.setText("");
@@ -894,29 +960,10 @@ public class GUI extends javax.swing.JFrame {
         resMsgTextArea.setText("");
     }//GEN-LAST:event_resCancelBtnActionPerformed
 
-    private void playlostSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlostSearchBtnActionPerformed
-        playlistSearchField.setEnabled(true);
-        Month.setEnabled(false);
-    }//GEN-LAST:event_playlostSearchBtnActionPerformed
-
-    private void mgrSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchBtnActionPerformed
-        
-        java.sql.Connection conn= DataBase.getConnection();
-        String sql="INSERT INTO schedule(id,idsong,namesong,nameatirst,note) SELECT null,id,name,artist,'CHƯA PHÁT' FROM song WHERE song.id='"+idSongSelect+"'";
-        String sqlUpdate="UPDATE requirement SET status='Đã thêm' WHERE songid='"+idSongSelect+"'";
-        java.sql.Statement stmt;
-        try {
-            stmt = conn.createStatement();
-            stmt.executeUpdate(sql); 
-            stmt.executeUpdate(sqlUpdate);
-            stmt.close();
-            conn.close();
-        JOptionPane.showMessageDialog(null, "Thêm vào lịch thành công!");
-        } catch (SQLException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_mgrSearchBtnActionPerformed
+    private void resSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSubmitBtnActionPerformed
+        this.dispose();
+        Management.main();
+    }//GEN-LAST:event_resSubmitBtnActionPerformed
 
     private void resSendBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSendBtnActionPerformed
         String nameSong = resNameField.getText().trim().toUpperCase();
@@ -931,7 +978,7 @@ public class GUI extends javax.swing.JFrame {
         System.out.println(nameSong+ nameArtist + nameSender + phoneNumber+address+ nameReceipt+ dateSended+ message);
         if("".equals(nameSong)&&"".equals(nameArtist)&&"".equals(nameSender)&&("".equals(phoneNumber)||"".equals(address))&&"".equals(nameReceipt)&&"".equals(dateSended)&&"".equals(message))
         {
-            JOptionPane.showMessageDialog(null, "Chưa nhập đủ trường.Xin mời nhập lại!");          
+            JOptionPane.showMessageDialog(null, "Chưa nhập đủ trường.Xin mời nhập lại!");
         }
         else{
             try{
@@ -939,9 +986,9 @@ public class GUI extends javax.swing.JFrame {
                 Song song= reqController.getSong(nameSong, nameArtist);
                 if(song!=null)
                 {
-                 reqController.updateSong(song);
-                 Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
-                 reqController.insertRequirement(requirement);
+                    reqController.updateSong(song);
+                    Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
+                    reqController.insertRequirement(requirement);
                 }
                 else
                 {
@@ -949,11 +996,11 @@ public class GUI extends javax.swing.JFrame {
                     song = new Song(id, nameSong, nameArtist, null, null, 0, 1);
                     reqController.insertSong(song);
                     Requirement requirement=new Requirement(nameSender, nameReceipt, phoneNumber, address, null, message, "Chưa phát", dateSended, 0, song.getId());
-                    reqController.insertRequirement(requirement);   
+                    reqController.insertRequirement(requirement);
                 }
-                    }catch(SQLException e){
-                        e.printStackTrace();
-                    }
+            }catch(SQLException e){
+                e.printStackTrace();
+            }
         }
         resSenderField.setText("");
         resPhoneField.setText("");
@@ -962,125 +1009,16 @@ public class GUI extends javax.swing.JFrame {
         resMsgTextArea.setText("");
     }//GEN-LAST:event_resSendBtnActionPerformed
 
-    private void resSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resSubmitBtnActionPerformed
-        this.dispose();
-        Management.main();
-    }//GEN-LAST:event_resSubmitBtnActionPerformed
-
-    private void schdlRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlRequestBtnActionPerformed
-        if(idSongSelect!=0)
-        {
-            Management manager;
-            try {
-                manager = new Management();
-                manager.main();
-            } catch (SQLException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
-    }//GEN-LAST:event_schdlRequestBtnActionPerformed
-
-    private void mrgViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrgViewBtnActionPerformed
-         if(idSongSelect!=0)
-        {
-            Management manager;
-             try {
-                 manager = new Management();
-                 manager.main();
-             } catch (SQLException ex) {
-                 Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-             }
-            
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");               
-    }//GEN-LAST:event_mrgViewBtnActionPerformed
-
-    private void showDanhSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDanhSachActionPerformed
-       try {
-           SimpleDateFormat dateFomat = new SimpleDateFormat("dd/MM/yyyy");
-        String dateSended =dateFomat.format(jDateChooser4.getDate());
-            CalendarManagement cl = new CalendarManagement();
-            cl.hienThi(mrgTable,"AND playdate='"+dateSended+"'");
-        } catch (SQLException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_showDanhSachActionPerformed
-
-    private void addSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongActionPerformed
-        /**
-         * @author tuyên
-         * diễn ra khi chọn thêm bài hát
-         */
-        playlistSearchField.setEnabled(false);
-        Month.setEnabled(false);
-    }//GEN-LAST:event_addSongActionPerformed
-
-    private void putOk(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_putOk
-       int chosen =5;
-        if(playlistRdioAllSongs.isSelected()){//chọn tât cả bài hát
-            chosen = 0;
-        }
-        
-        if(playlistRdioFavoriteSongs.isSelected()){//chọn bài hát yêu thích nhất tháng
-            chosen = 1;
-        }
-        
-        if(playlostSearchBtn.isSelected()){//tìm kiếm bài hát
-            chosen = 2;
-        }
-        
-        if(addSong.isSelected()){//thêm bài hát
-            chosen = 3;
-        }
-        int month =  Month.getSelectedIndex() + 1;
-        String name = playlistSearchField.getText().trim().toUpperCase();
-        SongController control = new SongController(chosen, month, listSong, name, jLabel1);
-        control.eventOK();
-        TableModel data = listSong.getModel();
-    }//GEN-LAST:event_putOk
-
-    private void playlistRdioFavoriteSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioFavoriteSongsActionPerformed
-      /**
-         * @author tuyên
-         * diễn ra khi chọn bài hát được yêu thích nhất tháng
-         */
-        playlistSearchField.setEnabled(false);
-        Month.setEnabled(true);
-    }//GEN-LAST:event_playlistRdioFavoriteSongsActionPerformed
-
-    private void playlistRdioAllSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioAllSongsActionPerformed
-         /**
-         * @author tuyên
-         * diễn ra khi chọn tất cả bài hát
-         */
-        playlistSearchField.setEnabled(false);
-        Month.setEnabled(false);
-    }//GEN-LAST:event_playlistRdioAllSongsActionPerformed
-
-    private void schdlViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlViewBtnActionPerformed
+    private void resNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resNameFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_schdlViewBtnActionPerformed
+    }//GEN-LAST:event_resNameFieldActionPerformed
 
-    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
-       
-        try {
-             CalendarManagement cl = new CalendarManagement();
-            cl.hienThi(mrgTable,"");
-        } catch (SQLException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_refreshActionPerformed
+    private void MonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MonthActionPerformed
 
     private void playlistResetBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistResetBtnActionPerformed
-       String sql="UPDATE song SET vote='0' WHERE vote!='0'";
+        String sql="UPDATE song SET vote='0' WHERE vote!='0'";
         Connection con = DataBase.getConnection();
         try {
             Statement statement = (Statement)con.createStatement();
@@ -1091,9 +1029,61 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_playlistResetBtnActionPerformed
 
-    private void MonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MonthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MonthActionPerformed
+    private void putOk(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_putOk
+        int chosen =5;
+        if(playlistRdioAllSongs.isSelected()){//chọn tât cả bài hát
+            chosen = 0;
+        }
+
+        if(playlistRdioFavoriteSongs.isSelected()){//chọn bài hát yêu thích nhất tháng
+            chosen = 1;
+        }
+
+        if(playlostSearchBtn.isSelected()){//tìm kiếm bài hát
+            chosen = 2;
+        }
+
+        if(addSong.isSelected()){//thêm bài hát
+            chosen = 3;
+        }
+        int month =  Month.getSelectedIndex() + 1;
+        String name = playlistSearchField.getText().trim().toUpperCase();
+        SongController control = new SongController(chosen, month, listSong, name, jLabel1);
+        control.eventOK();
+        TableModel data = listSong.getModel();
+    }//GEN-LAST:event_putOk
+
+    private void playlostSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlostSearchBtnActionPerformed
+        playlistSearchField.setEnabled(true);
+        Month.setEnabled(false);
+    }//GEN-LAST:event_playlostSearchBtnActionPerformed
+
+    private void addSongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSongActionPerformed
+        /**
+        * @author tuyên
+        * diễn ra khi chọn thêm bài hát
+        */
+        playlistSearchField.setEnabled(false);
+        Month.setEnabled(false);
+    }//GEN-LAST:event_addSongActionPerformed
+
+    private void playlistRdioFavoriteSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioFavoriteSongsActionPerformed
+        /**
+        * @author tuyên
+        * diễn ra khi chọn bài hát được yêu thích nhất tháng
+        */
+        playlistSearchField.setEnabled(false);
+        Month.setEnabled(true);
+    }//GEN-LAST:event_playlistRdioFavoriteSongsActionPerformed
+
+    private void playlistRdioAllSongsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playlistRdioAllSongsActionPerformed
+        /**
+        * @author tuyên
+        * diễn ra khi chọn tất cả bài hát
+        */
+        playlistSearchField.setEnabled(false);
+        Month.setEnabled(false);
+    }//GEN-LAST:event_playlistRdioAllSongsActionPerformed
 //     private void mgrSearchBtnMouseClicked(java.awt.event.MouseEvent evt) {                                          
 //        String ngayThang = mgrSearchField.getText();
 //        if(!(ngayThang.equals("")||ngayThang.equals("dd/mm/yyyy"))){           

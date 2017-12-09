@@ -92,6 +92,7 @@ public class ScheduleController implements ActionListener, ListSelectionListener
                 + "WHERE songid='" + idSongSelect + "';";
         model.setSQL(sql);
         model.updateData();
+        JOptionPane.showMessageDialog(null, "Thành công!!!");
     }
 
     @Override
