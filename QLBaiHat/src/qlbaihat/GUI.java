@@ -43,7 +43,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI() throws SQLException, ClassNotFoundException {
         initComponents();
         schedulePanel();
-        setIcon();
+        setFavicon();
         select();
         select1();
         select2();
@@ -1217,8 +1217,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton showDanhSach;
     // End of variables declaration//GEN-END:variables
 
-    private void setIcon() {
-//        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.png")));
+    private void setFavicon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("favicon.ico")));
     }
 
 }
