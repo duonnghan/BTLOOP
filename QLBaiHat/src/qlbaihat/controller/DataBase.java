@@ -11,6 +11,8 @@ import java.sql.DriverManager;
  *
  * @author TRAN HAI DANG
  */
+
+//Initialize connection to mysql database
 public class DataBase {
         public static java.sql.Connection getConnection(){
         java.sql.Connection conn = null;
