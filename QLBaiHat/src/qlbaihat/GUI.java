@@ -47,6 +47,7 @@ public class GUI extends javax.swing.JFrame {
         select();
         select1();
         select2();
+        select3();
         CalendarManagement cl = new CalendarManagement();
             cl.hienThi(mrgTable,"");
     }
@@ -56,11 +57,11 @@ public class GUI extends javax.swing.JFrame {
         
         scdlController = new ScheduleController(schdlTable, scdlTM, jDateChooser1);
         schdlViewBtn.setActionCommand("View");
-        schdlRequestBtn.setActionCommand("Request");
+      
         schdlPlayedBtn.setActionCommand("Played");
         cellSelect.addListSelectionListener(scdlController);
         schdlViewBtn.addActionListener(scdlController);
-        schdlRequestBtn.addActionListener(scdlController);
+      
         schdlPlayedBtn.addActionListener(scdlController);
     }
     void select2()
@@ -139,6 +140,25 @@ public class GUI extends javax.swing.JFrame {
             }
         });
     }
+  void select3()
+    {        
+        ListSelectionModel cellSelect=mrgTable.getSelectionModel();
+        cellSelect.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        cellSelect.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) 
+            {
+                int[] row=mrgTable.getSelectedRows();
+                int[] col=mrgTable.getSelectedColumns();
+            for(int i=0;i<row.length;i++)
+            {
+                nameSong= (String) mrgTable.getValueAt(row[i], 0);
+                nameArtisrt=(String) mrgTable.getValueAt(row[i], 1);
+            }            
+            System.out.print(idSongSelect);
+            }
+        });
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -186,7 +206,6 @@ public class GUI extends javax.swing.JFrame {
         schdlDivLine = new javax.swing.JSeparator();
         schdlScrollPane = new javax.swing.JScrollPane();
         schdlTable = new javax.swing.JTable();
-        schdlRequestBtn = new javax.swing.JButton();
         schdlPlayedBtn = new javax.swing.JButton();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         managerPanel = new javax.swing.JPanel();
@@ -415,13 +434,13 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(ok, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(33, 33, 33)
                                 .addComponent(playlistResetBtn)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)))
                 .addGap(0, 0, 0))
             .addGroup(playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(playlisttPanelLayout.createSequentialGroup()
                     .addGap(338, 338, 338)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(339, Short.MAX_VALUE)))
+                    .addContainerGap(321, Short.MAX_VALUE)))
         );
         playlisttPanelLayout.setVerticalGroup(
             playlisttPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -517,7 +536,7 @@ public class GUI extends javax.swing.JFrame {
         addRequestpanelLayout.setHorizontalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addRequestpanelLayout.createSequentialGroup()
-                .addContainerGap(223, Short.MAX_VALUE)
+                .addContainerGap(214, Short.MAX_VALUE)
                 .addGroup(addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addRequestpanelLayout.createSequentialGroup()
                         .addComponent(resSendBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -545,7 +564,7 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(resMsgScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
                             .addComponent(resRecipientField)
                             .addComponent(resDataField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(223, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         addRequestpanelLayout.setVerticalGroup(
             addRequestpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,18 +614,21 @@ public class GUI extends javax.swing.JFrame {
         schdlViewLabel.setText("Xem lịch:");
 
         schdlViewBtn.setText("Xem");
+        schdlViewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                schdlViewBtnActionPerformed(evt);
+            }
+        });
 
         schdlTable.setModel(scdlTM);
         schdlScrollPane.setViewportView(schdlTable);
 
-        schdlRequestBtn.setText("Xem yêu cầu");
-        schdlRequestBtn.addActionListener(new java.awt.event.ActionListener() {
+        schdlPlayedBtn.setText("Đã phát");
+        schdlPlayedBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                schdlRequestBtnActionPerformed(evt);
+                schdlPlayedBtnActionPerformed(evt);
             }
         });
-
-        schdlPlayedBtn.setText("Đã phát");
 
         javax.swing.GroupLayout schedulingPanelLayout = new javax.swing.GroupLayout(schedulingPanel);
         schedulingPanel.setLayout(schedulingPanelLayout);
@@ -614,26 +636,22 @@ public class GUI extends javax.swing.JFrame {
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(schedulingPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 817, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
                 .addGap(28, 28, 28))
             .addGroup(schedulingPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(schdlViewLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(schdlViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(schdlPlayedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, schedulingPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(schdlDivLine)
                 .addGap(48, 48, 48))
-            .addGroup(schedulingPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addComponent(schdlViewBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(schdlRequestBtn)
-                        .addGap(48, 48, 48)
-                        .addComponent(schdlPlayedBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(schedulingPanelLayout.createSequentialGroup()
-                        .addComponent(schdlViewLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         schedulingPanelLayout.setVerticalGroup(
             schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,16 +659,14 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(schdlViewLabel)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(schdlViewBtn)
-                    .addComponent(schdlRequestBtn)
-                    .addComponent(schdlPlayedBtn))
-                .addGap(18, 18, 18)
+                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(schedulingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(schdlViewBtn)
+                        .addComponent(schdlPlayedBtn)))
+                .addGap(62, 62, 62)
                 .addComponent(schdlDivLine, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(schdlScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -826,7 +842,7 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(showDanhSach)
                                 .addGap(36, 36, 36)
                                 .addComponent(refresh)
-                                .addGap(0, 110, Short.MAX_VALUE)))))
+                                .addGap(0, 108, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, managerPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -865,7 +881,10 @@ public class GUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(manage)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(manage)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -888,6 +907,21 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshActionPerformed
 
     private void mrgViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mrgViewBtnActionPerformed
+        String sql="SELECT id FROM song WHERE name='"+nameSong+"' && artist='"+nameArtisrt+"'";
+           java.sql.Connection conn=DataBase.getConnection();
+         PreparedStatement ps;
+                try {
+                    ps = conn.prepareCall(sql);
+                     ResultSet rs = ps.executeQuery();
+                    while (rs.next()) {
+                        idSongSelect=rs.getLong("id");
+                    }
+                    rs.close();
+                    ps.close();
+                    conn.close();
+                    } catch (SQLException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } 
         if(idSongSelect!=0)
         {
             Management manager;
@@ -919,7 +953,7 @@ public class GUI extends javax.swing.JFrame {
     private void mgrSearchBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mgrSearchBtnActionPerformed
 
         java.sql.Connection conn= DataBase.getConnection();
-        String sql="INSERT INTO schedule(id,idsong,namesong,nameatirst,note) SELECT null,id,name,artist,'CHƯA PHÁT' FROM song WHERE song.id='"+idSongSelect+"'";
+        String sql="INSERT INTO schedule(id,songid,namesong,nameatirst,note) SELECT null,id,name,artist,'CHƯA PHÁT' FROM song WHERE song.id='"+idSongSelect+"'";
         String sqlUpdate="UPDATE requirement SET status='Đã thêm' WHERE songid='"+idSongSelect+"'";
         java.sql.Statement stmt;
         try {
@@ -933,22 +967,6 @@ public class GUI extends javax.swing.JFrame {
             Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_mgrSearchBtnActionPerformed
-
-    private void schdlRequestBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlRequestBtnActionPerformed
-        if(idSongSelect!=0)
-        {
-            Management manager;
-            try {
-                manager = new Management();
-                manager.main();
-            } catch (SQLException ex) {
-                Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-        else
-        JOptionPane.showMessageDialog(null, "Bạn chưa chọn bài hát!!!");
-    }//GEN-LAST:event_schdlRequestBtnActionPerformed
 
     private void resCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resCancelBtnActionPerformed
         resNameField.setText("");
@@ -1084,6 +1102,14 @@ public class GUI extends javax.swing.JFrame {
         playlistSearchField.setEnabled(false);
         Month.setEnabled(false);
     }//GEN-LAST:event_playlistRdioAllSongsActionPerformed
+
+    private void schdlPlayedBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlPlayedBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_schdlPlayedBtnActionPerformed
+
+    private void schdlViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_schdlViewBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_schdlViewBtnActionPerformed
 //     private void mgrSearchBtnMouseClicked(java.awt.event.MouseEvent evt) {                                          
 //        String ngayThang = mgrSearchField.getText();
 //        if(!(ngayThang.equals("")||ngayThang.equals("dd/mm/yyyy"))){           
@@ -1208,7 +1234,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton resSubmitBtn;
     private javax.swing.JSeparator schdlDivLine;
     private javax.swing.JButton schdlPlayedBtn;
-    private javax.swing.JButton schdlRequestBtn;
     private javax.swing.JScrollPane schdlScrollPane;
     private javax.swing.JTable schdlTable;
     private javax.swing.JButton schdlViewBtn;

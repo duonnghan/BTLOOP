@@ -28,7 +28,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="manage" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="manage" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -93,7 +97,7 @@
                                       <Component id="playlistResetBtn" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="197" max="32767" attributes="0"/>
+                              <EmptySpace pref="177" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
@@ -102,7 +106,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="338" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" pref="180" max="-2" attributes="0"/>
-                          <EmptySpace pref="339" max="32767" attributes="0"/>
+                          <EmptySpace pref="321" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -330,7 +334,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace pref="223" max="32767" attributes="0"/>
+                      <EmptySpace pref="214" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="resSendBtn" min="-2" pref="116" max="-2" attributes="0"/>
@@ -363,7 +367,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="223" max="32767" attributes="0"/>
+                      <EmptySpace pref="214" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -542,31 +546,24 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="schdlScrollPane" pref="817" max="32767" attributes="0"/>
+                      <Component id="schdlScrollPane" pref="801" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="schdlDivLine" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="schdlViewBtn" min="-2" pref="110" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Component id="schdlRequestBtn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="schdlPlayedBtn" min="-2" pref="108" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="schdlViewLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jDateChooser1" min="-2" pref="281" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="schdlViewLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jDateChooser1" min="-2" pref="281" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="schdlViewBtn" min="-2" pref="110" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="schdlPlayedBtn" min="-2" pref="108" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="schdlDivLine" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -577,17 +574,15 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="schdlViewLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="schdlViewBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="schdlPlayedBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="schdlViewBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="schdlRequestBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="schdlPlayedBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Component id="schdlDivLine" min="-2" pref="2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="schdlScrollPane" pref="383" max="32767" attributes="0"/>
+                      <Component id="schdlScrollPane" pref="389" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -603,6 +598,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Xem"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schdlViewBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="schdlDivLine">
             </Component>
@@ -644,18 +642,13 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="schdlRequestBtn">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Xem y&#xea;u c&#x1ea7;u"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schdlRequestBtnActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="schdlPlayedBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="&#x110;&#xe3; ph&#xe1;t"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="schdlPlayedBtnActionPerformed"/>
+              </Events>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
             </Component>
@@ -692,7 +685,7 @@
                                       <Component id="showDanhSach" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                       <Component id="refresh" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="110" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="108" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
